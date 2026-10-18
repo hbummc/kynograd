@@ -1,7 +1,29 @@
 {
+ "deposits": [
+  {
+   "id": "hbum5g1018",
+   "t": 1792327800000,
+   "player": "Hbum",
+   "gold": 5,
+   "note": "Confirmed: town bank +5g on EarthMC",
+   "by": "Hbum"
+  }
+ ],
  "transfers": [],
  "savings": [],
  "cashouts": [],
  "spending": [],
- "loans": []
+ "loans": [],
+ "budget": {
+  "reserve": 50,
+  "pots": [
+   {
+    "id": "claims",
+    "name": "Land claims (16g a chunk)",
+    "gold": 0,
+    "target": 416,
+    "note": "26 chunks west of the guild quarter"
+   }
+  ]
+ }
 }

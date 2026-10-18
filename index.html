@@ -1,31 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Kynograd · EarthMC town</title>
-<meta name="description" content="Kynograd is a town on EarthMC where two rivers meet. See the town map, join one of four guilds, and earn gold with our guides to trial chambers, gold mining and netherite.">
-<meta name="keywords" content="Kynograd, EarthMC, Minecraft town, Minecraft guild, trial chambers, gold mining, netherite">
-<meta name="theme-color" content="#b02e26">
-<!-- Link previews (Discord, WhatsApp, X, Facebook).
-     Replace SITE_URL below with your real address, e.g. https://yourname.github.io/kynograd -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Kynograd">
-<meta property="og:title" content="Kynograd · EarthMC town">
-<meta property="og:description" content="Kynograd is a town on EarthMC where two rivers meet. See the town map, join one of four guilds, and earn gold with our guides to trial chambers, gold mining and netherite.">
-<meta property="og:url" content="SITE_URL/">
-<meta property="og:image" content="SITE_URL/img/preview.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The Kynograd town spawn at night">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kynograd · EarthMC town">
-<meta name="twitter:description" content="Kynograd is a town on EarthMC where two rivers meet. See the town map, join one of four guilds, and earn gold with our guides to trial chambers, gold mining and netherite.">
-<meta name="twitter:image" content="SITE_URL/img/preview.jpg">
-<link rel="canonical" href="SITE_URL/">
-<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
-</head>
-<body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kynograd</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20120%20120%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20fill%3D%22%23b02e26%22/%3E%3Crect%20x%3D%2220%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Crect%20x%3D%2260%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Crect%20x%3D%22100%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2235.6%22%20fill%3D%22%2380c71f%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -445,6 +419,188 @@ button:disabled{opacity:.5;cursor:default}
 .pick button[hidden]{display:none}
 .pick .face{outline:0}
 .pick-none{margin:0}
+/* Treasury desk */
+.desk-form{max-width:none;border-top-color:var(--gold)}
+.desk-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px;align-items:end}
+.desk-fields .wide{grid-column:1/-1}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink)}
+.seg label{flex-direction:row!important;align-items:center;justify-content:center;gap:8px!important;padding:12px 10px;cursor:pointer;font:500 .78rem/1 var(--mono)!important;letter-spacing:.1em;color:var(--ink)!important}
+.seg input{position:absolute;opacity:0;pointer-events:none;width:1px!important}
+.seg label:has(input:checked){background:var(--ink);color:var(--bg)!important}
+.seg label.w:has(input:checked){background:var(--red);color:#fff!important}
+.seg label:has(input:focus-visible){outline:3px solid var(--gold);outline-offset:-3px}
+.desk-sum{font:500 .9rem/1.4 var(--mono);margin:0;color:var(--ink)}
+.desk-sum.warn{color:var(--red)}
+.desk-btns{display:flex;gap:10px;flex-wrap:wrap}
+.syncbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--ok);padding:12px 14px}
+.syncbar.pending{border-left-color:var(--gold)}
+.syncbar.off{border-left-color:var(--line)}
+.syncbar p{margin:0;font:500 .85rem/1.4 var(--mono)}
+.ledger td.act{white-space:nowrap;text-align:right}
+.ledger td.act button{margin-left:6px}
+.ledger tr.unsaved td{background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.ledger .note{display:block;color:var(--muted);font-size:.8rem}
+.gh details{border:1px solid var(--line);background:var(--paper);padding-inline:14px}
+.gh summary{cursor:pointer;padding-block:12px;font:500 .78rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.gh .inner{display:flex;flex-direction:column;gap:10px;padding-bottom:14px}
+.bud-bar{display:flex;height:22px;background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.bud-bar i{display:block;height:100%;min-width:3px;border-right:2px solid var(--paper)}
+.bud-bar i:last-child{border-right:0}
+.bud-key{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.bud-key li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.bud-key b{width:14px;height:14px;border:1px solid var(--line)}
+.bud-key small{display:block;color:var(--muted);font-size:.8rem}
+.bud-key em{font:500 .9rem/1 var(--mono);font-style:normal;font-variant-numeric:tabular-nums}
+.bud-edit{border:1px solid var(--line);background:var(--paper);padding-inline:14px}
+.bud-edit summary{cursor:pointer;padding-block:12px;font:500 .78rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.bud-edit .bank-card{border:0;padding:0 0 14px;background:transparent}
+.pot{display:grid;grid-template-columns:minmax(0,1fr) 110px auto;gap:8px;align-items:end;margin-bottom:8px}
+.gh{display:flex;flex-direction:column;gap:10px}
+.res-table tbody tr{cursor:pointer}
+.sortbtn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
+.sortbtn:hover{color:var(--ink)}
+.sortbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sortbtn i{font-style:normal;width:.8em}
+th[aria-sort="ascending"] .sortbtn,th[aria-sort="descending"] .sortbtn{color:var(--ink)}
+th[aria-sort="ascending"] .sortbtn i::after{content:"▲"}
+th[aria-sort="descending"] .sortbtn i::after{content:"▼"}
+.res-table tbody tr:hover td{background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.m-who{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:10px 28px;margin-top:18px;font:500 .8rem/1.2 var(--mono);letter-spacing:.06em;text-transform:none}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.1em}
+.crumbs a{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px}
+.crumbs a:hover{color:#fff}
+.crumbs span{color:#fff}
+.crumbs i{font-style:normal;color:rgba(255,255,255,.6)}
+.me{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.me .face{outline:1px solid rgba(255,255,255,.7)}
+.apptabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid var(--ink);margin-bottom:-24px}
+.apptabs a{font:500 .74rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:10px 12px;border:1px solid transparent;border-bottom:0}
+.apptabs a:hover{color:var(--ink)}
+.apptabs a[aria-current="page"]{color:var(--bg);background:var(--ink)}
+.app-ic.sm{width:44px;height:44px;border-radius:12px;flex:none}
+.app-ic.sm svg{width:24px;height:24px}
+.ptitle .app-ic.sm{width:64px;height:64px;border-radius:16px;outline:3px solid #fff}
+.ptitle .app-ic.sm svg{width:34px;height:34px}
+.gov-mine{display:flex;flex-direction:row;align-items:center;gap:16px;background:var(--paper);border:2px solid var(--ink);border-left:8px solid var(--gc);padding:16px}
+.gov-mine h2{font-size:clamp(1.3rem,4vw,1.7rem)}
+.gov-mine > div{flex:1;min-width:0}
+@media (max-width:560px){.gov-mine{flex-direction:column;align-items:flex-start}}
+.govs{display:flex;flex-direction:column;gap:18px}
+.gov{scroll-margin-top:72px;padding:20px !important}
+.govs{padding-bottom:max(0px,calc(100vh - 640px))}
+.gov-index a[aria-current="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.gov .gov-top h3{font-size:1.5rem}
+.gov-proj li{grid-template-columns:120px minmax(0,1fr) !important}
+.gov-proj li img,.gov-proj li .noimg{width:120px !important;height:68px !important}
+.gov-index{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line)}
+.gov-index a{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-decoration:none;font:500 .82rem/1 var(--mono)}
+.gov-index a:hover{border-color:var(--ink)}
+.gov-index em{font-style:normal;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ok)}
+.app-ic.xs{width:28px;height:28px;border-radius:8px;box-shadow:none}
+.app-ic.xs svg{width:16px;height:16px}
+.gov{background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--gc);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.gov-top{display:flex;align-items:center;gap:12px}
+.gov-top > div{flex:1;min-width:0}
+.gov-top h3{font-size:1.2rem}
+.gov-goal{margin:0;display:flex;flex-direction:column;gap:4px}
+.gov-proj{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.gov-proj li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;align-items:center}
+.gov-proj img,.gov-proj .noimg{width:72px;height:48px;object-fit:cover;border:1px solid var(--line);display:grid;place-items:center;background:var(--bg);color:var(--muted)}
+.gov-proj .noimg svg{width:22px;height:22px}
+.gov-proj li > div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.gov-act{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.gov-join{display:flex;flex-direction:column;gap:10px}
+.apts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:8px}
+.apts li{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--line);padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.apts li.vacant{border-left-color:var(--ok)}
+.apts li.taken{border-left-color:var(--blue)}
+.apts li.mine{outline:2px solid var(--blue);outline-offset:-2px}
+.apts li.todo{border-left-style:dashed;opacity:.75}
+.town-pic img{aspect-ratio:21/9;object-fit:cover}
+.vac{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:8px}
+.vac li{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--ok);padding:10px 12px}
+.vac li div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.blds{display:flex;flex-direction:column;gap:12px}
+.bld{background:var(--paper);border:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:10px}
+.bld-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.bld h3{font-size:1.15rem}
+.bld .apts{grid-template-columns:repeat(auto-fill,minmax(min(100%,130px),1fr))}
+.key{display:inline-block;width:12px;height:12px;margin:0 6px 0 12px;vertical-align:-1px;border:1px solid var(--line)}
+.key:first-child{margin-left:0}
+.k-vacant{background:var(--ok)} .k-taken{background:var(--blue)} .k-todo{background:transparent;border-style:dashed;border-color:var(--muted)}
+.home-apps{gap:6px}
+#mvBody:has(.home-apps){gap:26px}
+.app-group{font:500 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:8px}
+.apps{list-style:none;margin:0;padding:8px 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:22px 12px}
+.app{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--ink);text-align:center;padding:6px 2px;border-radius:14px}
+.app:hover .app-ic{transform:translateY(-3px);box-shadow:0 12px 22px -12px rgba(0,0,0,.55)}
+.app:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.app-ic{width:76px;height:76px;border-radius:20px;background:var(--ac);color:#fff;display:grid;place-items:center;box-shadow:0 6px 14px -10px rgba(0,0,0,.6);transition:transform .15s,box-shadow .15s}
+.app-ic svg{width:40px;height:40px}
+.app.soon .app-ic{opacity:.55}
+.app-name{font:600 .95rem/1.1 var(--body)}
+.app-sub{font:500 .72rem/1.2 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.app-ic.big{width:96px;height:96px;border-radius:24px;flex:none}
+.app-ic.big svg{width:52px;height:52px}
+.soon-hero{flex-direction:row;align-items:center;gap:20px}
+@media (max-width:520px){.soon-hero{flex-direction:column;align-items:flex-start}}
+.portal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.pcard{background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--pc);padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pcard .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pcard h3{font-size:1.4rem}
+.pcard.soon h3{color:var(--muted)}
+.plinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.tok-row{display:flex;gap:8px;flex-wrap:wrap}
+.tok-row select,.tok-row input{flex:1 1 220px;min-width:0;font:400 1rem/1.2 var(--body);padding:10px 12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:0}
+.tok-row input:focus{outline:none;border-color:var(--ink)}
+#vView{white-space:pre-wrap;max-height:320px;overflow:auto}
+.gh ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:.92rem}
+.flag-dock{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:40;width:58px;height:58px;padding:0;border:3px solid #fff;background:none;cursor:pointer;
+  box-shadow:0 14px 28px -12px rgba(0,0,0,.6);opacity:0;pointer-events:none;
+  transform:translateY(calc(-100vh + 140px)) scale(1.9) rotate(-4deg);transform-origin:center;
+  transition:transform .55s cubic-bezier(.2,.9,.25,1.15),opacity .3s}
+.flag-dock svg{display:block;width:100%;height:100%}
+.flag-dock.on{opacity:1;pointer-events:auto;transform:translateY(0) scale(1) rotate(-3deg)}
+.flag-dock.on:hover{transform:translateY(-3px) scale(1.06) rotate(0)}
+.flag-dock:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dock-tip{position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);background:var(--ink);color:var(--bg);font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s}
+.flag-dock:hover .dock-tip,.flag-dock:focus-visible .dock-tip{opacity:1}
+@media (prefers-reduced-motion:reduce){.flag-dock{transform:none;transition:opacity .2s}.flag-dock.on,.flag-dock.on:hover{transform:rotate(-3deg)}}
+@media print{.flag-dock{display:none}}
+.flag-dock.qs-hide{opacity:0 !important;pointer-events:none !important}
+.qs{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:45;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.qs-row{display:flex;align-items:center}
+.qs-flag{display:block;width:58px;height:58px;flex:none;border:3px solid #fff;box-shadow:0 14px 28px -12px rgba(0,0,0,.6);transform:rotate(-3deg);transition:transform .45s cubic-bezier(.2,.9,.25,1.1)}
+.qs-flag svg{display:block;width:100%;height:100%}
+.qs.on .qs-flag{transform:rotate(-8deg) scale(.92)}
+.qs-field{position:relative;width:0;overflow:hidden;transition:width .45s cubic-bezier(.2,.9,.25,1.05);display:flex}
+.qs.on .qs-field{width:min(440px,calc(100vw - 110px))}
+.qs-field input{flex:none;width:min(430px,calc(100vw - 120px));margin-left:10px;height:54px;padding:0 64px 0 16px;font:500 1.05rem/1 var(--body);color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:0;box-shadow:0 14px 28px -12px rgba(0,0,0,.5)}
+.qs-field input:focus{outline:none;border-color:var(--red)}
+.qs-field kbd{position:absolute;right:14px;bottom:17px;font:500 .66rem/1 var(--mono);color:var(--muted);border:1px solid var(--line);padding:4px 6px;background:var(--bg)}
+.qs-list{list-style:none;margin:0;padding:6px;width:min(430px,calc(100vw - 120px));background:var(--paper);border:2px solid var(--ink);box-shadow:0 18px 36px -16px rgba(0,0,0,.55);opacity:0;transform:translateY(8px);transition:opacity .2s .2s,transform .25s .2s;max-height:min(60vh,380px);overflow:auto}
+.qs.on .qs-list{opacity:1;transform:none}
+.qs-list li[data-i]{display:grid;grid-template-columns:28px minmax(0,1fr) auto;column-gap:10px;align-items:center;padding:8px;cursor:pointer}
+.qs-list li[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.qs-list li[aria-selected="true"] .qs-sub{color:var(--line)}
+.qs-name{font:600 .95rem/1.2 var(--body);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qs-sub{grid-column:2;font:500 .7rem/1.2 var(--mono);color:var(--muted)}
+.qs-list li kbd{grid-row:1/3;grid-column:3;font:500 .62rem/1 var(--mono);border:1px solid currentColor;padding:3px 5px;opacity:.8}
+.qs-list li .app-ic.xs{grid-row:1/3}
+.app-ic.flagic{background:none;border-radius:4px;overflow:hidden}
+.app-ic.flagic svg{width:100%;height:100%}
+.qs-none{padding:12px;color:var(--muted);font:500 .85rem/1.3 var(--mono)}
+@media (prefers-reduced-motion:reduce){.qs-flag,.qs-field,.qs-list{transition:none}}
+.flag-tip{position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);background:var(--ink);color:var(--bg);font:500 .7rem/1.3 var(--mono);letter-spacing:.06em;padding:7px 9px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;z-index:3}
+.flag-tip kbd,.dock-tip kbd{font:inherit;border:1px solid currentColor;padding:1px 4px;margin:0 1px}
+@media (min-width:1000px){.flag-tip{left:auto;right:calc(100% + 14px)}}
+@media (hover:hover){.flag-btn:hover .flag-tip,.flag-btn:focus-visible .flag-tip{opacity:1}}
+.gcard.locked .gp-icon{opacity:.6}
+.gcard .lk svg{width:13px;height:13px;vertical-align:-2px;margin-right:6px}
+.lockbox{flex-direction:row;align-items:center;gap:20px;background:var(--paper);border:2px solid var(--ink);padding:20px}
+@media (max-width:560px){.lockbox{flex-direction:column;align-items:flex-start}}
+.guide-card .gp-icon svg{width:40px;height:40px}
+.gd-icon svg{width:70%;height:70%}
 footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--muted);font:400 .8rem/1.5 var(--mono)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -481,7 +637,6 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
       <a class="btn btn-red" href="https://map.earthmc.net/?world=minecraft_overworld&amp;zoom=6&amp;x=15414&amp;z=-15163" target="_blank" rel="noopener">Open the live EarthMC map</a>
       <span data-dc="town-info" data-label="Town info on Discord"></span>
     </div>
-    <div class="residents"><span class="label" id="resLabel">Residents</span><ul id="resList"></ul></div>
   </section>
 
   <section id="guildlist">
@@ -503,6 +658,11 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
     </div>
   </section>
 
+  <section id="residents">
+    <header><span class="label" id="resLabel">Residents</span><h2>Who lives here</h2></header>
+    <div class="residents"><ul id="resList"></ul></div>
+  </section>
+
   <section id="join" class="closing">
     <header><span class="label">Apply</span><h2>Join a guild</h2></header>
     <ol class="steps">
@@ -518,19 +678,6 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
     <p class="quote">"I am a citizen of the world." Diogenes of Sinope</p>
   </section>
 </main>
-</div>
-
-<div id="guildsView" hidden>
-  <div class="hero">
-    <div class="wrap">
-      <a class="back" href="#map">← Back to the town page</a>
-      <span class="label" id="glLabel"></span>
-      <h1 style="font-size:clamp(2.2rem,8vw,4rem)">GUILD ACTIONS</h1>
-      <p>What every guild has to get done this phase. Guild heads tick off actions as they finish them.</p>
-      <div class="cta-row" data-dc="announcements" data-label="Phase updates in #announcements" data-cls="btn"></div>
-    </div>
-  </div>
-  <main class="wrap" id="glBody"></main>
 </div>
 
 <div id="projectsView" hidden>
@@ -574,7 +721,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
 <div id="guildView" hidden>
   <div class="hero">
     <div class="wrap">
-      <a class="back" href="#guilds">← All guild actions</a>
+      <a class="back" href="#guildlist">← All guilds</a>
       <span class="label" id="gLabel"></span>
       <h1 id="gName" style="font-size:clamp(2.2rem,8vw,4rem)"></h1>
       <p id="gMotto"></p>
@@ -662,14 +809,14 @@ const GUILDS = [
   goals:["2 new residents a month","Always 50g in reserve","Every claim budgeted before the Mayor makes it"],
   ingame:"Recruiter rank: invite players with /t invite playername. Top recruiters are promoted to Realtor. The Mayor keeps the bank and the claims.",
   growth:["Now: the Keyholder trains an apprentice, and every member recruits", "Next: members who bring in a lot of people are promoted to Realtor and look after housing", "Later: a team of Realtors runs housing for the whole town"],
-  goal:"Growth budgeted and the vault secured",
+  goal:"Growth budgeted and the vault secured: done",
   actions:[
-   {t:"Budget the rest of the arena claim and the housing expansion at 16g a chunk", done:false},
+   {t:"Budget the rest of the guild quarter claim: 26 chunks on the west side at 16g a chunk = 416g", done:true},
    {t:"Design and build the vault under the bank and the vault plot", done:true},
-   {t:"Add a redstone door to the vault that only Keyholders can open and close", done:false},
-   {t:"Move the town's valuables into the vault", done:false},
-   {t:"Propose a People's Bank savings scheme: residents put gold away for 30 days and earn 2% interest, tracked with the EarthMC API", done:false},
-   {t:"Fill the apartments in the People's Bank building, then the Police HQ once it is built", done:false}]},
+   {t:"Add a redstone door to the vault that only Keyholders can open and close", done:true},
+   {t:"Move the town's valuables into the vault", done:true},
+   {t:"Propose a People's Bank savings scheme: residents put gold away for 30 days and earn 2% interest, tracked with the EarthMC API", done:true},
+   {t:"Fill the apartments in the People's Bank building, then the Police HQ once it is built", done:true}]},
 
  {id:"builders", name:"Builders' Guild", short:"Builders", motto:"Building the future of Kynograd.",
   seats:[{role:"Master Builder", head:true, status:"open"},{role:"Apprentice", status:"open"}],
@@ -686,7 +833,7 @@ const GUILDS = [
   growth:["Now: the Master Builder trains an apprentice on the Police HQ", "Next: the apprentice becomes Architect and plans the steamer and the arena", "Later: building brigades work under the Architect on the guild halls"],
   goal:"Police HQ and paddle steamer built",
   actions:[
-   {t:"Finish the half-built Police HQ with the Police, basement stables included", done:false},
+   {t:"Finish the half-built Police HQ with the Police, basement stables included", done:true},
    {t:"Scale the Princess Mary to about 2 × 6 chunks and post its materials list", done:false},
    {t:"Build the steamer in the east river, south of the east bridge", done:false},
    {t:"Build the guild halls on their marked plots around the arena", done:false},
@@ -710,7 +857,7 @@ const GUILDS = [
   growth:["Now: the Chief trains an apprentice and moves the force into the HQ", "Next: the apprentice becomes Lieutenant and runs the arena games", "Later: mounted squads under the Lieutenant patrol and train"],
   goal:"Police HQ built, then the arena",
   actions:[
-   {t:"Finish the Police HQ with the Builders; it is about half built", done:false},
+   {t:"Finish the Police HQ with the Builders; it is about half built", done:true},
    {t:"Get horses for every officer and stable them in the HQ basement", done:false},
    {t:"Hold training night every Saturday", done:false},
    {t:"Raise happy ghasts as the force's air unit: the police helicopter", done:false},
@@ -724,7 +871,7 @@ const GUILDS = [
   channel:"#resource-guild",
   duties:[
    ["Mine gold and netherite","Overworld gold and netherite from the Nether. All gold goes to the town bank as a donation."],
-   ["Gather building materials","Andesite and diorite for the housing roofs, plus wood and stone for every project."],
+   ["Gather building materials","Andesite, diorite and granite for the housing roofs, plus wood and stone for every project."],
    ["Run the farms","The farm across the north bridge and the tree farm across the east bridge."],
    ["Run the trial chamber","Keep the public trial chamber and its mob farm working for every resident."]],
   weekly:["At least 1 group gold run","Harvest and replant the farm and tree farm","Deliver against each project's materials list"],
@@ -735,15 +882,15 @@ const GUILDS = [
   actions:[
    {t:"Make the trial chamber a better place: clear, light and tidy it up, using the way in that is already there", done:false},
    {t:"Build a mob farm on one of its trial spawners", done:false},
-   {t:"Andesite and diorite for the roofs of the housing, and hay bales for the Police stables", done:false},
-   {t:"Wood from the tree farm for the paddle steamer", done:false},
+   {t:"Andesite, diorite and granite for the roofs of the housing, and hay bales for the Police stables. Bulk purchase from Kurtisgrad? Contact kylaxial", done:false},
+   {t:"Fill barrels with bread", done:false},
    {t:"Dig out the vault under the bank", done:true},
-   {t:"One group gold run a week; every ingot goes to the town bank", done:false}]}
+   {t:"Think of a farming setup across the river to the north; the east tree farm will need to move there at some point too", done:false}]}
 ];
 
 const GOALS = [
   {t:"Four guilds set up", d:"Council: head seats filled and the four guild roles live on Discord.", done:false},
-  {t:"Police HQ built, with horse stables in the basement", d:"Police Force, with the Builders.", done:false},
+  {t:"Police HQ built, with horse stables in the basement", d:"Police Force, with the Builders.", done:true},
   {t:"Paddle steamer moored by the town square", d:"Builders' Guild.", done:false},
   {t:"Arena built and the first games held", d:"Police Force, with the Builders.", done:false},
   {t:"Trial chamber open with a mob farm", d:"Resource Guild.", done:false},
@@ -767,15 +914,15 @@ const PROJECTS = [
    {t:"Build the hull and decks", who:"Builders", done:false},
    {t:"Open the steamer", who:"Mayor", done:false}],
   materials:[]},
- {id:"policehq", name:"Police HQ", guild:"police", status:"Building",
+ {id:"policehq", name:"Police HQ", guild:"police", status:"Open",
   lead:"Chief of Police + Master Builder", where:"South of the Lykeion, along Helios Prospekt",
   size:"1 × 3 chunks, like the People's Bank", land:"Already claimed",
-  purpose:"The Police Force's headquarters, about half built, with stables in the basement so every officer has a horse.",
+  purpose:"The Police Force's headquarters, now built, with stables in the basement so every officer has a horse.",
   stages:[
    {t:"Design the HQ with a basement stable", who:"Chief of Police + Master Builder", done:true},
-   {t:"Post the materials list", who:"Master Builder", done:false},
-   {t:"Gather the materials, plus hay bales and leads for the stables", who:"Resource Guild", done:false},
-   {t:"Finish the HQ (about half built)", who:"Builders + Police", done:false},
+   {t:"Post the materials list", who:"Master Builder", done:true},
+   {t:"Gather the materials, plus hay bales and leads for the stables", who:"Resource Guild", done:true},
+   {t:"Finish the HQ (about half built)", who:"Builders + Police", done:true},
    {t:"Tame and stable a horse for every officer", who:"Police", done:false}],
   materials:[]},
  {id:"arena", name:"The Arena", guild:"police", status:"Planning",
@@ -802,17 +949,17 @@ const PROJECTS = [
    {t:"Build the mob farm on a trial spawner", who:"Resource Guild + Builders", done:false},
    {t:"Open it to the public", who:"Head of Resource", done:false}],
   materials:[]},
- {id:"vault", name:"The Vault", guild:"keyholders", status:"Building",
+ {id:"vault", name:"The Vault", guild:"keyholders", status:"Open",
   lead:"Keyholder", where:"Under the People's Bank and in the vault plot",
   size:"Built", land:"Already claimed",
-  purpose:"Safe storage for the town's valuables. Built; a redstone door is next.",
+  purpose:"Safe storage for the town's valuables, behind a redstone door only Keyholders can open. Done.",
   img:"img/vault.webp", imgCap:"The vault under the People's Bank, with the Kynograd banners.",
   stages:[
    {t:"Design the vault with the Builders", who:"Keyholder + Master Builder", done:true},
    {t:"Dig it out below the bank", who:"Resource Guild", done:true},
    {t:"Build and fit it out with chests", who:"Builders", done:true},
-   {t:"Add a redstone door only Keyholders can open and close", who:"Keyholder + Builders", done:false},
-   {t:"Move the town's valuables in", who:"Keyholder", done:false}],
+   {t:"Add a redstone door only Keyholders can open and close", who:"Keyholder + Builders", done:true},
+   {t:"Move the town's valuables in", who:"Keyholder", done:true}],
   materials:[]}
 ];
 
@@ -917,6 +1064,29 @@ const GUIDE_TEASERS = [
  {id:"nether", name:"Netherite mining", text:"The Nether is only worth it for netherite: gold ore doesn't spawn there and piglins don't drop gold. Blast for ancient debris with TNT at Y 15 and sell the ingots in Japan, Germany or France.",
   facts:[["Y 15","best height for ancient debris"],["TNT","buy in bulk · /n spawn Amazon"],["Sell","/n spawn Japan, Germany or France"]]}
 ];
+/* Residents-only guides: anyone can see they exist, but you sign in (or join the town) to read them.
+   Add more by copying an entry: sections are a heading and a list of short points. */
+const BOOK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5z"/></svg>';
+const LOCK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+const RESIDENT_GUIDES = [
+ {id:"bank", members:true, name:"Using the town bank", c:"#8a6400", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="#8a6400" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M4 20h16M5 17h14"/><path d="M6.5 10.5v6M10 10.5v6M14 10.5v6M17.5 10.5v6"/></svg>',
+  text:"How deposits turn into roubles, and how savings, transfers and gold loans work.",
+  facts:[["100 ₽","for every 1g you deposit"],["2.5%","savings interest every 30 days"],["30 days","per gold loan, renewable"]],
+  sections:[
+   {h:"Deposit gold", items:["Smelt and craft your gold into ingots, then deposit with /t deposit [amount].","Tell the Treasurer in #town-bank, or use \"Tell the Treasurer I deposited gold\" on your bank page.","Once the Treasurer logs it you get 100 ₽ for every 1g."]},
+   {h:"Your bank page", items:["Open the Bank app on the portal to see your gold over time, savings and roubles.","The request form copies a message for #town-bank: send roubles, move them into or out of savings, cash out, or ask for a loan."]},
+   {h:"Savings", items:["Savings earn 2.5% every 30 days. Each deposit into savings is locked for 30 days.","Taking money out early costs a 10% fee.","Offline on EarthMC for 30 days and your savings freeze for 30 days. Still offline after that and they go to the town treasury."]},
+   {h:"Gold loans", items:["Ask the Treasurer in #town-bank. Loans run 30 days at 5% interest per 30 days.","When a loan reaches its due date you can renew it for another 30 days.","Each day late adds 2%. After 7 days late the loan is in default."]}]},
+ {id:"housing", members:true, name:"Getting an apartment", c:"#2c5aa0", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="#2c5aa0" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg>',
+  text:"How homes work in Kynograd: the eight buildings, vacant apartments and asking the Keyholders.",
+  facts:[["8","buildings with apartments"],["~5","apartments per building"],["40","apartments this phase"]],
+  sections:[
+   {h:"Find a vacant apartment", items:["Open the Housing app on the portal. Vacant apartments are listed at the top.","Apartments are upstairs in every building in the guild quarter."]},
+   {h:"Ask for it", items:["Ask in #keyholders-guild and say which apartment you'd like.","A Keyholder or Realtor sets you up in-game and your home appears on your Housing page."]},
+   {h:"Privacy", items:["Other residents can't see where you live on the website. Only the Mayor and the Realtors can."]}]}
+];
+const ALL_GUIDES = () => [...GUIDE_TEASERS, ...RESIDENT_GUIDES];
+const guideIcon = g => GUIDE_ICONS[g.id] || g.icon;
 (function(){
   const tabs = document.getElementById("guideTabs"), panel = document.getElementById("guidePanel");
   tabs.innerHTML = GUIDE_TEASERS.map(g=>`<button type="button" role="tab" class="gtab g-${g.id}" id="gt-${g.id}" aria-controls="guidePanel"><span class="emblem">${GUIDE_ICONS[g.id]}</span><span>${esc(g.name)}</span></button>`).join("");
@@ -1102,21 +1272,33 @@ function renderProjects(){
 
 function renderGuides(which){
   const cmd = t => `<code class="cmd">${esc(t)}</code>`;
-  const G = GUIDE_TEASERS.find(x=>x.id===which);
+  const G = ALL_GUIDES().find(x=>x.id===which);
   const icon = document.getElementById("gdIcon");
-  document.getElementById("gdLabel").textContent = G ? "Guide · earn gold" : "Guides";
+  document.getElementById("gdLabel").textContent = G ? (G.members ? "Guide · residents only" : "Guide · free") : "Guides";
   document.getElementById("gdTitle").textContent = G ? G.name.toUpperCase() : "GUIDES";
-  document.getElementById("gdText").textContent = G ? G.text : "How comrades earn gold: public trial chambers, gold mining and netherite.";
-  icon.hidden = !G; icon.innerHTML = G ? GUIDE_ICONS[G.id] : "";
+  document.getElementById("gdText").textContent = G ? G.text : "Free guides to earning gold, and guides for residents on how the town works.";
+  icon.hidden = !G; icon.innerHTML = G ? guideIcon(G) : "";
   const back = document.getElementById("gdBack"); back.href = G ? "#guides" : "#map"; back.textContent = G ? "← All guides" : "← Back to the town page";
-  const card = g => `<a class="gcard gl guide-card g-${g.id}" href="#guide-${g.id}"><span class="gp-icon">${GUIDE_ICONS[g.id]}</span><h3>${esc(g.name)}</h3><p class="goalline">${esc(g.text)}</p><span class="go-link">Read the guide →</span></a>`;
+  const locked = g => g.members && !M.user;
+  const card = g => `<a class="gcard gl guide-card g-${g.id}${locked(g)?" locked":""}" href="#guide-${g.id}"${g.c?` style="--gc:${g.c}"`:""}><span class="gp-icon">${guideIcon(g)}</span><h3>${esc(g.name)}</h3><p class="goalline">${esc(g.text)}</p><span class="go-link">${locked(g) ? `<span class="lk">${LOCK_ICON}</span>Residents only` : "Read the guide →"}</span></a>`;
   const tips = h => { const x = MINING_GUIDE.find(m=>m.h===h); return x ? `<ul class="guide">${x.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>` : ""; };
   const packs = list => `<section><header><span class="label">Resource packs</span><h2>See more underground</h2></header><div class="two">${list.map(k=>`<div class="panel"><strong>${esc(k.name)}</strong><p style="margin:0">${esc(k.text)}</p><a class="btn btn-red" style="align-self:flex-start" href="${k.url}" target="_blank" rel="noopener">Get it on Modrinth ↗</a></div>`).join("")}</div></section>`;
   const facts = g => `<ul class="gfacts">${g.facts.map(([b,t])=>`<li><b>${esc(b)}</b><span>${esc(t)}</span></li>`).join("")}</ul>`;
   let body = "";
   if (!G) {
-    body = `<section><header><span class="label">Pick a guide</span><h2>Three ways to earn gold</h2></header>
-      <div class="gindex">${GUIDE_TEASERS.map(g=>`<a class="gi g-${g.id}" href="#guide-${g.id}"><span class="gp-icon">${GUIDE_ICONS[g.id]}</span><div class="gi-body"><h3>${esc(g.name)}</h3><p>${esc(g.text)}</p>${facts(g)}<span class="btn btn-red">Open the guide →</span></div></a>`).join("")}</div></section>`;
+    body = `<section><header><span class="label">Free guides</span><h2>Three ways to earn gold</h2></header>
+      <div class="gindex">${GUIDE_TEASERS.map(g=>`<a class="gi g-${g.id}" href="#guide-${g.id}"><span class="gp-icon">${GUIDE_ICONS[g.id]}</span><div class="gi-body"><h3>${esc(g.name)}</h3><p>${esc(g.text)}</p>${facts(g)}<span class="btn btn-red">Open the guide →</span></div></a>`).join("")}</div></section>
+      <section><header><span class="label">Residents only</span><h2>How the town works</h2></header>
+      ${M.user ? "" : `<p class="lede">These guides are for Kynograd residents. <a href="#join">Join the town</a> or sign in to read them.</p>`}
+      <div class="gcards">${RESIDENT_GUIDES.map(card).join("")}</div></section>`;
+  } else if (G.members && !M.user) {
+    body = `<section class="lockbox"><span class="app-ic big" style="--ac:${G.c}">${LOCK_ICON}</span>
+      <div><span class="label">Residents only</span><h2>Join Kynograd to read this guide</h2>
+      <p class="lede">${esc(G.text)} It's one of the guides for residents of the town.</p>
+      <div class="cta-row" style="margin-top:6px"><button type="button" class="btn btn-red" id="gdSignIn">Sign in</button><a class="btn btn-line" href="#join">Join the town</a></div></div></section>`;
+  } else if (G.members) {
+    body = `<section style="--gc:${G.c}"><header><span class="label">At a glance</span><h2>${esc(G.name)}</h2></header>${facts(G)}</section>
+    ${G.sections.map(x => `<section><header><span class="label">How to</span><h2>${esc(x.h)}</h2></header><ul class="guide">${x.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></section>`).join("")}`;
   } else if (G.id === "trial") {
     body = `<section class="g-trial"><header><span class="label">At a glance</span><h2>Trial runs</h2></header>${facts(G)}
     <p class="lede">The tutorial at ${cmd(TUTORIAL)} has a key shop and the board of public trials, but the cheapest keys are in Japan: ${cmd("/n spawn Japan")}.</p>
@@ -1143,12 +1325,13 @@ function renderGuides(which){
     <section><header><span class="label">How to</span><h2>Mining ancient debris</h2></header>${tips("Netherite")}</section>
     ${packs([PACKS.blue, PACKS.bright])}`;
   }
-  const more = GUIDE_TEASERS.filter(x=>x.id!==which);
+  const more = ALL_GUIDES().filter(x=>x.id!==which);
   body += `<section class="closing"><header><span class="label">Keep going</span><h2>${G ? "More guides" : "Next step"}</h2></header>
     ${G ? `<div class="gcards">${more.map(card).join("")}</div>` : ""}
     <p class="lede">Gold you earn goes further in a guild. Find the one that fits you.</p>
     <div class="cta-row" style="margin-top:0"><a class="btn btn-red" href="#guildlist">Learn about the guilds</a><a class="btn btn-line" href="#education">How joining works</a></div></section>`;
   document.getElementById("gdBody").innerHTML = body;
+  const si = document.getElementById("gdSignIn"); if (si) si.addEventListener("click", () => showLogin("guide-" + G.id));
   const msg = document.getElementById("trialMsg");
   document.querySelectorAll(".trial-btn").forEach(b => b.addEventListener("click", () => {
     const t = b.dataset.cmd;
@@ -1173,30 +1356,18 @@ function renderEducation(){
   </section>`;
 }
 
-function renderLanding(){
-  document.getElementById("glLabel").textContent = `This phase · ${PHASE.label} · ${PHASE.name}`;
-  const total = GUILDS.reduce((n,g)=>n+g.actions.length,0), done = GUILDS.reduce((n,g)=>n+doneCount(g),0);
-  document.getElementById("glBody").innerHTML = `
-  <section>${meter(done,total,"Actions done across all guilds")}<p class="lede">${esc(PHASE.summary)}</p></section>
-  <div class="gcards">${GUILDS.map(g=>{const d=doneCount(g),t=g.actions.length;return `<article class="gcard">
-    <div class="top"><h3>${esc(g.name)}</h3><span class="count">${d} / ${t} done</span></div>
-    ${(()=>{const h=g.seats.find(x=>x.head); return h&&h.status==="filled"?`<p class="goalline">Head: <strong>${person(h.who)}</strong></p>`:`<p class="goalline">Head: seat open</p>`;})()}
-    <div class="mini" aria-hidden="true"><i style="width:${d/t*100}%"></i></div>
-    <p class="goalline">Goal: <strong>${esc(g.goal)}</strong></p>
-    ${actionList(g)}
-    <div class="cardlinks"><a class="go-link" href="#${g.id}">Guild page →</a>${dcUrl(g.channel.slice(1))?`<a class="go-link" href="${dcUrl(g.channel.slice(1))}" target="_blank" rel="noopener">${esc(g.channel)} ↗</a>`:""}</div></article>`;}).join("")}</div>`;
-}
 
 /* Guild quarter plan: one cell is one chunk. The quarter is 9 × 9 chunks, south of Prospekt Zakat and west of Helios Prospekt.
    A buffer chunk of park separates every building from the next one and from the arena. */
 const Q = 9;
 const QUARTER = {
+  /* the Keyholders' HQ is the People's Bank and the Police HQ is the Police's; the three halls in the bottom-left have no guild yet */
   halls:[
-    {n:"Keyholders", cells:[[1,0],[1,1],[0,1]]},
-    {n:"Builders", cells:[[0,3],[0,4],[0,5]]},
-    {n:"Resource", cells:[[0,7],[1,7],[1,8]]},
-    {n:"Free hall", cells:[[3,8],[4,8],[5,8]], spare:true},
-    {n:"Police", cells:[[7,7],[8,7],[7,8]]}],
+    {n:"Resource", cells:[[1,0],[1,1],[0,1]]},
+    {n:"Open hall", cells:[[0,3],[0,4],[0,5]], spare:true},
+    {n:"Open hall", cells:[[0,7],[1,7],[1,8]], spare:true},
+    {n:"Open hall", cells:[[3,8],[4,8],[5,8]], spare:true},
+    {n:"Builders", cells:[[7,7],[8,7],[7,8]]}],
   bank:[[3,0],[4,0],[5,0]], lykeion:[[7,0],[7,1],[8,1]], police:[[8,3],[8,4],[8,5]]
 };
 function quarterSVG(){
@@ -1228,6 +1399,8 @@ function quarterSVG(){
   g += `<path d="${arenaPath}" fill="var(--red)" fill-opacity=".18" stroke="var(--red)" stroke-width="2" stroke-dasharray="5 3"/>`;
   g += `<text x="${X(4.5)}" y="${Y(4.5)+5}" text-anchor="middle" font-size="15" font-weight="600" fill="var(--red)" font-family="IBM Plex Mono, monospace">ARENA</text>`;
   g += cells(QUARTER.bank, "var(--paper)", "var(--ink)") + label(QUARTER.bank, "PEOPLE'S BANK", "var(--ink)", 9);
+  { const xs = QUARTER.bank.map(([c])=>X(c)+s/2), ys = QUARTER.bank.map(([,r])=>Y(r)+s/2), x = xs.reduce((a,b)=>a+b)/xs.length, y = ys.reduce((a,b)=>a+b)/ys.length;
+    g += `<text x="${x}" y="${y+15}" text-anchor="middle" font-size="7.5" fill="var(--gold)" font-weight="600" font-family="IBM Plex Mono, monospace">KEYHOLDERS' HQ</text>`; }
   g += cells(QUARTER.lykeion, "var(--paper)", "var(--ink)") + label([[7,1],[8,1]], "LYKEION", "var(--ink)", 8);
   g += cells(QUARTER.police, "var(--blue)", "var(--blue)", true).replace(/fill="var\(--blue\)"/g,'fill="var(--blue)" fill-opacity=".2"') + `<text transform="translate(${X(8)+s/2+4} ${Y(4)+s/2}) rotate(-90)" text-anchor="middle" font-size="9" font-weight="600" fill="var(--blue)" font-family="IBM Plex Mono, monospace">POLICE HQ</text>`;
   QUARTER.halls.forEach(h => {
@@ -1239,40 +1412,40 @@ function quarterSVG(){
       : `<text x="${x}" y="${y+4}" text-anchor="middle" font-size="9" font-weight="600" fill="${h.spare?"var(--muted)":"var(--ink)"}" font-family="IBM Plex Mono, monospace">${h.n.toUpperCase()}</text>`;
   });
   g += `<text x="${X(0)}" y="${H-10}" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono, monospace">1 square = 1 chunk · green = park and buffer chunks · N ↑</text>`;
-  return `<figure class="townmap quarter"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Guild quarter plan: the arena in the centre, guild halls for the Keyholders, Builders, Resource and Police around it, with the People's Bank to the north and the Police HQ to the east">${g}</svg></figure>`;
+  return `<figure class="townmap quarter"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Guild quarter plan: the arena in the centre; the People's Bank (the Keyholders' HQ) to the north, the Lykeion to the north-east, the Police HQ to the east, the Builders' hall to the south-east, the Resource hall to the north-west, and three open halls in the west, south-west and south that have no guild yet">${g}</svg></figure>`;
 }
 
 function renderGuild(g){
+  /* public (PR) guild page: the projects the guild is building, who's in it and how to join.
+     Duties, ranks and the phase to-do list live in the members-only Guild HQ (#guilds). */
   document.getElementById("gLabel").textContent = `Guild page · ${g.channel}`;
   document.getElementById("gName").textContent = g.name.toUpperCase();
   document.getElementById("gMotto").textContent = g.motto;
   document.getElementById("gDc").innerHTML = dcBtn(g.channel.slice(1), `Open ${g.channel} on Discord`, "btn");
   const head = g.seats.find(s=>s.head) || g.seats[0];
-  const others = GUILDS.filter(o=>o.id!==g.id).map(o=>`<a href="#${o.id}">${esc(o.short)}</a>`).join("");
+  const crew = [...g.seats.filter(x=>!x.head && x.status==="filled").map(x=>x.who), ...(g.members||[])];
+  const mine = PROJECTS.filter(p=>p.guild===g.id);
+  const helping = PROJECTS.filter(p=>p.guild!==g.id && p.stages.some(st=>st.who.toLowerCase().includes(g.short.toLowerCase().replace(/s$/,""))));
+  const pcard = p => { const done = p.stages.filter(x=>x.done).length;
+    return `<article class="project">
+      <div class="top"><h2>${esc(p.name)}</h2><span class="chip open">${esc(p.status)}</span></div>
+      ${p.img?`<figure class="pimg"><img src="${p.img}" alt="${esc(p.imgCap)}" loading="lazy" width="1200" height="675"><figcaption class="hint">${esc(p.imgCap)}</figcaption></figure>`:""}
+      <p class="lede">${esc(p.purpose)}</p>
+      <dl class="facts"><div><dt>Where</dt><dd>${esc(p.where)}</dd></div><div><dt>Size</dt><dd>${esc(p.size)}</dd></div></dl>
+      ${meter(done, p.stages.length, "Progress")}
+    </article>`; };
+  const others = GUILDS.filter(o=>o.id!==g.id && o.id!=="council").map(o=>`<a href="#${o.id}">${esc(o.short)}</a>`).join("");
   document.getElementById("gBody").innerHTML = `
-  <section class="thismonth"><span class="label">This phase · ${esc(PHASE.label)} · ${esc(PHASE.name)}</span><h2>${esc(g.goal)}</h2>
-    ${meter(doneCount(g),g.actions.length,"Actions done")}
-    ${actionList(g)}
-    ${PROJECTS.filter(p=>p.guild===g.id).map(p=>`<a class="btn btn-red" style="align-self:flex-start" href="#projects">Project: ${esc(p.name)} →</a>`).join("")}
+  <section><header><span class="label">What we're building</span><h2>${mine.length ? "Our projects" : "Projects"}</h2></header>
+    ${mine.length ? mine.map(pcard).join("") : `<p class="notice">Our next project is announced soon in #announcements.</p>`}
+    ${helping.length ? `<p class="lede">We're also helping with ${helping.map(p=>`<strong>${esc(p.name)}</strong>`).join(", ")}. <a href="#projects">All town projects →</a></p>` : `<a class="go-link" href="#projects">All town projects →</a>`}
   </section>
-  ${g.id==="builders" ? `<section><header><span class="label">Schematics placed in-game</span><h2>The big builds</h2></header><div class="shots">${PROJECTS.filter(p=>p.id==="arena"||p.id==="steamer").map(p=>`<figure class="pimg"><img src="${p.img}" alt="${esc(p.imgCap)}" loading="lazy" width="1200" height="675"><figcaption class="hint"><strong>${esc(p.name)}.</strong> ${esc(p.imgCap)}</figcaption></figure>`).join("")}</div></section>` : ""}
-  <section><header><span class="label">Chain of command</span><h2>Ranks</h2></header>
-    <div class="ranks">${g.ranks.map(r=>`<span>${esc(r)}</span>`).join('<i aria-hidden="true">→</i>')}</div>
-    ${(g.members||[]).length?`<p class="lede">Members: ${g.members.map(m=>`<strong>${person(m,22)}</strong>`).join(", ")}</p>`:""}
-    <p class="lede">Head: <strong>${head.status==="filled"?person(head.who,22):"seat open"}</strong>. The head leads this guild, sits on the council and assigns this phase's actions to the ranks below.</p>
-    <p class="ingame"><span class="label">In-game rank</span> ${esc(g.ingame)}</p>
-    <div><span class="label">How to join</span>${joinBox(g)}</div>
-    <div class="panel"><span class="label">How the guild grows</span><ul>${g.growth.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>
+  <section><header><span class="label">The crew</span><h2>Who's in it</h2></header>
+    <div class="residents"><ul>${head.status==="filled" ? `<li>${person(head.who,24)}<span class="rtag">${esc(head.role)}</span></li>` : `<li class="hint">${esc(head.role)}: seat open</li>`}${crew.map(m=>`<li>${person(m,24)}</li>`).join("")}</ul></div>
   </section>
+  ${g.id!=="council" ? `<section><header><span class="label">Join</span><h2>Want in?</h2></header>${joinBox(g)}</section>` : ""}
   ${g.id==="resource" ? `<section><header><span class="label">Guides</span><h2>Gold, netherite and trials</h2></header><p class="lede">Where gold spawns, how to mine netherite, and how to earn gold from public trial chambers.</p><a class="btn btn-red" style="align-self:flex-start" href="#guides">Open the guides →</a></section>` : ""}
-  <details class="more-info"><summary>Duties and routines</summary><div class="inner">
-    <ul class="duties">${g.duties.map(([t,d])=>`<li><strong>${esc(t)}</strong><span>${esc(d)}</span></li>`).join("")}</ul>
-    <div class="two">
-      <div class="panel"><span class="label">Every week</span><ul>${g.weekly.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>
-      <div class="panel"><span class="label">Long-term goals</span><ul>${g.goals.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>
-    </div>
-  </div></details>
-  <section><header><span class="label">Other guilds</span></header><div class="links"><a href="#guilds">All guild actions</a>${others}</div></section>`;
+  <section><header><span class="label">Other guilds</span></header><div class="links"><a href="#guildlist">All guilds</a>${others}</div></section>`;
 }
 
 if(DISCORD_INVITE){
@@ -1283,13 +1456,15 @@ if(DISCORD_INVITE){
 
 /* ===== Member area & Kynograd Bank =====
    Click the flag in the header to sign in. Data comes from the data/ folder:
-   snapshots.json + deposits.json  written by the tracker every ~10 min
-   players.json                    guilds and project history (edited by hand)
-   bank.json                       roubles, savings, cash-outs and loans (the Treasurer pastes lines from the Treasury desk)
-   auth.json                       password hashes, admins, treasurer
-   config.json                     rates and the repo address
-   There is no database: players' buttons copy a request to post in #town-bank,
-   and the Treasurer records it. The sign-in is a soft lock, not real security. */
+   bank.json        the official record: deposits and withdrawals logged by the Treasurer
+                    on the Treasury desk (#admin), plus transfers, savings, cash-outs and loans
+   snapshots.json   gold balances from the EarthMC API, written by the tracker every ~10 min
+   deposits.json    deposits the tracker spotted; only used to check the Treasurer's log
+   players.json     guilds and project history (edited by hand)
+   auth.json        password hashes, admins, treasurer
+   config.json      rates, and the GitHub repo the desk saves bank.json to
+   There is no server: the desk commits bank.json straight to the GitHub repo with a token
+   kept on the Treasurer's own device. The sign-in is a soft lock, not real security. */
 const M = { data:null, user:null };
 const DAY = 864e5;
 const sess = {
@@ -1297,17 +1472,128 @@ const sess = {
   set(v){ M._u = v; try { v ? sessionStorage.setItem("kyno-user", v) : sessionStorage.removeItem("kyno-user"); } catch(e){} }
 };
 M.user = sess.get();
-const BANK_DEFAULT = {transfers:[], savings:[], cashouts:[], spending:[], loans:[]};
+const BANK_DEFAULT = {deposits:[], transfers:[], savings:[], cashouts:[], spending:[], loans:[], budget:null};
+/* how the town's gold is split up when nobody has set it yet: the 50g reserve plus a claims pot */
+const BUDGET_DEFAULT = {reserve:50, pots:[{id:"claims", name:"Land claims (16g a chunk)", gold:0, target:416, note:"26 chunks west of the guild quarter"}]};
+/* localStorage that never throws (private windows, blocked storage) */
+const LS = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return M["_"+k] ?? d; } },
+  set(k, v){ M["_"+k] = v; try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
 
 async function loadMemberData(force){
   if (M.data && !force) return M.data;
   const get = async (f, d) => { try { const r = await fetch("data/"+f+"?v="+Date.now(), {cache:"no-store"}); return r.ok ? await r.json() : d; } catch(e){ return d; } };
-  const [snaps, deps, players, bank, auth, cfg] = await Promise.all([
+  const cfg0 = await get("config.json", {});
+  /* bank.json lives in its own small repo (config "bankRepo"), so the Treasurer's token can only ever touch that file's repo */
+  const R = bankRepoOf(cfg0);
+  const bankP = R ? fetch(`https://raw.githubusercontent.com/${R.owner}/${R.repo}/${R.branch}/${R.path}?v=${Date.now()}`, {cache:"no-store"}).then(r => r.ok ? r.json() : BANK_DEFAULT).catch(() => BANK_DEFAULT) : get("bank.json", BANK_DEFAULT);
+  const [snaps, api, players, bank, auth] = await Promise.all([
     get("snapshots.json", []), get("deposits.json", []), get("players.json", {}),
-    get("bank.json", BANK_DEFAULT), get("auth.json", {admins:[], hashes:{}}), get("config.json", {})]);
-  M.data = {snaps, deps, players, bank:{...BANK_DEFAULT, ...bank}, auth,
-    cfg:{roublesPerGold:100, savingsRate:0.025, loanRate:0.05, lateDaily:0.02, earlyFee:0.10, lockDays:30, defaultAfter:7, loanDays:30, noticeShare:0.25, maxWorkdays:5, ...cfg}};
+    bankP, get("auth.json", {admins:[], hashes:{}})]);
+  const cfg = cfg0;
+  const b = {...BANK_DEFAULT, ...bank};
+  /* desk changes this browser made that the published bank.json doesn't show yet */
+  Object.assign(b, applyBank(b, deskOps(b)));
+  M.data = {snaps, api, players, bank:b, auth,
+    deps: b.deposits.map(e => ({t:e.t, player:e.player, amount:e.gold, note:e.note, id:e.id})),
+    cfg:{roublesPerGold:100, savingsRate:0.025, loanRate:0.05, lateDaily:0.02, earlyFee:0.10, lockDays:30, defaultAfter:7, loanDays:30, noticeShare:0.25, maxWorkdays:5, inactiveDays:30, frozenDays:30, bankRepo:"", branch:"main", ...cfg}};
   return M.data;
+}
+
+/* ---- Treasury desk changes: kept as a list of operations in this browser until they're in the published bank.json ----
+   {op:"add", e}  {op:"edit", e}  {op:"del", id}   + saved:true once committed to GitHub */
+const OPS_KEY = "kyno-desk-ops", GH_KEY = "kyno-desk-github";
+const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+function applyOps(list, ops){
+  let out = list.slice();
+  for (const o of ops) {
+    if (o.op === "add") { if (!out.some(e => e.id === o.e.id)) out.push(o.e); }
+    else if (o.op === "edit") out = out.map(e => e.id === o.e.id ? o.e : e);
+    else if (o.op === "del") out = out.filter(e => e.id !== o.id);
+  }
+  return out.sort((a, b) => a.t - b.t);
+}
+/* apply desk operations to a whole bank.json: entry ops go to deposits, {op:"budget", b} replaces the budget */
+const loanKey = l => l.id || `${l.player}@${l.accepted || l.offered || l.t}`;
+function applyBank(bank, ops){
+  const out = {...bank, deposits: applyOps(bank.deposits || [], ops.filter(o => ["add","edit","del"].includes(o.op)))};
+  ops.forEach(o => {
+    if (o.op === "budget") out.budget = o.b;
+    else if (o.op === "sav" && !(out.savings||[]).some(x => x.id === o.e.id)) out.savings = [...(out.savings||[]), o.e];
+    else if (o.op === "renew") out.loans = (out.loans||[]).map(l => loanKey(l) === o.key && !(l.renewals||[]).some(r => r.t === o.t) ? {...l, renewals:[...(l.renewals||[]), {t:o.t, by:o.by}]} : l);
+  });
+  return out;
+}
+/* drop saved operations the published file already reflects (or that are over a day old) */
+function deskOps(publishedBank){
+  const published = publishedBank.deposits || [];
+  const has = id => published.find(e => e.id === id), now = Date.now();
+  const keep = LS.get(OPS_KEY, []).filter(o => {
+    if (!o.saved) return true;
+    if (now - o.saved > DAY) return false;
+    if (o.op === "budget") return JSON.stringify(publishedBank.budget) !== JSON.stringify(o.b);
+    if (o.op === "sav") return !(publishedBank.savings||[]).some(x => x.id === o.e.id);
+    if (o.op === "renew") return !(publishedBank.loans||[]).some(l => loanKey(l) === o.key && (l.renewals||[]).some(r => r.t === o.t));
+    if (o.op === "add") return !has(o.e.id);
+    if (o.op === "del") return !!has(o.id);
+    return JSON.stringify(has(o.e.id)) !== JSON.stringify(o.e);
+  });
+  LS.set(OPS_KEY, keep);
+  return keep;
+}
+const pendingOps = () => LS.get(OPS_KEY, []).filter(o => !o.saved);
+
+/* ---- saving bank.json to the GitHub repo (contents API) ---- */
+const ghConf = () => LS.get(GH_KEY, null);
+function bankRepoOf(cfg){
+  const raw = ((cfg && cfg.bankRepo) || "").trim()
+    .replace(/^https?:\/\/github\.com\//i, "").replace(/\.git$/, "").replace(/\/+$/, "");
+  const [owner, repo] = raw.split("/");
+  return owner && repo ? {owner, repo, branch:(cfg && cfg.branch) || "main", path:"bank.json"} : null;
+}
+const repoOf = () => bankRepoOf(M.data && M.data.cfg);
+async function gh(path, opt = {}){
+  const r = await fetch("https://api.github.com" + path, {cache:"no-store", ...opt, headers:{
+    Accept:"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28",
+    Authorization:"Bearer " + (ghConf() || {}).token, ...(opt.body ? {"Content-Type":"application/json"} : {})}});
+  if (!r.ok) { const e = new Error(`GitHub ${r.status}`); e.status = r.status; throw e; }
+  return r.json();
+}
+const b64enc = s => { const u = new TextEncoder().encode(s); let x = ""; for (let i = 0; i < u.length; i += 0x8000) x += String.fromCharCode(...u.subarray(i, i + 0x8000)); return btoa(x); };
+const b64dec = s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g, "")), c => c.charCodeAt(0)));
+function opLine(o){
+  if (o.op === "del") return "Remove a bank entry";
+  if (o.op === "budget") return "Update the budget";
+  if (o.op === "sav") return `Move ${o.e.player}'s savings to the town treasury`;
+  if (o.op === "renew") return `Renew a loan for ${o.player}`;
+  const e = o.e, w = e.gold < 0 ? "withdrawal" : "deposit";
+  return `${o.op === "edit" ? "Edit" : "Log"} ${w}: ${e.player} ${e.gold < 0 ? "−" : "+"}${Math.abs(e.gold)}g`;
+}
+/* fetch the latest bank.json from the repo, replay the unsaved operations on it, commit; retry once if someone else committed in between */
+async function pushDesk(){
+  const R = repoOf(), ops = pendingOps();
+  if (!R || !ghConf() || !ops.length) return false;
+  const url = `/repos/${R.owner}/${R.repo}/contents/${R.path}`;
+  for (let tries = 0; ; tries++) {
+    let sha, cur = {...BANK_DEFAULT};
+    try { const f = await gh(`${url}?ref=${encodeURIComponent(R.branch)}`); sha = f.sha; cur = {...BANK_DEFAULT, ...JSON.parse(b64dec(f.content))}; }
+    catch(e){ if (e.status !== 404) throw e; }
+    cur = applyBank(cur, ops);
+    const message = ops.length === 1 ? `Treasury desk: ${opLine(ops[0])}` : `Treasury desk: ${ops.length} changes`;
+    try {
+      await gh(url, {method:"PUT", body:JSON.stringify({message, branch:R.branch, content:b64enc(JSON.stringify(cur, null, 1) + "\n"), ...(sha ? {sha} : {})})});
+      const now = Date.now();
+      LS.set(OPS_KEY, LS.get(OPS_KEY, []).map(o => ops.some(p => JSON.stringify(p) === JSON.stringify(o)) ? {...o, saved:now} : o));
+      return true;
+    } catch(e){ if ((e.status !== 409 && e.status !== 422) || tries) throw e; }
+  }
+}
+function ghErrorText(e){
+  return e.status === 401 ? "GitHub didn't accept the token. It may have expired: paste a new one under GitHub token."
+    : e.status === 403 ? "The token can't write to this repo. Give it Contents: Read and write access."
+    : e.status === 404 ? "Repo not found. Check the repo name and that the token has access to it."
+    : "Couldn't reach GitHub. Your changes are kept here; try again in a moment.";
 }
 async function sha256(s){
   const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
@@ -1316,6 +1602,9 @@ async function sha256(s){
 const hashFor = (name, pw) => sha256(`kynograd:${name.toLowerCase()}:${pw}`);
 const isAdmin = () => !!(M.user && M.data && (M.data.auth.admins||[]).includes(M.user));
 const treasurer = () => (M.data && M.data.auth.treasurer) || "the Treasurer";
+/* only the Treasurer and the Mayor (the admins) can open other residents' bank pages */
+const canView = name => name === M.user || isAdmin();
+const pLink = (name, size) => canView(name) ? `<a href="#player-${encodeURIComponent(name)}" style="color:inherit;text-decoration:none">${person(name, size)}</a>` : person(name, size);
 
 async function showLogin(next){
   const d = await loadMemberData();
@@ -1361,7 +1650,7 @@ async function showLogin(next){
     const ok = d.auth.hashes[chosen] && (await hashFor(chosen, pw)) === d.auth.hashes[chosen];
     if (!ok) { err.textContent = "Wrong password for "+chosen+". Check it and try again."; return; }
     M.user = chosen; sess.set(chosen); close();
-    const dest = !next || next === "me" ? "player-"+encodeURIComponent(chosen) : next;
+    const dest = !next || next === "me" ? "portal" : next;
     if (location.hash === "#"+dest) route(); else location.hash = dest;
   });
 }
@@ -1385,29 +1674,43 @@ function accrue(start, events, monthly, now, due, lateDaily){
 }
 function savingsOf(d, name, now){
   const ev = d.bank.savings.filter(s => s.player === name);
-  if (!ev.length) return {balance:0, principal:0, interest:0, lastIn:null, nextInterest:null};
+  if (!ev.length) return {balance:0, principal:0, interest:0, lastIn:null, nextInterest:null, forfeited:0, ...inactivity(d, name, now)};
   const start = Math.min(...ev.map(s=>s.t));
   const balance = accrue(start, ev.map(s=>({t:s.t, v:s.roubles})), d.cfg.savingsRate, now);
   const principal = ev.reduce((a,s)=>a+s.roubles,0);
   const ins = ev.filter(s=>s.roubles>0).map(s=>s.t), lastIn = ins.length ? Math.max(...ins) : null;
   const days = Math.floor((now-start)/DAY), nextInterest = start + (Math.floor(days/30)+1)*30*DAY;
-  return {balance:Math.round(balance), principal, interest:Math.round(balance-principal), lastIn, nextInterest};
+  const forfeited = ev.filter(s=>s.forfeit).reduce((a,s)=>a-s.roubles,0);
+  return {balance:Math.round(balance), principal, interest:Math.round(balance-principal), lastIn, nextInterest, forfeited, ...inactivity(d, name, now)};
+}
+/* Savings rule: 30 days offline → savings frozen for 30 days; 60 days offline → they go to the town treasury.
+   "Offline" comes from EarthMC's last-online time, saved with each snapshot. */
+function lastSeen(d, name){ for (let i = d.snaps.length - 1; i >= 0; i--) { const v = (d.snaps[i].seen||{})[name]; if (v) return v; } return null; }
+function inactivity(d, name, now){
+  const seen = lastSeen(d, name), c = d.cfg;
+  if (!seen) return {seen:null, offline:null, savStatus:"active"};
+  const offline = Math.floor((now - seen)/DAY);
+  const freezeAt = seen + c.inactiveDays*DAY, forfeitAt = freezeAt + c.frozenDays*DAY;
+  return {seen, offline, freezeAt, forfeitAt, savStatus: now >= forfeitAt ? "to treasury" : now >= freezeAt ? "frozen" : "active"};
 }
 function loanState(d, L, now){
   if (!L.accepted) return {...L, state: L.status === "declined" ? "declined" : "offered", owed:L.gold, due:null};
-  const due = L.accepted + (L.days||d.cfg.loanDays)*DAY;
+  const renewed = (L.renewals||[]).length;
+  const due = L.accepted + (L.days||d.cfg.loanDays)*(1 + renewed)*DAY;
   const ev = [{t:L.accepted, v:L.gold}, ...(L.repaid||[]).map(p=>({t:p.t, v:-p.gold}))];
   const owed = Math.max(0, accrue(L.accepted, ev, d.cfg.loanRate, now, due, d.cfg.lateDaily));
   const overdue = owed > 0 && now > due ? Math.floor((now - due)/DAY) : 0;
   const paid = (L.repaid||[]).reduce((a,p)=>a+p.gold,0);
   const state = L.status === "defaulted" ? "defaulted" : owed <= 0.005 ? "repaid" : overdue > d.cfg.defaultAfter ? "in default" : overdue > 0 ? "overdue" : "active";
-  return {...L, state, owed, due, overdue, paid};
+  return {...L, state, owed, due, overdue, paid, renewed};
 }
 /* rouble wallet for one player, plus the totals behind it */
 function walletOf(d, name, now){
   const rate = d.cfg.roublesPerGold;
-  const deposited = r2(d.deps.filter(e => e.player === name && e.amount > 0).reduce((a,e)=>a+e.amount,0));
-  const earned = Math.round(deposited*rate);
+  const mine = d.deps.filter(e => e.player === name);
+  const deposited = r2(mine.filter(e => e.amount > 0).reduce((a,e)=>a+e.amount,0));
+  const withdrawn = r2(mine.filter(e => e.amount < 0).reduce((a,e)=>a-e.amount,0));
+  const earned = Math.round((deposited - withdrawn)*rate);
   const spent = d.bank.spending.filter(s=>s.player===name).reduce((a,s)=>a+s.roubles,0);
   const sentOut = d.bank.transfers.filter(x=>x.from===name).reduce((a,x)=>a+x.roubles,0);
   const got = d.bank.transfers.filter(x=>x.to===name).reduce((a,x)=>a+x.roubles,0);
@@ -1416,7 +1719,7 @@ function walletOf(d, name, now){
   const cashed = d.bank.cashouts.filter(c=>c.player===name).reduce((a,c)=>a+c.roubles,0);
   const wallet = earned - spent - sentOut + got - toSav + fromSav - cashed;
   const sav = savingsOf(d, name, now);
-  return {name, deposited, earned, spent, sentOut, got, cashed, wallet, savings:sav.balance, total:wallet+sav.balance, sav};
+  return {name, deposited, withdrawn, earned, spent, sentOut, got, cashed, wallet, savings:sav.balance, total:wallet+sav.balance, sav};
 }
 function ledger(d){
   const now = Date.now();
@@ -1478,17 +1781,27 @@ function goldChart(points, marks, label){
 }
 const series = (snaps, pick) => { const out = []; snaps.forEach(s => { const v = pick(s); if (v == null) return; if (!out.length || out.at(-1).v !== v) out.push({t:s.t, v}); }); return out; };
 
-function memberHero(title, sub){
+/* page header for the member area: where you are, who you are, sign out. Nothing else. */
+function memberHero(title, sub, crumbs){
   document.getElementById("mvLabel").textContent = sub;
   document.getElementById("mvTitle").innerHTML = title;
   const who = document.getElementById("mvWho");
+  document.querySelector("#memberView .hero .back").hidden = !!M.user;
   if (!M.user) { who.innerHTML = ""; return; }
-  who.innerHTML = `Signed in as ${person(M.user, 20)} <button type="button" id="mvOut">Sign out</button>
-    <a class="btn btn-ghost mv-link" href="#player-${encodeURIComponent(M.user)}">My bank</a> <a class="btn btn-ghost mv-link" href="#members">Members</a>${isAdmin() ? ` <a class="mv-sub" href="#admin">Bank stats</a>` : ""}`;
+  const path = [["Portal", "#portal"], ...(crumbs || [])];
+  who.innerHTML = `<nav class="crumbs" aria-label="You are here">${path.map(([t,h], i) => i < path.length - 1 && h ? `<a href="${h}">${esc(t)}</a>` : `<span aria-current="page">${esc(t)}</span>`).join('<i aria-hidden="true">›</i>')}</nav>
+    <span class="me">${face(M.user, 20)}<span>${esc(M.user)}</span><button type="button" id="mvOut">Sign out</button></span>`;
   document.getElementById("mvOut").addEventListener("click", signOut);
 }
+/* the Bank app's own tabs, shown at the top of each bank page */
+function appTabs(tabs, active, label){
+  document.getElementById("mvBody").insertAdjacentHTML("afterbegin", `<nav class="apptabs" aria-label="${esc(label)}">${tabs.map(([k,t,h]) => `<a href="${h}"${k===active?' aria-current="page"':""}>${esc(t)}</a>`).join("")}</nav>`);
+}
+function bankTabs(active){
+  appTabs([["me","My bank",`#player-${encodeURIComponent(M.user)}`],["town","Town bank","#members"],["policy","Policy","#bank-policy"]], active, "Bank");
+}
 function feedItem(e){
-  const who = e.player ? `<a href="#player-${encodeURIComponent(e.player)}" style="color:inherit;text-decoration:none">${person(e.player,20)}</a>` : `<span class="hint">Town change (taxes, upkeep or an unmatched deposit)</span>`;
+  const who = e.player ? pLink(e.player, 20) : `<span class="hint">Town change (taxes, upkeep or an unmatched deposit)</span>`;
   const verb = e.amount > 0 ? "deposited" : "withdrew";
   return `<li><time datetime="${new Date(e.t).toISOString()}">${fmtT(e.t)}</time><span>${who}${e.player?` <span class="hint">${verb}</span>`:""}</span><span class="num ${e.amount>0?"amt-in":"amt-out"}">${e.amount>0?"+":"−"}${fmtG(Math.abs(e.amount))}</span></li>`;
 }
@@ -1499,37 +1812,47 @@ async function renderMembers(){
   const L = ledger(d), me = L.find(r => r.name === M.user);
   const week = Date.now() - 7*DAY;
   const weekIn = d.deps.filter(e => e.amount > 0 && e.t >= week).reduce((a,e)=>a+e.amount,0);
-  memberHero("MEMBERS", "Kynograd · residents only");
+  const depAll = d.deps.filter(e => e.amount > 0).reduce((a,e)=>a+e.amount,0), outAll = d.deps.filter(e => e.amount < 0).reduce((a,e)=>a-e.amount,0);
+  const roubAll = L.reduce((a,r)=>a+r.total,0), savAll = L.reduce((a,r)=>a+r.savings,0);
+  const holders = L.filter(r => r.total > 0).length;
+  memberHero("TOWN BANK", "Kynograd · residents only", [["Bank", `#player-${encodeURIComponent(M.user)}`], ["Town bank"]]);
   document.getElementById("mvBody").innerHTML = `
   <section><div class="tiles">
+    <div class="tile t-gold"><span>Gold deposited</span><b>${fmtG(depAll)}</b><span>${outAll ? fmtG(outAll)+" withdrawn since" : "by all residents, all time"}</span></div>
+    <div class="tile t-red"><span>Town roubles</span><b>${fmtR(roubAll)}</b><span>held by ${holders} resident${holders===1?"":"s"}${savAll ? ", "+fmtR(savAll)+" in savings" : ""}</span></div>
     <div class="tile t-ok"><span>Deposited this week</span><b>${fmtG(weekIn)}</b><span>by all residents</span></div>
-    <div class="tile t-red"><span>Your roubles</span><b>${me ? fmtR(me.wallet) : "–"}</b><span>${me && me.savings ? fmtR(me.savings)+" more in savings" : d.cfg.roublesPerGold+" ₽ for every 1g you deposit"}</span></div>
   </div><a class="btn btn-red" style="align-self:flex-start" href="#player-${encodeURIComponent(M.user)}">Open my bank →</a></section>
   <section><header><span class="label">Town bank</span><h2>Gold in the bank over time</h2></header>
     ${goldChart(series(d.snaps, s => s.town), d.deps.filter(e=>e.player), "Town bank balance")}</section>
   <section><header><span class="label">Roubles</span><h2>Leaderboard</h2></header>
     <p class="lede">Every 1g you deposit in the town bank earns ${d.cfg.roublesPerGold} roubles, savings included. <a href="#bank-policy">Bank policy</a></p>
     <div class="tablewrap"><table class="ledger"><thead><tr><th>#</th><th>Player</th><th class="num">Gold deposited</th><th class="num">Roubles</th></tr></thead>
-    <tbody>${L.map((r,i)=>`<tr class="${r.name===M.user?"me":""}"><td class="num" style="text-align:left">${i+1}</td><td><a href="#player-${encodeURIComponent(r.name)}">${person(r.name,20)}</a></td><td class="num">${fmtG(r.deposited)}</td><td class="num"><strong>${fmtR(r.total)}</strong></td></tr>`).join("")}</tbody></table></div></section>
+    <tbody>${L.map((r,i)=>`<tr class="${r.name===M.user?"me":""}"><td class="num" style="text-align:left">${i+1}</td><td>${pLink(r.name,20)}</td><td class="num">${fmtG(r.deposited)}</td><td class="num"><strong>${fmtR(r.total)}</strong></td></tr>`).join("")}</tbody></table></div></section>
   <section><header><span class="label">Bank activity</span><h2>Recent deposits</h2></header>
-    ${d.deps.length ? `<ul class="feed">${d.deps.slice(-10).reverse().map(feedItem).join("")}</ul>` : `<p class="notice">No deposits logged yet. Deposits show up here when the records are updated, about twice a day.</p>`}
-    <p class="hint">Deposits are matched by comparing balances between updates, so a deposit and a shop purchase in the same period can occasionally be mixed up.</p></section>`;
+    ${d.deps.length ? `<ul class="feed">${d.deps.slice(-10).reverse().map(feedItem).join("")}</ul>` : `<p class="notice">No deposits logged yet. Deposit with /t deposit, then tell ${esc(treasurer())} in #town-bank so it gets logged.</p>`}
+    <p class="hint">Deposits and withdrawals are logged by ${esc(treasurer())}; the EarthMC API is only used to double-check them.</p></section>`;
+  bankTabs("town");
 }
 
 async function renderPlayer(name){
   const d = await loadMemberData(true), now = Date.now();
   const L = ledger(d), r = L.find(x => x.name === name);
-  if (!r) { memberHero("NOT FOUND", "Player"); document.getElementById("mvBody").innerHTML = `<p class="lede">${esc(name)} isn't a resident of Kynograd.</p><a class="btn btn-red" href="#members">Back to members</a>`; return; }
-  const own = name === M.user, c = d.cfg, info = d.players[name] || {}, g = GUILDS.find(x => x.id === info.guild);
+  if (!r) { memberHero("NOT FOUND", "Player"); document.getElementById("mvBody").innerHTML = `<p class="lede">${esc(name)} isn't a resident of Kynograd.</p><a class="btn btn-red" href="#members">Back to the town bank</a>`; return; }
+  if (!canView(name)) { location.hash = "player-" + encodeURIComponent(M.user); return; }
+  const own = name === M.user, full = own || isAdmin(), c = d.cfg, info = d.players[name] || {}, g = GUILDS.find(x => x.id === info.guild);
   const deps = d.deps.filter(e => e.player === name);
   const loans = d.bank.loans.filter(l => l.player === name).map(l => loanState(d, l, now)).filter(l => l.state !== "declined").reverse();
   const sav = r.sav, locked = sav.lastIn && now - sav.lastIn < c.lockDays*DAY, cap = Math.floor(r.total * c.noticeShare);
-  memberHero(`<span class="ptitle">${face(name, 72)}<span>${esc(name.toUpperCase())}</span></span>`, g ? `${g.name}${info.role?" · "+info.role:""}` : "Resident · no guild yet");
+  memberHero(`<span class="ptitle">${face(name, 72)}<span>${esc(name.toUpperCase())}</span></span>`, g ? `${g.name}${info.role?" · "+info.role:""}` : "Resident · no guild yet", own ? [["Bank"], ["My bank"]] : [["Treasury", "#admin"], ["Residents", "#admin/residents"], [name]]);
 
   const tiles = `<section><div class="tiles">
-    <div class="tile t-red"><span>Roubles</span><b>${fmtR(r.wallet)}</b><span>from ${fmtG(r.deposited)} deposited</span></div>
-    <div class="tile t-ok"><span>Savings</span><b>${fmtR(sav.balance)}</b><span>${sav.balance ? `+${fmtR(sav.interest)} interest so far` : `${pct(c.savingsRate)} a month`}</span></div>
     <div class="tile t-gold"><span>Gold on hand</span><b>${fmtG(r.gold)}</b><span>from EarthMC</span></div>
+    <div class="tile ${sav.balance && sav.savStatus !== "active" ? "t-red" : "t-ok"}"><span>Savings${sav.balance && sav.savStatus === "frozen" ? " · frozen" : ""}</span><b>${fmtR(sav.balance)}</b><span>${
+      sav.balance && sav.savStatus === "frozen" ? `Frozen: ${sav.offline} days offline. Goes to the town treasury on ${fmtD(sav.forfeitAt)} unless you come back online.`
+      : sav.balance && sav.savStatus === "to treasury" ? `Over ${c.inactiveDays + c.frozenDays} days offline: going to the town treasury.`
+      : sav.forfeited ? `${fmtR(sav.forfeited)} went to the town treasury after inactivity.`
+      : sav.balance ? `+${fmtR(sav.interest)} interest so far` : `${pct(c.savingsRate)} a month`}</span></div>
+    <div class="tile t-red"><span>Roubles</span><b>${fmtR(r.wallet)}</b><span>from ${fmtG(r.deposited)} deposited</span></div>
   </div></section>`;
 
   const others = L.map(x=>x.name).filter(n => n !== name).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:"base"}));
@@ -1537,11 +1860,13 @@ async function renderPlayer(name){
     <p class="lede">Fill this in, copy it, and paste it in #town-bank.</p>
     <form class="bank-card askform" id="fAsk">
       <label>I want to<select id="aType">
+        <option value="dep">Tell the Treasurer I deposited gold</option>
         <option value="send">Send roubles to someone</option>
         <option value="in">Put roubles into savings</option>
         <option value="out">Take roubles out of savings</option>
         <option value="cash">Cash out roubles as gold</option>
-        <option value="loan">Take a gold loan</option></select></label>
+        <option value="loan">Take a gold loan</option>
+        ${loans.some(l => l.state === "active" || l.state === "overdue") ? `<option value="renew">Renew my gold loan</option>` : ""}</select></label>
       <label data-for="send">To<select id="aTo">${others.map(n=>`<option>${esc(n)}</option>`).join("")}</select></label>
       <label><span id="aUnit">Roubles</span><input id="aAmt" type="number" min="1" step="1" required></label>
       <label>Note<input id="aNote" maxlength="80" placeholder="optional"></label>
@@ -1549,14 +1874,14 @@ async function renderPlayer(name){
       <button class="btn btn-red" type="submit">Copy message</button>
       <div class="req" id="aOut" hidden><pre class="snippet"></pre><div class="cta-row" style="margin-top:0"><a class="btn btn-red" target="_blank" rel="noopener" href="${dcUrl("town-bank")}">Open #town-bank ↗</a><span class="hint" id="aCopied">Copied: paste it in the channel.</span></div></div>
     </form>
-    <p class="hint"><a href="#bank-policy">Bank policy</a> · balances here are updated about twice a day.</p></section>` : "";
+    <p class="hint"><a href="#bank-policy">Bank policy</a> · your balance changes as soon as ${esc(treasurer())} logs a deposit or withdrawal.</p></section>` : "";
 
   const loanList = loans.length ? `<section><header><span class="label">Gold loans</span><h2>Loans</h2></header><ul class="loans">${loans.map(l => `<li class="loan s-${l.state.replace(/ /g,"-")}"><div><strong>${fmtG(l.gold)}</strong> · due ${l.due ? fmtD(l.due) : "–"}<small>${l.paid ? `repaid ${fmtG(l.paid)}` : `taken ${fmtD(l.accepted || l.offered)}`}</small></div>
       <div class="loan-r"><span class="chip ${l.state==="repaid"?"filled":l.state==="active"?"open":"wanted"}">${esc(l.state)}${l.overdue?` · ${l.overdue}d late`:""}</span>${l.state!=="repaid" ? `<b>${fmtG(l.owed)} owed</b>` : ""}</div></li>`).join("")}</ul></section>` : "";
 
   const hist = [
     ...deps.map(e => ({t:e.t, txt: e.amount > 0 ? "Deposited gold" : "Withdrew gold", v: fmtG(Math.abs(e.amount)), pos: e.amount > 0})),
-    ...(own ? [
+    ...(full ? [
       ...d.bank.transfers.filter(x=>x.from===name||x.to===name).map(x=>({t:x.t, txt: x.from===name ? `Sent to ${x.to}` : `From ${x.from}`, v: fmtR(x.roubles), pos: x.to===name})),
       ...d.bank.savings.filter(s=>s.player===name).map(s=>({t:s.t, txt: s.roubles>0 ? "Into savings" : "Out of savings", v: fmtR(Math.abs(s.roubles)), pos: s.roubles<0})),
       ...d.bank.cashouts.filter(x=>x.player===name).map(x=>({t:x.t, txt:`Cashed out ${fmtG(x.gold)}`, v: fmtR(x.roubles), pos:false})),
@@ -1568,31 +1893,38 @@ async function renderPlayer(name){
   const chart = `<section><header><span class="label">Gold over time</span><h2>Gold on hand</h2></header>${goldChart(series(d.snaps, s => s.players[name]), deps, name+"'s gold")}</section>`;
   const projects = (info.projects||[]).length ? `<section><header><span class="label">Projects</span><h2>Worked on</h2></header><ul class="feed">${info.projects.map(p=>`<li><time>${esc(p.date||"")}</time><span><strong>${esc(p.project)}</strong></span><span class="hint">${esc(p.role||"")}</span></li>`).join("")}</ul></section>` : "";
 
-  document.getElementById("mvBody").innerHTML = tiles + ask + loanList + history + chart + projects +
-    `<section><div class="links"><a href="#members">← All members</a>${g ? `<a href="#${g.id}">${esc(g.short)} guild page</a>` : ""}<a href="#bank-policy">Bank policy</a></div></section>`;
+  const viewing = own ? "" : `<p class="notice">Viewing ${esc(name)}'s bank as ${M.user === d.auth.treasurer ? "Treasurer" : "Mayor"}. Only the Treasurer and the Mayor can see other residents' pages. <a href="#admin/residents">Back to all residents</a></p>`;
+  document.getElementById("mvBody").innerHTML = viewing + chart + tiles + ask + loanList + history + projects +
+    `<section><div class="links"><a href="#members">← Town bank</a>${g ? `<a href="#${g.id}">${esc(g.short)} guild page</a>` : ""}<a href="#bank-policy">Bank policy</a></div></section>`;
+  if (own) bankTabs("me"); else appTabs(TREASURY_TABS, "residents", "Treasury");
   if (!own) return;
 
   const $ = id => document.getElementById(id);
   const toRow = document.querySelector('[data-for="send"]');
   const hintFor = t => ({
+    dep: `Deposit in-game first with /t deposit, then send this. ${c.roublesPerGold} ₽ for every 1g once it's logged.`,
     send: `You have ${fmtR(r.wallet)}. Transfers are free.`,
     in: `You have ${fmtR(r.wallet)} to put in. ${pct(c.savingsRate)} interest every 30 days.`,
-    out: `You have ${fmtR(sav.balance)} in savings.${locked ? ` Locked until ${fmtD(sav.lastIn + c.lockDays*DAY)}: taking it out now costs ${pct(c.earlyFee)}.` : ""}`,
+    out: sav.savStatus !== "active" && sav.balance ? `Your savings are frozen because you've been offline ${sav.offline} days. Log in on EarthMC to unfreeze them.` : `You have ${fmtR(sav.balance)} in savings.${locked ? ` Locked until ${fmtD(sav.lastIn + c.lockDays*DAY)}: taking it out now costs ${pct(c.earlyFee)}.` : ""}`,
     cash: `${c.roublesPerGold} ₽ = 1g. Up to ${fmtR(cap)} without notice; paid within ${c.maxWorkdays} working days.`,
-    loan: `${c.loanDays} days at ${pct(c.loanRate)} a month, ${pct(c.lateDaily)} a day once late.`
+    loan: `${c.loanDays} days at ${pct(c.loanRate)} a month, ${pct(c.lateDaily)} a day once late.`,
+    renew: (() => { const l = loans.find(x => x.state === "active" || x.state === "overdue"); return l ? `Your loan of ${fmtG(l.gold)} is due ${fmtD(l.due)}. Renewing adds ${c.loanDays} days; interest keeps running on the ${fmtG(l.owed)} you owe.` : ""; })()
   })[t];
-  const sync = () => { const t = $("aType").value; toRow.hidden = t !== "send"; $("aUnit").textContent = t === "loan" ? "Gold" : "Roubles";
+  const sync = () => { const t = $("aType").value; toRow.hidden = t !== "send"; $("aUnit").textContent = t === "loan" || t === "dep" ? "Gold" : "Roubles";
+    $("aAmt").closest("label").hidden = t === "renew"; $("aAmt").required = t !== "renew";
     $("aAmt").step = t === "cash" ? c.roublesPerGold : 1; $("aAmt").min = t === "cash" ? c.roublesPerGold : 1; $("aHint").textContent = hintFor(t); $("aOut").hidden = true; };
   $("aType").addEventListener("change", sync); sync();
   $("fAsk").addEventListener("submit", e => {
     e.preventDefault();
     const t = $("aType").value, v = +$("aAmt").value, note = $("aNote").value.trim();
     const line = {
+      dep: `I deposited ${fmtG(v)} in the town bank. Please log it.`,
       send: `Send ${fmtR(v)} to ${$("aTo").value}`,
       in: `Put ${fmtR(v)} into my savings`,
       out: `Take ${fmtR(v)} out of my savings${locked ? ` (early: ${pct(c.earlyFee)} fee)` : ""}`,
       cash: `Cash out ${fmtR(v)} as ${fmtG(v/c.roublesPerGold)}${v > cap ? " (with notice)" : ""}`,
-      loan: `Gold loan of ${fmtG(v)} for ${c.loanDays} days. I agree to the bank policy.`
+      loan: `Gold loan of ${fmtG(v)} for ${c.loanDays} days. I agree to the bank policy.`,
+      renew: `Renew my gold loan for another ${c.loanDays} days.`
     }[t];
     const text = `🏦 Bank request from ${name}\n${line}${note ? `\nNote: ${note}` : ""}`;
     const out = $("aOut"); out.hidden = false; out.querySelector("pre").textContent = text;
@@ -1601,10 +1933,13 @@ async function renderPlayer(name){
   });
 }
 
-async function renderAdmin(){
+const TREASURY_TABS = [["desk","Desk","#admin"],["residents","Residents","#admin/residents"],["budget","Budget","#admin/budget"],["stats","Stats","#admin/stats"]];
+async function renderAdmin(tab){
+  tab = TREASURY_TABS.some(t => t[0] === tab) ? tab : "desk"; M.adminTab = tab;
   const d = await loadMemberData(true), now = Date.now();
-  if (!isAdmin()) { location.hash = "members"; return; }
-  memberHero("BANK STATS", "Treasurer and Mayor");
+  if (!isAdmin()) { location.hash = "portal"; return; }
+  const tabName = TREASURY_TABS.find(t => t[0] === tab)[1];
+  memberHero("TREASURY", "Treasurer and Mayor", tab === "desk" ? [["Treasury"]] : [["Treasury", "#admin"], [tabName]]);
   const L = ledger(d), c = d.cfg;
   const ins = d.deps.filter(e => e.player && e.amount > 0);
   const total = ins.reduce((a,e)=>a+e.amount,0);
@@ -1617,7 +1952,7 @@ async function renderAdmin(){
   const per = L.filter(r => r.deposited > 0).sort((a,b)=>b.deposited-a.deposited);
   const maxP = Math.max(1, ...per.map(r=>r.deposited));
   const bars = per.length ? `<ul class="hbars">${per.map(r=>`<li><a href="#player-${encodeURIComponent(r.name)}">${person(r.name,20)}</a><span class="hbar" title="${esc(r.name)}: ${fmtG(r.deposited)}"><i style="width:${Math.max(2, r.deposited/maxP*100)}%"></i></span><b>${fmtG(r.deposited)}</b></li>`).join("")}</ul>`
-    : `<p class="notice">No deposits yet. They show up after the next update.</p>`;
+    : `<p class="notice">No deposits logged yet.</p>`;
 
   /* gold deposited per day, last 14 days: columns */
   const days = [...Array(14)].map((_,i) => { const s = new Date(now - (13-i)*DAY); s.setHours(0,0,0,0); return s.getTime(); });
@@ -1639,8 +1974,18 @@ async function renderAdmin(){
   /* who holds the roubles */
   const holders = L.filter(r => r.total > 0).sort((a,b)=>b.total-a.total);
 
-  document.getElementById("mvBody").innerHTML = `
-  <section><div class="tiles">
+  /* every resident at a glance; each row opens their bank page */
+  const loanOwed = n => d.bank.loans.filter(l => l.player === n).map(l => loanState(d, l, now)).filter(l => l.accepted && l.state !== "repaid").reduce((a,l)=>a+l.owed,0);
+  const rows = L.slice().sort((a,b)=>a.name.localeCompare(b.name,undefined,{sensitivity:"base"}));
+  const gName = n => { const g = GUILDS.find(x => x.id === (d.players[n]||{}).guild); return g ? g.short : ""; };
+  const pick = `<section><header><span class="label">Residents · ${rows.length}</span><h2>Residents overview</h2></header>
+    <p class="lede">Every resident's bank. Click a name to open their page. Only you and the ${M.user === d.auth.treasurer ? "Mayor" : "Treasurer"} can do this.</p>
+    <div class="tablewrap"><table class="ledger res-table"><thead><tr>${[["name","Resident",""],["guild","Guild",""],["gold","Gold on hand","num"],["dep","Deposited","num"],["roub","Roubles","num"],["sav","Savings","num"],["loan","Loan owed","num"]].map(([k,t,c])=>`<th class="${c}" aria-sort="none"><button type="button" class="sortbtn" data-k="${k}">${t}<i aria-hidden="true"></i></button></th>`).join("")}</tr></thead><tbody>
+      ${rows.map(r => { const lo = loanOwed(r.name); return `<tr data-go="${esc(r.name)}" data-name="${esc(r.name.toLowerCase())}" data-guild="${esc(gName(r.name).toLowerCase() || "~")}" data-gold="${r.gold ?? -1}" data-dep="${r.deposited}" data-roub="${r.wallet}" data-sav="${r.savings}" data-loan="${lo}"><td><a href="#player-${encodeURIComponent(r.name)}">${person(r.name,20)}</a></td><td class="hint">${esc(gName(r.name))}</td>
+        <td class="num">${fmtG(r.gold)}</td><td class="num">${r.deposited ? fmtG(r.deposited) : "–"}</td><td class="num"><strong>${fmtR(r.wallet)}</strong></td><td class="num">${r.savings ? fmtR(r.savings) + (r.sav.savStatus !== "active" ? ` <span class="amt-out">· ${r.sav.savStatus}</span>` : "") : "–"}</td><td class="num ${lo?"amt-out":""}">${lo ? fmtG(lo) : "–"}</td></tr>`; }).join("")}
+    </tbody></table></div></section>`;
+  const stats = `
+  <section><header><span class="label">Bank stats</span><h2>Overview</h2></header><div class="tiles">
     <div class="tile t-gold"><span>Gold deposited</span><b>${fmtG(total)}</b><span>${fmtG(week)} this week</span></div>
     <div class="tile t-red"><span>Roubles out there</span><b>${fmtR(roubles)}</b><span>held by ${holders.length} resident${holders.length===1?"":"s"}</span></div>
     <div class="tile t-ok"><span>Gold out on loan</span><b>${fmtG(out)}</b><span>${loans.filter(l=>l.overdue).length} late</span></div>
@@ -1650,24 +1995,344 @@ async function renderAdmin(){
   <section><header><span class="label">Town bank</span><h2>Bank balance over time</h2></header>${goldChart(series(d.snaps, s => s.town), ins, "Town bank balance")}</section>
   ${loans.length ? `<section><header><span class="label">Loans</span><h2>Loan book</h2></header><div class="tablewrap"><table class="ledger"><thead><tr><th>Player</th><th class="num">Lent</th><th class="num">Owed now</th><th>Due</th><th>Status</th></tr></thead><tbody>${loans.slice().reverse().map(l=>`<tr><td>${person(l.player,20)}</td><td class="num">${fmtG(l.gold)}</td><td class="num">${fmtG(l.owed)}</td><td>${fmtD(l.due)}</td><td><span class="chip ${l.state==="repaid"?"filled":l.state==="active"?"open":"wanted"}">${esc(l.state)}${l.overdue?` · ${l.overdue}d`:""}</span></td></tr>`).join("")}</tbody></table></div></section>` : ""}
   ${holders.length ? `<section><header><span class="label">Roubles</span><h2>Who holds the roubles</h2></header><div class="tablewrap"><table class="ledger"><thead><tr><th>Player</th><th class="num">Roubles</th><th class="num">Savings</th><th class="num">Total</th></tr></thead><tbody>${holders.map(r=>`<tr><td><a href="#player-${encodeURIComponent(r.name)}">${person(r.name,20)}</a></td><td class="num">${fmtR(r.wallet)}</td><td class="num">${fmtR(r.savings)}</td><td class="num"><strong>${fmtR(r.total)}</strong></td></tr>`).join("")}</tbody></table></div></section>` : ""}`;
+  const body = {desk: deskHTML(d, L) + rulesHTML(d, L) + apiCheckHTML(d), residents: pick, budget: `<p class="form-msg" id="dMsg" aria-live="polite"></p>` + budgetHTML(d, L), stats}[tab];
+  document.getElementById("mvBody").innerHTML = body;
+  appTabs(TREASURY_TABS, tab, "Treasury");
+  wireDesk(d, L);
+  /* sort the residents overview by any column; click again to flip the order */
+  const tbl = document.querySelector(".res-table");
+  if (tbl) tbl.querySelectorAll(".sortbtn").forEach(b => b.addEventListener("click", () => {
+    const k = b.dataset.k, th = b.parentElement, text = k === "name" || k === "guild";
+    const dir = th.getAttribute("aria-sort") === (text ? "ascending" : "descending") ? (text ? "descending" : "ascending") : (text ? "ascending" : "descending");
+    tbl.querySelectorAll("th").forEach(x => x.setAttribute("aria-sort", "none"));
+    th.setAttribute("aria-sort", dir);
+    const tb = tbl.tBodies[0], rs = [...tb.rows], m = dir === "ascending" ? 1 : -1;
+    rs.sort((a, c) => text ? m * a.dataset[k].localeCompare(c.dataset[k]) : m * (+a.dataset[k] - +c.dataset[k]) || a.dataset.name.localeCompare(c.dataset.name));
+    rs.forEach(r => tb.appendChild(r));
+  }));
+  document.querySelectorAll(".res-table tr[data-go]").forEach(tr => tr.addEventListener("click", e => { if (!e.target.closest("a")) location.hash = "player-" + encodeURIComponent(tr.dataset.go); }));
+}
+
+/* ===== Treasury desk: the Treasurer logs deposits and withdrawals here ===== */
+const toLocalInput = t => { const x = new Date(t); x.setMinutes(x.getMinutes() - x.getTimezoneOffset()); return x.toISOString().slice(0, 16); };
+
+function deskHTML(d, L){
+  const c = d.cfg, names = L.map(r => r.name).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:"base"}));
+  const pend = pendingOps(), R = repoOf(), on = !!(R && ghConf());
+  const unsaved = new Set(pend.map(o => o.e ? o.e.id : null));
+  const rows = d.bank.deposits.slice().reverse().slice(0, 25);
+  const sync = !on
+    ? `<div class="syncbar off"><p>${pend.length ? `<strong>${pend.length} change${pend.length===1?"":"s"} only in this browser.</strong> ` : ""}Not connected to GitHub: entries stay in this browser until you connect or download bank.json.</p>${pend.length ? `<button type="button" class="btn btn-line mini-btn" id="dDown">Download bank.json</button>` : ""}</div>`
+    : pend.length
+    ? `<div class="syncbar pending"><p><strong>${pend.length} change${pend.length===1?"":"s"} not saved yet.</strong></p><div class="desk-btns"><button type="button" class="btn btn-red mini-btn" id="dPush">Save now</button><button type="button" class="btn btn-line mini-btn" id="dDown">Download bank.json</button></div></div>`
+    : `<div class="syncbar"><p>Everything is saved to ${esc(R.owner)}/${esc(R.repo)}. Residents see changes about a minute after saving.</p></div>`;
+
+  return `<section class="desk"><header><span class="label">Treasury desk</span><h2>Log a deposit or withdrawal</h2></header>
+    <p class="lede">Log gold as it goes into or out of the town bank. Roubles follow your log: +${c.roublesPerGold} ₽ for every 1g deposited, −${c.roublesPerGold} ₽ for every 1g withdrawn. The EarthMC API below is only for checking.</p>
+    <form class="bank-card desk-form" id="dForm" autocomplete="off">
+      <input type="hidden" id="dId">
+      <div class="seg" role="radiogroup" aria-label="Type">
+        <label><input type="radio" name="dType" value="in" checked>+ Deposit</label>
+        <label class="w"><input type="radio" name="dType" value="out">− Withdrawal</label>
+      </div>
+      <div class="desk-fields">
+        <label>Player<select id="dPlayer" required><option value="">Choose…</option>${names.map(n=>`<option>${esc(n)}</option>`).join("")}</select></label>
+        <label>Gold<input id="dGold" type="number" inputmode="numeric" min="1" step="1" required placeholder="0"></label>
+        <label>When<input id="dWhen" type="datetime-local" required value="${toLocalInput(Date.now())}"></label>
+        <label class="wide">Note<input id="dNote" maxlength="80" placeholder="optional, e.g. paid out in the vault"></label>
+      </div>
+      <p class="desk-sum" id="dSum" aria-live="polite"></p>
+      <div class="desk-btns"><button class="btn btn-red" type="submit" id="dSubmit">Log deposit</button><button class="btn btn-line" type="button" id="dCancel" hidden>Cancel edit</button></div>
+      <p class="form-msg" id="dMsg" aria-live="polite"></p>
+    </form>
+    ${sync}
+    ${rows.length ? `<div class="tablewrap"><table class="ledger"><thead><tr><th>When</th><th>Player</th><th class="num">Gold</th><th class="num">Roubles</th><th></th></tr></thead><tbody>
+      ${rows.map(e => `<tr class="${unsaved.has(e.id)?"unsaved":""}"><td class="num" style="text-align:left">${fmtT(e.t)}</td>
+        <td>${person(e.player,20)}${e.note?`<span class="note">${esc(e.note)}</span>`:""}</td>
+        <td class="num ${e.gold>0?"amt-in":"amt-out"}">${e.gold>0?"+":"−"}${fmtG(Math.abs(e.gold))}</td>
+        <td class="num">${e.gold>0?"+":"−"}${fmtR(Math.abs(e.gold)*c.roublesPerGold)}</td>
+        <td class="act"><button type="button" class="btn btn-line mini-btn" data-edit="${esc(e.id)}">Edit</button><button type="button" class="btn btn-line mini-btn" data-del="${esc(e.id)}">Delete</button></td></tr>`).join("")}
+      </tbody></table></div>${d.bank.deposits.length > 25 ? `<p class="hint">Showing the latest 25 of ${d.bank.deposits.length}.</p>` : ""}`
+    : `<p class="notice">Nothing logged yet. Your first deposit will show up here.</p>`}
+    <div class="gh">
+      ${!R ? `<p class="notice">Saving isn't set up yet: put the bank repo's name in <code>bankRepo</code> in <code>data/config.json</code> (for example <code>owner/kynograd-bank</code>).</p>`
+      : `<details${on ? "" : " open"}><summary>GitHub token${on ? " · connected" : ""}</summary><div class="inner">
+        <p class="hint" style="margin:0">Saves go to <code>${esc(R.owner)}/${esc(R.repo)}</code>, a repo that holds only <code>bank.json</code>. Make a <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">fine-grained token ↗</a> for that one repo with <strong>Contents: Read and write</strong>, then paste it here. It stays in this browser.</p>
+        <div class="tok-row"><input id="gToken" type="password" autocomplete="off" aria-label="GitHub token" placeholder="${on ? "saved · paste a new one to replace" : "github_pat_…"}"><button type="button" class="btn btn-red mini-btn" id="gSave">${on ? "Replace" : "Connect"}</button>${on ? `<button type="button" class="btn btn-line mini-btn" id="gOff">Disconnect</button>` : ""}</div>
+        <p class="form-msg" id="gMsg" aria-live="polite"></p>
+      </div></details>
+      ${on ? `<details id="vHist"><summary>Version history</summary><div class="inner">
+        <p class="hint" style="margin:0">Every save is kept as a version of <code>bank.json</code>. Restoring copies an old version back as a new save, so nothing is lost.</p>
+        <ul class="reqs" id="vList"><li class="hint">Loading…</li></ul>
+        <pre class="snippet" id="vView" hidden></pre>
+      </div></details>` : ""}`}
+    </div>
+  </section>`;
+}
+
+
+/* savings that are frozen or due to the treasury, and loans that can be renewed */
+function rulesHTML(d, L){
+  const c = d.cfg, now = Date.now();
+  const savers = L.map(r => ({...r.sav, name:r.name})).filter(x => x.balance > 0 && x.savStatus !== "active").sort((a,b)=>a.forfeitAt-b.forfeitAt);
+  const loans = d.bank.loans.map(l => loanState(d, l, now)).filter(l => l.accepted && ["active","overdue"].includes(l.state));
+  if (!savers.length && !loans.length) return "";
+  return `<section><header><span class="label">Bank rules</span><h2>Frozen savings and loans</h2></header>
+    ${savers.length ? `<ul class="reqs">${savers.map(x => `<li class="reqrow" style="border-left-color:${x.savStatus==="frozen"?"var(--gold)":"var(--red)"}"><div><span>${person(x.name,20)} <span class="hint">${fmtR(x.balance)} in savings</span></span>
+      <small class="hint">${x.offline} days offline · ${x.savStatus==="frozen" ? `frozen, goes to the treasury on ${fmtD(x.forfeitAt)}` : `freeze ended ${fmtD(x.forfeitAt)}`}</small></div>
+      ${x.savStatus==="to treasury" ? `<button type="button" class="btn btn-red mini-btn" data-forfeit="${esc(x.name)}" data-amt="${x.balance}">Move to treasury</button>` : `<span class="chip wanted">Frozen</span>`}</li>`).join("")}</ul>` : ""}
+    ${loans.length ? `<ul class="reqs">${loans.map(l => { const canRenew = now >= l.due - 3*DAY;
+      return `<li class="reqrow" style="border-left-color:${l.state==="overdue"?"var(--red)":"var(--gold)"}"><div><span>${person(l.player,20)} <span class="hint">${fmtG(l.owed)} owed</span></span>
+      <small class="hint">due ${fmtD(l.due)}${l.renewed ? ` · renewed ${l.renewed}×` : ""}${l.overdue ? ` · ${l.overdue}d late` : ""}</small></div>
+      ${canRenew ? `<button type="button" class="btn btn-line mini-btn" data-renew="${esc(loanKey(l))}" data-player="${esc(l.player)}">Renew ${c.loanDays} days</button>` : `<span class="chip open">Renewable from ${fmtD(l.due - 3*DAY)}</span>`}</li>`; }).join("")}</ul>` : ""}
+  </section>`;
+}
+
+/* ===== Budget: where the gold in the town bank is meant for (Treasurer and Mayor) =====
+   Owed to residents: roubles in wallets and savings can be cashed out, so that gold is spoken for.
+   Then the reserve, then the pots the council earmarks (claims, projects…). What's left is free. */
+function budgetOf(d, L){
+  const c = d.cfg, rate = c.roublesPerGold, now = Date.now();
+  const B = d.bank.budget || BUDGET_DEFAULT;
+  const last = d.snaps.at(-1), bal = last ? last.town : null;
+  const wallets = L.reduce((a,r)=>a+Math.max(0, r.wallet), 0) / rate;
+  const savings = L.reduce((a,r)=>a+r.savings, 0) / rate;
+  const interest30 = L.reduce((a,r)=>a+r.savings*c.savingsRate, 0) / rate;
+  const loans = d.bank.loans.map(l => loanState(d, l, now)).filter(l => l.accepted && l.state !== "repaid");
+  const lentOut = loans.reduce((a,l)=>a+(l.gold-(l.paid||0)), 0), toGetBack = loans.reduce((a,l)=>a+l.owed, 0);
+  const pots = (B.pots||[]).map(p => ({...p, gold:+p.gold||0}));
+  const earmarked = pots.reduce((a,p)=>a+p.gold, 0), reserve = +B.reserve || 0;
+  const free = bal == null ? null : bal - wallets - savings - reserve - earmarked;
+  return {B, bal, at: last && last.t, wallets, savings, interest30, loans, lentOut, toGetBack, pots, earmarked, reserve, free};
+}
+function budgetHTML(d, L){
+  const x = budgetOf(d, L), g = v => fmtG(r2(v));
+  const segs = [
+    {k:"Owed: roubles", v:x.wallets, c:"var(--red)", s:"Residents' roubles, cashable at "+d.cfg.roublesPerGold+" ₽ = 1g"},
+    {k:"Owed: savings", v:x.savings, c:"var(--gold)", s:"Savings plus interest so far"},
+    {k:"Reserve", v:x.reserve, c:"var(--ink)", s:"Never spent"},
+    ...x.pots.map((p,i) => ({k:p.name, v:p.gold, c:["var(--blue)","var(--ok)","#7a4fa0","#2f8f8a"][i%4], s: p.target ? `Earmarked · ${g(p.gold)} of the ${g(p.target)} needed${p.note ? " · " + p.note : ""}` : "Earmarked"})),
+    {k:"Free to spend", v:Math.max(0, x.free||0), c:"var(--line)", s:"Not owed or earmarked"}];
+  const total = Math.max(x.bal || 0, segs.reduce((a,s)=>a+s.v, 0), 1);
+  const bar = `<div class="bud-bar" role="img" aria-label="Town bank ${x.bal==null?"balance unknown":g(x.bal)}: ${segs.filter(s=>s.v>0).map(s=>`${s.k} ${g(s.v)}`).join(", ")}">${segs.filter(s=>s.v>0).map(s=>`<i style="width:${s.v/total*100}%;background:${s.c}" title="${esc(s.k)}: ${g(s.v)}"></i>`).join("")}</div>`;
+  const short = x.free != null && x.free < 0;
+  return `<section class="budget"><header><span class="label">Budget · Treasurer and Mayor</span><h2>Where the gold is</h2></header>
+    <p class="lede">The town bank is one pile in-game; this splits it into what it's meant for.${x.at ? ` Bank balance from EarthMC, ${fmtT(x.at)}.` : ""}</p>
+    <div class="tiles">
+      <div class="tile t-gold"><span>In the town bank</span><b>${x.bal==null?"–":g(x.bal)}</b><span>from EarthMC</span></div>
+      <div class="tile t-red"><span>Owed to residents</span><b>${g(x.wallets+x.savings)}</b><span>${g(x.savings)} of it in savings</span></div>
+      <div class="tile ${short?"t-red":"t-ok"}"><span>${short?"Short by":"Free to spend"}</span><b>${x.free==null?"–":g(Math.abs(x.free))}</b><span>${short?"owed + reserve + pots is more than the bank holds":"after what's owed, the reserve and the pots"}</span></div>
+    </div>
+    ${bar}
+    <ul class="bud-key">${segs.map(s=>`<li><b style="background:${s.c}"></b><span><strong>${esc(s.k)}</strong><small>${esc(s.s)}</small></span><em>${g(s.v)}</em></li>`).join("")}</ul>
+    <div class="two">
+      <div class="panel"><span class="label">Coming back in</span>
+        ${x.loans.length ? `<p style="margin:0"><strong>${g(x.toGetBack)}</strong> to be repaid on ${x.loans.length} loan${x.loans.length===1?"":"s"} (${g(x.lentOut)} lent, the rest interest).</p>
+        <ul>${x.loans.map(l=>`<li>${esc(l.player)}: ${g(l.owed)} by ${fmtD(l.due)}${l.overdue?` <span class="amt-out">· ${l.overdue}d late</span>`:""}</li>`).join("")}</ul>`
+        : `<p style="margin:0" class="hint">No loans out. Lent gold is outside the bank until it's repaid.</p>`}</div>
+      <div class="panel"><span class="label">Going out</span>
+        <p style="margin:0">Savings interest due in the next 30 days: <strong>${g(x.interest30)}</strong>.</p>
+        <p style="margin:0" class="hint">If every resident cashed out today the bank would pay ${g(x.wallets+x.savings)}; the policy lets each take ${pct(d.cfg.noticeShare)} at once without notice.</p></div>
+    </div>
+    <details class="bud-edit"><summary>Set the reserve and earmarks</summary><form class="bank-card" id="bForm">
+      <label>Reserve (never spent)<input id="bReserve" type="number" min="0" step="1" value="${x.reserve}"></label>
+      <div id="bPots">${x.pots.map(p=>potRow(p)).join("")}</div>
+      <div class="desk-btns"><button type="button" class="btn btn-line mini-btn" id="bAdd">+ Add a pot</button><button class="btn btn-red mini-btn" type="submit">Save budget</button></div>
+      <p class="hint" style="margin:0">Pots are gold set aside in the bank for a purpose: claims, a project, wages. They don't move gold in-game.</p>
+    </form></details>
+  </section>`;
+}
+const potRow = p => `<div class="pot" data-id="${esc(p.id)}"><label>Pot<input class="pName" maxlength="40" value="${esc(p.name)}" placeholder="e.g. Paddle steamer"></label><label>Gold<input class="pGold" type="number" min="0" step="1" value="${+p.gold||0}"></label><button type="button" class="btn btn-line mini-btn pDel" aria-label="Remove pot">✕</button></div>`;
+
+/* tracker deposits from the EarthMC API, each matched against the Treasurer's log (same player, same amount, within 36 hours) */
+function apiMatches(d){
+  const used = new Set();
+  return d.api.filter(e => e.player).slice().sort((a,b)=>a.t-b.t).map(a => {
+    const m = d.deps.find(e => !used.has(e.id) && e.player === a.player && Math.abs(e.amount - a.amount) < 0.01 && Math.abs(e.t - a.t) <= 1.5*DAY);
+    if (m) used.add(m.id);
+    return {...a, logged: !!m};
+  });
+}
+function apiCheckHTML(d){
+  const list = apiMatches(d).filter(a => a.t >= Date.now() - 14*DAY).reverse().slice(0, 15);
+  const open = list.filter(a => !a.logged).length;
+  return `<section><header><span class="label">EarthMC check</span><h2>Seen by the API</h2></header>
+    <p class="lede">The tracker spots gold moving between residents and the town bank. ${list.length ? (open ? `<strong>${open} not in your log yet.</strong>` : "Everything it saw is in your log.") : ""}</p>
+    ${list.length ? `<ul class="reqs">${list.map(a => `<li class="reqrow" style="border-left-color:${a.logged?"var(--ok)":"var(--gold)"}"><div><span>${person(a.player,20)} <span class="hint">${a.amount>0?"deposited":"withdrew"} ${fmtG(Math.abs(a.amount))}</span></span><small class="hint">${fmtT(a.t)}</small></div>
+      ${a.logged ? `<span class="chip filled">In your log</span>` : `<button type="button" class="btn btn-red mini-btn" data-log="${esc(JSON.stringify({p:a.player, g:a.amount, t:a.t}))}">Log it</button>`}</li>`).join("")}</ul>`
+    : `<p class="notice">Nothing from the tracker in the last 14 days.</p>`}
+    <p class="hint">A deposit and a shop purchase in the same 10 minutes can look alike to the tracker, so check before logging.</p></section>`;
+}
+
+function wireDesk(d, L){
+  const $ = id => document.getElementById(id), c = d.cfg, form = $("dForm");
+  const msg = (el, text, kind) => { if (!el) return; el.textContent = text; el.className = "form-msg" + (kind ? " " + kind : ""); };
+  /* record an operation, try to save it, then redraw the page */
+  const commit = async (op, note) => {
+    LS.set(OPS_KEY, [...LS.get(OPS_KEY, []), op]);
+    let status = note, kind = "ok";
+    if (repoOf() && ghConf()) {
+      try { await pushDesk(); status += " Saved to the website."; }
+      catch(e){ status += " Not saved yet: " + ghErrorText(e); kind = "bad"; }
+    } else status += " Kept in this browser until you connect GitHub on the Desk tab.";
+    await renderAdmin(M.adminTab);
+    msg(document.getElementById("dMsg"), status, kind);
+  };
+  if (form) {
+  const type = () => form.querySelector('input[name="dType"]:checked').value;
+  const refresh = () => {
+    const g = +$("dGold").value, p = $("dPlayer").value, out = type() === "out", editing = !!$("dId").value;
+    $("dSubmit").textContent = editing ? "Save changes" : out ? "Log withdrawal" : "Log deposit";
+    const sum = $("dSum"); sum.className = "desk-sum";
+    if (!p || !g) { sum.textContent = ""; return; }
+    const r = L.find(x => x.name === p), rub = Math.round(g * c.roublesPerGold);
+    if (!out) { sum.textContent = `${p} gets +${fmtR(rub)}.`; return; }
+    const have = r ? r.wallet : 0;
+    sum.textContent = `${p} gives back ${fmtR(rub)} (has ${fmtR(have)} in roubles).`;
+    if (rub > have && !editing) { sum.classList.add("warn"); sum.textContent += " That's more than they have."; }
+  };
+  form.addEventListener("input", refresh); form.addEventListener("change", refresh);
+
+  const reset = () => { form.reset(); $("dId").value = ""; $("dWhen").value = toLocalInput(Date.now()); $("dCancel").hidden = true; refresh(); };
+  const startEdit = e => {
+    $("dId").value = e.id; $("dPlayer").value = e.player; $("dGold").value = Math.abs(e.gold); $("dNote").value = e.note || "";
+    $("dWhen").value = toLocalInput(e.t); form.querySelector(`input[name="dType"][value="${e.gold<0?"out":"in"}"]`).checked = true;
+    $("dCancel").hidden = false; refresh(); form.scrollIntoView({block:"start", behavior:"smooth"}); $("dGold").focus();
+  };
+  $("dCancel").addEventListener("click", reset);
+
+  form.addEventListener("submit", async ev => {
+    ev.preventDefault();
+    const p = $("dPlayer").value, g = Math.round(+$("dGold").value), t = new Date($("dWhen").value).getTime();
+    if (!p) return msg($("dMsg"), "Choose a player.", "bad");
+    if (!(g > 0)) return msg($("dMsg"), "Enter the gold amount.", "bad");
+    if (!Number.isFinite(t)) return msg($("dMsg"), "Enter when it happened.", "bad");
+    const out = type() === "out", id = $("dId").value;
+    if (out && !id) { const r = L.find(x => x.name === p); if (r && g*c.roublesPerGold > r.wallet && !confirm(`${p} only has ${fmtR(r.wallet)} in roubles. Log a ${fmtG(g)} withdrawal anyway?`)) return; }
+    const e = {id: id || newId(), t, player:p, gold: out ? -g : g, ...( $("dNote").value.trim() ? {note:$("dNote").value.trim()} : {}), by:M.user};
+    $("dSubmit").disabled = true;
+    await commit({op: id ? "edit" : "add", e}, `${id ? "Updated" : "Logged"}: ${p} ${out?"−":"+"}${fmtG(g)}.`);
+  });
+
+  document.querySelectorAll("#mvBody [data-edit]").forEach(b => b.addEventListener("click", () => {
+    const e = d.bank.deposits.find(x => x.id === b.dataset.edit); if (e) startEdit(e); }));
+  document.querySelectorAll("#mvBody [data-del]").forEach(b => b.addEventListener("click", () => {
+    const e = d.bank.deposits.find(x => x.id === b.dataset.del); if (!e) return;
+    if (!confirm(`Delete ${e.player}'s ${e.gold<0?"withdrawal":"deposit"} of ${fmtG(Math.abs(e.gold))} from ${fmtT(e.t)}?`)) return;
+    commit({op:"del", id:e.id}, `Deleted ${e.player}'s ${e.gold<0?"withdrawal":"deposit"}.`);
+  }));
+  document.querySelectorAll("#mvBody [data-log]").forEach(b => b.addEventListener("click", () => {
+    const a = JSON.parse(b.dataset.log); reset();
+    $("dPlayer").value = a.p; $("dGold").value = Math.abs(Math.round(a.g)); $("dWhen").value = toLocalInput(a.t);
+    form.querySelector(`input[name="dType"][value="${a.g<0?"out":"in"}"]`).checked = true; $("dNote").value = "Seen by EarthMC";
+    refresh(); form.scrollIntoView({block:"start", behavior:"smooth"}); $("dGold").focus();
+  }));
+  refresh();
+  }
+
+  if ($("dPush")) $("dPush").addEventListener("click", async () => {
+    $("dPush").disabled = true;
+    try { await pushDesk(); await renderAdmin(M.adminTab); msg($("dMsg"), "Saved to the website.", "ok"); }
+    catch(e){ $("dPush").disabled = false; msg($("dMsg"), ghErrorText(e), "bad"); }
+  });
+  if ($("dDown")) $("dDown").addEventListener("click", () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(d.bank, null, 1) + "\n"], {type:"application/json"}));
+    a.download = "bank.json"; document.body.appendChild(a); a.click(); a.remove();
+    msg($("dMsg"), "Upload this file to data/ in the website repo to publish it.", "ok");
+  });
+  if ($("gSave")) $("gSave").addEventListener("click", async () => {
+    const tok = $("gToken").value.trim(), old = ghConf();
+    if (!tok) return msg($("gMsg"), "Paste a token first.", "bad");
+    const R = repoOf();
+    LS.set(GH_KEY, {token: tok});
+    msg($("gMsg"), "Checking…");
+    try {
+      const info = await gh(`/repos/${R.owner}/${R.repo}`);
+      if (info.permissions && !info.permissions.push) throw Object.assign(new Error(), {status:403});
+      if (pendingOps().length) await pushDesk();
+      await renderAdmin(M.adminTab); const m = document.getElementById("dMsg"); if (m) msg(m, `Connected to ${R.owner}/${R.repo}. New entries now save to the website.`, "ok");
+    } catch(e){ LS.set(GH_KEY, old); msg($("gMsg"), ghErrorText(e), "bad"); }
+  });
+  /* version history: every commit of bank.json, view one, or restore it as a new commit */
+  const hist = $("vHist");
+  if (hist) hist.addEventListener("toggle", async () => {
+    if (!hist.open || hist.dataset.loaded) return;
+    hist.dataset.loaded = "1";
+    const R = repoOf(), list = $("vList"), view = $("vView");
+    const getAt = async ref => { const f = await gh(`/repos/${R.owner}/${R.repo}/contents/${R.path}?ref=${encodeURIComponent(ref)}`); return {sha:f.sha, text:b64dec(f.content)}; };
+    try {
+      const commits = await gh(`/repos/${R.owner}/${R.repo}/commits?path=${encodeURIComponent(R.path)}&sha=${encodeURIComponent(R.branch)}&per_page=30`);
+      if (!commits.length) { list.innerHTML = `<li class="hint">No versions yet.</li>`; return; }
+      list.innerHTML = commits.map((k,i) => `<li class="reqrow" style="border-left-color:${i?"var(--line)":"var(--ok)"}"><div><span><strong>${esc(k.commit.message.split("\n")[0])}</strong></span><small class="hint">${fmtT(new Date(k.commit.author.date).getTime())}${i?"":" · current"}</small></div>
+        <div class="desk-btns"><button type="button" class="btn btn-line mini-btn" data-view="${k.sha}">View</button>${i ? `<button type="button" class="btn btn-line mini-btn" data-restore="${k.sha}" data-when="${esc(fmtT(new Date(k.commit.author.date).getTime()))}">Restore</button>` : ""}</div></li>`).join("");
+      list.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", async () => {
+        view.hidden = false; view.textContent = "Loading…";
+        try { const v = JSON.parse((await getAt(b.dataset.view)).text), dep = (v.deposits||[]);
+          view.textContent = `${dep.length} entr${dep.length===1?"y":"ies"} · ${fmtG(dep.filter(e=>e.gold>0).reduce((a,e)=>a+e.gold,0))} deposited · ${fmtG(dep.filter(e=>e.gold<0).reduce((a,e)=>a-e.gold,0))} withdrawn\n\n` +
+            dep.slice().reverse().map(e => `${fmtT(e.t)}  ${e.player}  ${e.gold>0?"+":"−"}${Math.abs(e.gold)}g${e.note?"  ("+e.note+")":""}`).join("\n");
+        } catch(e){ view.textContent = ghErrorText(e); }
+      }));
+      list.querySelectorAll("[data-restore]").forEach(b => b.addEventListener("click", async () => {
+        if (pendingOps().length) return msg($("dMsg"), "Save or download your unsaved changes first, then restore.", "bad");
+        if (!confirm(`Restore bank.json to the version from ${b.dataset.when}? The current version stays in the history.`)) return;
+        b.disabled = true;
+        try {
+          const old = await getAt(b.dataset.restore), cur = await getAt(R.branch);
+          await gh(`/repos/${R.owner}/${R.repo}/contents/${R.path}`, {method:"PUT", body:JSON.stringify({message:`Treasury desk: restore the version from ${b.dataset.when}`, branch:R.branch, content:b64enc(old.text), sha:cur.sha})});
+          /* the restored file replaces everything; drop this browser's saved overlay so old entries don't reappear */
+          LS.set(OPS_KEY, []);
+          await renderAdmin(M.adminTab); const m = document.getElementById("dMsg"); if (m) msg(m, `Restored the version from ${b.dataset.when}. Residents see it in about a minute.`, "ok");
+        } catch(e){ b.disabled = false; msg($("dMsg"), ghErrorText(e), "bad"); }
+      }));
+    } catch(e){ list.innerHTML = `<li class="hint">${esc(ghErrorText(e))}</li>`; }
+  });
+  /* bank rules: move a forfeited savings balance to the treasury, renew a loan */
+  document.querySelectorAll("#mvBody [data-forfeit]").forEach(b => b.addEventListener("click", () => {
+    const n = b.dataset.forfeit, amt = +b.dataset.amt;
+    if (!confirm(`Move ${n}'s ${fmtR(amt)} savings to the town treasury? This follows the inactivity rule and can't be claimed back.`)) return;
+    commit({op:"sav", e:{id:newId(), t:Date.now(), player:n, roubles:-amt, fee:amt, forfeit:true, note:"Inactive: moved to the town treasury", by:M.user}}, `${n}'s savings moved to the treasury.`);
+  }));
+  document.querySelectorAll("#mvBody [data-renew]").forEach(b => b.addEventListener("click", () => {
+    if (!confirm(`Renew ${b.dataset.player}'s loan for another ${d.cfg.loanDays} days?`)) return;
+    commit({op:"renew", key:b.dataset.renew, t:Date.now(), by:M.user, player:b.dataset.player}, `${b.dataset.player}'s loan renewed.`);
+  }));
+  /* budget editor */
+  const bForm = $("bForm");
+  if (bForm) {
+    const wireRow = row => row.querySelector(".pDel").addEventListener("click", () => row.remove());
+    bForm.querySelectorAll(".pot").forEach(wireRow);
+    $("bAdd").addEventListener("click", () => { $("bPots").insertAdjacentHTML("beforeend", potRow({id:newId(), name:"", gold:0})); const row = $("bPots").lastElementChild; wireRow(row); row.querySelector(".pName").focus(); });
+    bForm.addEventListener("submit", ev => {
+      ev.preventDefault();
+      const prev = Object.fromEntries(((d.bank.budget || BUDGET_DEFAULT).pots || []).map(p => [p.id, p]));
+      const pots = [...bForm.querySelectorAll(".pot")].map(r => ({...(prev[r.dataset.id] || {}), id:r.dataset.id, name:r.querySelector(".pName").value.trim(), gold:Math.max(0, Math.round(+r.querySelector(".pGold").value || 0))})).filter(p => p.name);
+      const b = {reserve:Math.max(0, Math.round(+$("bReserve").value || 0)), pots};
+      commit({op:"budget", b}, "Budget updated.");
+    });
+  }
+  if ($("gOff")) $("gOff").addEventListener("click", async () => { LS.set(GH_KEY, null); await renderAdmin(M.adminTab); });
 }
 
 async function renderPolicy(){
   const d = await loadMemberData();
   const c = d.cfg, t = treasurer();
-  memberHero("BANK POLICY", "Kynograd People's Bank");
+  memberHero("BANK POLICY", "Kynograd People's Bank", M.user ? [["Bank", `#player-${encodeURIComponent(M.user)}`], ["Policy"]] : []);
   const sec = (label, title, items) => `<section><header><span class="label">${label}</span><h2>${title}</h2></header><ol class="policy">${items.map(i=>`<li>${i}</li>`).join("")}</ol></section>`;
   document.getElementById("mvBody").innerHTML = `
   <p class="lede">The People's Bank of Kynograd runs on Minecraft gold and roubles, the town's own currency. By using any bank service you agree to this policy. ${esc(t)} runs the bank day to day; the Mayor settles disputes.</p>
   ${sec("Article 1","Roubles",[
-    `Every 1g you deposit in the town bank earns <strong>${c.roublesPerGold} ₽</strong>. Deposits are picked up when the bank's records are updated, about twice a day.`,
+    `Every 1g you deposit in the town bank earns <strong>${c.roublesPerGold} ₽</strong>. Deposit in-game with /t deposit and tell the Treasurer in #town-bank; it counts once the Treasurer logs it.`,
+    `Taking gold back out of the town bank is a withdrawal: it takes ${c.roublesPerGold} ₽ for every 1g back from your roubles.`,
     `To send roubles to another resident, ask the Treasurer in #town-bank. Transfers are free and final once recorded.`,
     `Roubles are spent with the Mayor or the Treasurer, for goods and services the town offers.`])}
   ${sec("Article 2","Savings accounts",[
     `Roubles in a savings account earn <strong>${pct(c.savingsRate)} interest every 30 days</strong>, counted from your first savings deposit.`,
     `Each deposit into savings is locked for <strong>${c.lockDays} days</strong>.`,
     `Ask the Treasurer to move roubles into or out of savings.`,
-    `Taking money out of savings within ${c.lockDays} days of your last deposit costs an <strong>early withdrawal fee of ${pct(c.earlyFee)}</strong> of the amount taken out.`])}
+    `Taking money out of savings within ${c.lockDays} days of your last deposit costs an <strong>early withdrawal fee of ${pct(c.earlyFee)}</strong> of the amount taken out.`,
+    `If you are offline on EarthMC for <strong>${c.inactiveDays} days</strong>, your savings are <strong>frozen for ${c.frozenDays} days</strong>: nothing can be taken out until you log back in.`,
+    `If you are still offline when the freeze ends, your savings are <strong>moved to the town treasury</strong> and cannot be claimed back.`])}
   ${sec("Article 3","Withdrawals and cash-outs",[
     `Roubles can be cashed out as gold at ${c.roublesPerGold} ₽ = 1g: ask the Treasurer, who pays you in-game.`,
     `You can withdraw up to <strong>${pct(c.noticeShare)} of your account</strong> (roubles plus savings) in one request without notice.`,
@@ -1677,6 +2342,8 @@ async function renderPolicy(){
     `Ask the Treasurer for a loan in #town-bank. The Treasurer decides; a loan starts on the day the gold is paid out.`,
     `Every loan runs for <strong>${c.loanDays} days</strong>. Repay it in gold to the Treasurer before the due date. You may repay early at any time without a fee.`,
     `Loans cost <strong>${pct(c.loanRate)} interest every 30 days</strong> on what you still owe, until repaid in full.`,
+    `When a loan reaches the end of its ${c.loanDays} days you can <strong>renew it for another ${c.loanDays} days</strong>: ask the Treasurer in #town-bank. Interest keeps running on what you still owe.`,
+    `A loan in default cannot be renewed.`,
     `You cannot get a new loan while one of yours is late.`])}
   ${sec("Article 5","Not paying back",[
     `Each day a loan is overdue, <strong>${pct(c.lateDaily)}</strong> is added to what you owe.`,
@@ -1686,33 +2353,385 @@ async function renderPolicy(){
     `The bank's records on this website are the official record. Report mistakes in #town-bank within 7 days.`,
     `The council may change these rates and rules; changes are announced in #announcements before they apply.`])}
   <section><div class="links">${M.user ? `<a href="#player-${encodeURIComponent(M.user)}">← My bank</a>` : `<a href="#map">← Back to the town page</a>`}</div></section>`;
+  if (M.user) bankTabs("policy");
 }
 
-/* the flag in the home header opens the member area */
+
+/* ===== Guild HQ (members only) =====
+   #guilds      the overview: what every guild is working on, and a way in for residents who haven't joined one
+   #hq-<guild>  a guild's own page: this phase's to-do list, duties, ranks and routines (its members, the council and the Treasurer) */
+const GUILD_COLORS = {council:"#5e5a60", keyholders:"#8a6400", builders:"#b02e26", police:"#2c5aa0", resource:"#4c7a12"};
+const myGuild = () => ((M.data && M.data.players[M.user]) || {}).guild || null;
+const canOpenGuild = id => isAdmin() || myGuild() === id || myGuild() === "council";
+const COUNCIL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>';
+const guildIcon = id => id === "council" ? COUNCIL_ICON : (ICONS[id] || APP_ICONS.guilds);
+const crewOf = g => [...g.seats.filter(x=>x.status==="filled").map(x=>x.who), ...(g.members||[])];
+
+async function renderGuildHQ(){
+  await loadMemberData();
+  memberHero("GUILD HQ", `${PHASE.label} · ${PHASE.name}`, [["Guild HQ"]]);
+  const mine = GUILDS.find(g => g.id === myGuild());
+  const total = GUILDS.reduce((n,g)=>n+g.actions.length,0), done = GUILDS.reduce((n,g)=>n+doneCount(g),0);
+  const order = [...GUILDS.filter(g=>g.id!=="council")].sort((a,b)=>(b.id===myGuild())-(a.id===myGuild()));
+  const card = g => {
+    const h = g.seats.find(x=>x.head), crew = crewOf(g), projects = PROJECTS.filter(p=>p.guild===g.id), d = doneCount(g);
+    const open = canOpenGuild(g.id), yours = g.id === myGuild();
+    return `<article class="gov" id="gov-${g.id}" style="--gc:${GUILD_COLORS[g.id]}">
+      <div class="gov-top"><span class="app-ic sm" style="--ac:${GUILD_COLORS[g.id]}">${guildIcon(g.id)}</span>
+        <div><h3>${esc(g.name)}</h3><span class="hint">${crew.length} member${crew.length===1?"":"s"} · head ${h&&h.status==="filled"?esc(h.who):"open"}</span></div>
+        ${yours ? `<span class="chip filled">Your guild</span>` : ""}</div>
+      <p class="gov-goal"><span class="label">Working on</span><strong>${esc(g.goal)}</strong></p>
+      ${projects.length ? `<ul class="gov-proj">${projects.map(p=>{const dn=p.stages.filter(x=>x.done).length; return `<li>${p.img?`<img src="${p.img}" alt="" loading="lazy">`:`<span class="noimg">${guildIcon(g.id)}</span>`}<div><strong>${esc(p.name)}</strong><span class="hint">${esc(p.status)} · ${dn}/${p.stages.length} stages</span><div class="mini"><i style="width:${dn/p.stages.length*100}%"></i></div></div></li>`;}).join("")}</ul>` : ""}
+      ${meter(d, g.actions.length, "This phase")}
+      <div class="gov-act">${open ? `<a class="btn btn-red mini-btn" href="#hq-${g.id}">Open guild page →</a>`
+        : mine ? `<a class="btn btn-line mini-btn" href="#${g.id}">Public page</a>`
+        : `<a class="btn btn-red mini-btn" href="#hq-join-${g.id}" data-join="${g.id}">Join this guild</a><a class="btn btn-line mini-btn" href="#${g.id}">Public page</a>`}</div>
+      ${!mine ? `<div class="gov-join" id="join-${g.id}" hidden>${joinBox(g)}<div class="cta-row" style="margin-top:0">${dcBtn(g.channel.slice(1), `Say hi in ${g.channel}`, "btn-red")}</div></div>` : ""}
+    </article>`; };
+  document.getElementById("mvBody").innerHTML = `
+  ${mine ? `<section class="gov-mine" style="--gc:${GUILD_COLORS[mine.id]}"><span class="app-ic" style="--ac:${GUILD_COLORS[mine.id]}">${guildIcon(mine.id)}</span><div><span class="label">Your guild</span><h2>${esc(mine.name)}</h2><p class="lede">${doneCount(mine)} of ${mine.actions.length} actions done this phase.</p></div><a class="btn btn-red" href="#hq-${mine.id}">Open →</a></section>`
+    : !mine ? `<section class="gov-mine" style="--gc:var(--red)"><span class="app-ic" style="--ac:var(--red)">${APP_ICONS.guilds}</span><div><span class="label">You're not in a guild yet</span><h2>Pick one and help build Kynograd</h2><p class="lede">Every guild leads a project this phase. See what they're working on below and join the one that fits you.</p></div></section>` : ""}
+  <section><header><span class="label">${esc(PHASE.label)} · ${done} of ${total} actions done</span><h2>What the guilds are working on</h2></header>
+    <p class="lede">${esc(PHASE.summary)}</p>
+    <nav class="gov-index" aria-label="Jump to a guild">${order.map(g => `<a href="#gov-${g.id}" data-jump="gov-${g.id}"><span class="app-ic xs" style="--ac:${GUILD_COLORS[g.id]}">${guildIcon(g.id)}</span><span>${esc(g.short)}</span>${g.id===myGuild()?`<em>yours</em>`:""}</a>`).join("")}</nav>
+    <div class="govs">${order.map(card).join("")}</div></section>`;
+  const jumps = [...document.querySelectorAll("#mvBody [data-jump]")];
+  jumps.forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.getElementById(a.dataset.jump).scrollIntoView({behavior:"smooth", block:"start"}); }));
+  /* highlight the guild currently in view */
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) jumps.forEach(a => a.setAttribute("aria-current", a.dataset.jump === en.target.id ? "true" : "false")); }), {rootMargin:"-80px 0px -60% 0px"});
+    document.querySelectorAll(".gov").forEach(c => io.observe(c));
+  }
+  document.querySelectorAll("#mvBody [data-join]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); const box = document.getElementById("join-" + a.dataset.join); box.hidden = !box.hidden; }));
+}
+
+async function renderGuildApp(id){
+  await loadMemberData();
+  const g = GUILDS.find(x => x.id === id);
+  if (!g) { location.hash = "guilds"; return; }
+  if (!canOpenGuild(id)) { location.hash = "guilds"; return; }
+  const h = g.seats.find(x=>x.head), crew = crewOf(g), projects = PROJECTS.filter(p=>p.guild===g.id);
+  memberHero(`<span class="ptitle"><span class="app-ic sm" style="--ac:${GUILD_COLORS[g.id]}">${guildIcon(g.id)}</span><span>${esc(g.short.toUpperCase())}</span></span>`, `${g.name} · ${PHASE.label}`, [["Guild HQ", "#guilds"], [g.short]]);
+  document.getElementById("mvBody").innerHTML = `
+  <section class="thismonth"><span class="label">This phase · ${esc(PHASE.label)} · ${esc(PHASE.name)}</span><h2>${esc(g.goal)}</h2>
+    ${meter(doneCount(g), g.actions.length, "To do")}
+    ${actionList(g)}</section>
+  ${projects.length ? `<section><header><span class="label">Projects we lead</span><h2>Projects</h2></header>
+    <ul class="gov-proj">${projects.map(p=>{const dn=p.stages.filter(x=>x.done).length; return `<li>${p.img?`<img src="${p.img}" alt="" loading="lazy">`:`<span class="noimg">${guildIcon(g.id)}</span>`}<div><strong>${esc(p.name)}</strong><span class="hint">${esc(p.status)} · next: ${esc((p.stages.find(x=>!x.done)||{t:"done"}).t)}</span><div class="mini"><i style="width:${dn/p.stages.length*100}%"></i></div></div></li>`;}).join("")}</ul>
+    <a class="go-link" href="#projects">All town projects →</a></section>` : ""}
+  <section><header><span class="label">The crew</span><h2>Members</h2></header>
+    <div class="residents"><ul>${crew.map(m=>`<li>${person(m,24)}${h&&h.who===m?`<span class="rtag">${esc(h.role)}</span>`:""}</li>`).join("") || `<li class="hint">No members yet.</li>`}</ul></div>
+    <div class="ranks">${g.ranks.map(r=>`<span>${esc(r)}</span>`).join('<i aria-hidden="true">→</i>')}</div>
+    <p class="ingame"><span class="label">In-game rank</span> ${esc(g.ingame)}</p></section>
+  <section><header><span class="label">How we work</span><h2>Duties and routines</h2></header>
+    <ul class="duties">${g.duties.map(([t,x])=>`<li><strong>${esc(t)}</strong><span>${esc(x)}</span></li>`).join("")}</ul>
+    <div class="two">
+      <div class="panel"><span class="label">Every week</span><ul>${g.weekly.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>
+      <div class="panel"><span class="label">Long-term goals</span><ul>${g.goals.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>
+    </div>
+    <div class="panel"><span class="label">How the guild grows</span><ul>${g.growth.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div></section>
+  <section><div class="links"><a href="#guilds">← Guild HQ</a><a href="#${g.id}">Public page</a>${dcUrl(g.channel.slice(1))?`<a href="${dcUrl(g.channel.slice(1))}" target="_blank" rel="noopener">${esc(g.channel)} ↗</a>`:""}</div></section>`;
+}
+
+/* ===== Portal: the landing page after sign-in, laid out like a phone's home screen ===== */
+const APP_ICONS = {
+ bank:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9.5 12 4l9 5.5"/><path d="M4 20h16M5 17h14"/><path d="M6.5 10.5v6M10 10.5v6M14 10.5v6M17.5 10.5v6"/></svg>',
+ treasury:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="6" width="17" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3"/><path d="M12 9.5v-1M12 16.5v-1M9 12.5H8M16 12.5h-1"/><path d="M7 19v1.5M17 19v1.5"/></svg>',
+ housing:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg>',
+ stocks:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 20h16"/><path d="M5 16l4-5 3.5 3L19 6"/><path d="M15 6h4v4"/></svg>',
+ guilds:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.3 2.3 4.7-4.8" stroke-linecap="round"/></svg>',
+ town:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6z"/><path d="M9 4v14M15 6v14"/></svg>'
+};
+async function renderPortal(){
+  const d = await loadMemberData(true);
+  const L = ledger(d), me = L.find(r => r.name === M.user);
+  /* grouped by importance: town hall (only for the council and Treasurer), everyday town apps, guilds, then the public site */
+  const guildApp = (g, sub) => ({k:"g-"+g.id, icon:guildIcon(g.id), name:g.short, href:`#hq-${g.id}`, c:GUILD_COLORS[g.id], sub});
+  const council = GUILDS.find(g => g.id === "council");
+  const own = GUILDS.find(g => g.id === myGuild() && g.id !== "council");
+  const otherGuilds = GUILDS.filter(g => g.id !== "council" && g !== own && canOpenGuild(g.id));
+  const groups = [
+    ["Town hall", [
+      ...(canOpenGuild("council") ? [guildApp(council, `${doneCount(council)}/${council.actions.length} done`)] : []),
+      ...(isAdmin() ? [{k:"treasury", name:"Treasury", href:"#admin", c:"#18161a", sub:"Desk & budget"}] : [])]],
+    ["Town", [
+      {k:"bank", name:"Bank", href:`#player-${encodeURIComponent(M.user)}`, c:"#8a6400", sub: me ? fmtR(me.wallet) : "Your roubles"},
+      {k:"housing", name:"Housing", href:"#housing", c:"#2c5aa0", sub:"Apartments"},
+      {k:"guides", icon:BOOK_ICON, name:"Guides", href:"#guides", c:"#7a4fa0", sub:`${GUIDE_TEASERS.length + RESIDENT_GUIDES.length} guides`},
+      {k:"stocks", name:"Stocks", href:"#stocks", c:"#4c7a12", sub:"Coming soon", soon:true}]],
+    ["Guilds", [
+      ...(own ? [guildApp(own, `Yours · ${doneCount(own)}/${own.actions.length}`)] : []),
+      {k:"guilds", name:"Guild HQ", href:"#guilds", c:"#b02e26", sub: myGuild() ? "All guilds" : "Join a guild"},
+      ...otherGuilds.map(g => guildApp(g, `${doneCount(g)}/${g.actions.length} done`))]],
+    ["Public", [{k:"town", name:"Town site", href:"#map", c:"#5e5a60", sub:"Public pages"}]]
+  ].filter(([, list]) => list.length);
+  memberHero("PORTAL", "Kynograd · residents only", []);
+  document.getElementById("mvBody").innerHTML = groups.map(([label, list]) => `
+  <section class="home-apps"><h2 class="app-group">${esc(label)}</h2>
+    <ul class="apps">${list.map(a => `<li><a class="app${a.soon?" soon":""}" href="${a.href}"><span class="app-ic" style="--ac:${a.c}">${a.icon || APP_ICONS[a.k]}</span><span class="app-name">${esc(a.name)}</span><span class="app-sub">${esc(a.sub)}</span></a></li>`).join("")}</ul>
+  </section>`).join("");
+}
+
+/* ===== Housing and Stocks: landing pages until the apps are built ===== */
+function comingSoon({key, title, sub, color, intro, plans, now, cta}){
+  memberHero(title.toUpperCase(), sub, [[title]]);
+  document.getElementById("mvBody").innerHTML = `
+  <section class="soon-hero"><span class="app-ic big" style="--ac:${color}">${APP_ICONS[key]}</span>
+    <div><span class="chip open">Coming soon</span><p class="lede" style="margin-top:10px">${intro}</p></div></section>
+  ${now && now.length ? `<section><header><span class="label">Right now</span><h2>Today in Kynograd</h2></header><div class="tiles">${now.map(([k,v,x])=>`<div class="tile" style="--tc:${color}"><span>${esc(k)}</span><b>${esc(v)}</b><span>${esc(x)}</span></div>`).join("")}</div></section>` : ""}
+  <section><header><span class="label">What's coming</span><h2>In the ${esc(title)} app</h2></header>
+    <ul class="ask-list">${plans.map(([t,x])=>`<li style="border-top-color:${color}"><strong>${esc(t)}</strong><span>${esc(x)}</span></li>`).join("")}</ul></section>
+  ${cta || ""}
+  <section><div class="links"><a href="#portal">← Portal</a></div></section>`;
+}
+/* Housing reads data/housing.json: the town's 8 buildings, about 5 apartments each.
+   An apartment is "ready" once it's set up; resident null means it's vacant. No plots: the town only gives out apartments.
+   For now the Mayor uploads it; later the Keyholders' Realtors keep it up to date. */
+/* who may see where everyone lives: the Mayor and Co-Mayor, and Realtors (the in-game Realtor rank, or "realtor": true in players.json) */
+function isRealtor(){
+  if (!M.user || !M.data) return false;
+  const mayors = GUILDS[0].seats.filter(x => x.mayor && x.status === "filled").map(x => x.who);
+  const ti = [...M.data.snaps].reverse().map(s=>s.townInfo).find(Boolean);
+  const ranked = ((ti && ti.ranks && ti.ranks.Realtor) || []);
+  return mayors.includes(M.user) || ranked.includes(M.user) || !!(M.data.players[M.user]||{}).realtor;
+}
+async function renderHousing(view){
+  await loadMemberData();
+  /* the Mayor and Realtors land on the realtor view; "resident" previews what everyone else sees */
+  const realtor = isRealtor(), full = realtor && view !== "resident";
+  let H = {goal:40, buildings:[]};
+  try { const r = await fetch("data/housing.json?v=" + Date.now(), {cache:"no-store"}); if (r.ok) H = {...H, ...(await r.json())}; } catch(e){}
+  const blue = "var(--blue)";
+  const apts = H.buildings.flatMap(b => (b.apartments||[]).map(a => ({...a, building:b.name, bid:b.id})));
+  const ready = apts.filter(a => a.ready), vacant = ready.filter(a => !a.resident), taken = apts.filter(a => a.resident);
+  const mine = taken.find(a => a.resident === M.user), goal = +H.goal || apts.length;
+  const state = a => a.resident ? "taken" : a.ready ? "vacant" : "todo";
+  memberHero("HOUSING", full ? "Realtor view · Mayor and Realtors" : "Run by the Keyholders' Guild", realtor ? [["Housing", "#housing"], [full ? "Realtor view" : "Resident view"]] : [["Housing"]]);
+  /* residents see their own home and what's vacant; only the realtor view shows who lives where */
+  const who = a => a.resident && (full || a.resident === M.user) ? person(a.resident, 20) : `<span class="hint">${a.resident ? "Occupied" : a.ready ? "Vacant" : "Not set up yet"}</span>`;
+  const L = full ? ledger(M.data) : [];
+  const everyone = full ? [...new Set([...RESIDENTS, ...L.map(r => r.name)])].sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:"base"})) : [];
+  const homeOf = n => taken.find(a => a.resident === n);
+  const homeless = everyone.filter(n => !homeOf(n));
+  const realtorBits = full ? `
+  <section><header><span class="label">Realtor view · ${everyone.length} residents</span><h2>Residents and their homes</h2></header>
+    <p class="lede">${everyone.length - homeless.length} housed, ${homeless.length} without an apartment. Residents never see this list, only their own home.</p>
+    <div class="tablewrap"><table class="ledger"><thead><tr><th>Resident</th><th>Home</th></tr></thead><tbody>
+      ${[...everyone.filter(homeOf), ...homeless].map(n => { const h = homeOf(n); return `<tr><td>${person(n,20)}</td><td>${h ? `${esc(h.building)} · ${esc(h.label||h.id)}` : `<span class="chip wanted">No apartment</span>`}</td></tr>`; }).join("")}
+    </tbody></table></div>
+    <p class="hint">Edit data/housing.json to move people in or out.</p></section>` : "";
+  document.getElementById("mvBody").innerHTML = `
+  <figure class="pimg town-pic"><img src="img/spawn.webp" alt="Kynograd seen from spawn" loading="lazy"><figcaption class="hint">Kynograd from spawn.</figcaption></figure>
+  ${mine ? `<section><div class="gov-mine" style="--gc:${blue}"><span class="app-ic" style="--ac:${blue}">${APP_ICONS.housing}</span><div><span class="label">Your home</span><h2>${esc(mine.label || mine.id)}</h2><p class="lede">${esc(mine.building)}</p></div></div></section>` : ""}
+  <section><header><span class="label">This phase</span><h2>${goal} apartments ready to move into</h2></header>
+    ${meter(ready.length, goal, "Apartments set up")}
+    <div class="tiles">
+      <div class="tile t-ok"><span>Vacant now</span><b>${vacant.length}</b><span>ready to move into</span></div>
+      <div class="tile" style="--tc:${blue}"><span>Occupied</span><b>${taken.length}</b><span>resident${taken.length===1?"":"s"} housed</span></div>
+      <div class="tile t-gold"><span>Buildings</span><b>${H.buildings.filter(b=>b.status==="built").length} of ${H.buildings.length}</b><span>built so far</span></div>
+    </div></section>
+  ${realtorBits}
+  <section><header><span class="label">Move in</span><h2>Vacant apartments</h2></header>
+    ${vacant.length ? `<ul class="vac">${vacant.map(a => `<li><span class="app-ic xs" style="--ac:var(--ok)">${APP_ICONS.housing}</span><div><strong>${esc(a.label || a.id)}</strong><span class="hint">${esc(a.building)}</span></div></li>`).join("")}</ul>
+      <p class="lede">Want one? Ask the Keyholders and say which apartment.</p>`
+      : `<p class="notice">No vacant apartments right now. New ones open as the buildings are set up this phase.</p>`}
+    <div class="cta-row" style="margin-top:0">${dcBtn("keyholders-guild","Ask in #keyholders-guild","btn-red")}</div></section>
+  <section><header><span class="label">Where they are</span><h2>The guild quarter</h2></header>
+    <p class="lede">The arena in the middle, ringed by the guild halls, with the People's Bank, the Lykeion and the Police HQ along the edge. Residences are upstairs in every building.</p>
+    ${quarterSVG()}</section>
+  ${full ? `<section><header><span class="label">Realtor view · ${H.buildings.length} buildings</span><h2>Every apartment</h2></header>
+    <p class="hint" style="margin:0"><span class="key k-vacant"></span>Vacant <span class="key k-taken"></span>Occupied <span class="key k-todo"></span>Not set up yet</p>
+    <div class="blds">${H.buildings.map(b => { const as = b.apartments||[], v = as.filter(a=>a.ready && !a.resident).length;
+      return `<article class="bld"><div class="bld-top"><div><h3>${esc(b.name)}</h3><span class="hint">${esc(b.where||"")}</span></div><span class="chip ${b.status==="built"?"filled":"open"}">${b.status==="built" ? (v ? `${v} vacant` : "Built") : "Planned"}</span></div>
+        <ul class="apts">${as.map(a => `<li class="${state(a)}${a.resident === M.user ? " mine" : ""}"><span class="label">${esc(a.label || a.id)}</span>${who(a)}</li>`).join("")}</ul></article>`; }).join("")}</div>
+    <p class="hint">${H.updated ? `Updated ${esc(H.updated)}. ` : ""}Kept up to date by the Keyholders' Guild.</p></section>` : `<p class="hint">${H.updated ? `Updated ${esc(H.updated)}. ` : ""}Kept up to date by the Keyholders' Guild.</p>`}`;
+  if (realtor) appTabs([["realtor","Realtor view","#housing"],["resident","Resident view","#housing/resident"]], full ? "realtor" : "resident", "Housing");
+}
+async function renderStocks(){
+  await loadMemberData();
+  comingSoon({key:"stocks", title:"Stocks", sub:"The Kynograd market", color:"var(--ok)",
+    intro:"The town market is being planned. The Stocks app will be where residents follow it.",
+    plans:[["The market","What's listed and what it's worth."],["Your holdings","What you own, paid for in roubles from your bank."],["History","Prices over time, like the gold chart in the bank."]],
+    cta:`<p class="hint">Details are still being decided by the council.</p>`});
+}
+
+/* the flag in every page header is the way home: the portal when signed in, the sign-in when not */
+function goPortal(){
+  if (!M.user) return showLogin("portal");
+  if (location.hash === "#portal") { route(); window.scrollTo({top:0, behavior:"smooth"}); } else location.hash = "portal";
+}
+/* once the header flag scrolls out of sight, a copy slides down into the bottom corner and stays there as the portal button */
 (function(){
-  const flag = document.querySelector("#home .hero .flag");
-  if (!flag) return;
+  const dock = document.createElement("button");
+  dock.type = "button"; dock.className = "flag-dock"; dock.setAttribute("aria-label", "Portal"); dock.title = "Portal";
+  dock.innerHTML = `${FLAG_SVG}<span class="dock-tip"><kbd>Space</kbd> + <kbd>S</kbd></span>`;
+  dock.tabIndex = -1; dock.setAttribute("aria-hidden", "true");
+  document.body.appendChild(dock);
+  dock.addEventListener("click", goPortal);
+  let shown = false, ticking = false;
+  const heroFlag = () => [...document.querySelectorAll(".hero .flag")].find(f => f.offsetParent !== null);
+  const update = () => {
+    ticking = false;
+    const f = heroFlag(), out = f ? f.getBoundingClientRect().bottom < 0 : false;
+    if (out === shown) return;
+    shown = out;
+    dock.classList.toggle("on", out);
+    dock.tabIndex = out ? 0 : -1; dock.setAttribute("aria-hidden", out ? "false" : "true");
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  addEventListener("scroll", onScroll, {passive:true});
+  addEventListener("resize", onScroll);
+  addEventListener("hashchange", () => setTimeout(update, 60));
+  update();
+})();
+/* ===== Quick switcher: hold Space and press S anywhere. The flag slides left, uncovering a search bar; type an app, Enter goes there. ===== */
+(function(){
+  const qs = document.createElement("div");
+  qs.className = "qs"; qs.hidden = true;
+  qs.innerHTML = `<ul class="qs-list" role="listbox" id="qsList" aria-label="Apps"></ul>
+    <div class="qs-row"><span class="qs-flag" aria-hidden="true">${FLAG_SVG}</span>
+      <div class="qs-field"><input id="qsIn" type="text" autocomplete="off" spellcheck="false" placeholder="Go to an app…" role="combobox" aria-controls="qsList" aria-expanded="true" aria-label="Go to an app"><kbd>Esc</kbd></div></div>`;
+  document.body.appendChild(qs);
+  const input = qs.querySelector("#qsIn"), list = qs.querySelector("#qsList");
+  let isOpen = false, sel = 0, shown = [];
+
+  /* words that appear on each page, so a search for something on a page finds that page's app.
+     Built from the site's own data, plus the text of any page you've already opened this visit. */
+  const flat = (...xs) => xs.flat(Infinity).filter(Boolean).join(" ");
+  const STATIC_TEXT = () => ({
+    "#map": flat(RESIDENTS, GUILDS.map(g => [g.name, g.motto]), "town square lykeion people's bank police hq paddle steamer trial chamber map residents join discord"),
+    "#projects": flat(PROJECTS.map(p => [p.name, p.purpose, p.where, p.size, p.land, p.stages.map(x => [x.t, x.who]), p.ref])),
+    "#guides": flat(GUIDE_TEASERS.map(g => [g.name, g.text, g.facts]), MINING_GUIDE.map(m => [m.h, m.items]), TRIALS.map(t => t[1]), TRIAL_PRICES, Object.values(PACKS).map(k => [k.name, k.text]), TUTORIAL),
+    "#bank-policy": "roubles deposit transfer savings interest locked early withdrawal fee frozen inactive treasury cash out notice working days gold loan interest renew late default outlaw dispute mistakes",
+    "#members": "town bank gold deposited town roubles leaderboard recent deposits balance chart",
+    "#housing": "apartment apartments vacant occupied move in home keyholders realtor building buildings guild quarter lykeion people's bank police hq hall",
+    "#admin": "treasury desk log deposit withdrawal edit delete github token version history restore frozen savings renew loan earthmc check api",
+    "#admin/residents": "residents overview gold on hand deposited roubles savings loan owed sort",
+    "#admin/budget": "budget where the gold is owed reserve pots earmarks free to spend short claims coming back in going out",
+    "#admin/stats": "stats deposited per day who deposited the most loan book who holds the roubles bank balance",
+    "#guilds": flat(GUILDS.map(g => [g.name, g.goal]), "join a guild working on phase"),
+    "#stocks": "stocks shares market holdings prices",
+    ...Object.fromEntries(GUILDS.map(g => [`#hq-${g.id}`, flat(g.name, g.goal, g.actions.map(a => a.t), g.duties, g.weekly, g.goals, g.growth, g.ranks, g.ingame)])),
+    ...Object.fromEntries(GUILDS.filter(g => g.id !== "council").map(g => [`#${g.id}`, flat(g.name, g.motto, PROJECTS.filter(p => p.guild === g.id).map(p => [p.name, p.purpose]), (JOINING[g.id]||{}).text)])),
+    ...Object.fromEntries([...GUIDE_TEASERS, ...RESIDENT_GUIDES].map(g => [`#guide-${g.id}`, flat(g.name, g.text, g.facts, (g.sections||[]).map(x => [x.h, x.items]), g.id === "trial" ? [TRIALS.map(t=>t[1]), TRIAL_PRICES] : g.id === "gold" ? MINING_GUIDE[0].items : g.id === "nether" ? MINING_GUIDE[1].items : [])]))
+  });
+  const SEEN_TEXT = {};
+  const capture = () => {
+    const view = ["home","memberView","guildView","projectsView","educationView","guidesView"].map(id => document.getElementById(id)).find(v => v && !v.hidden);
+    if (view) SEEN_TEXT[location.hash || "#map"] = (view.innerText || "").replace(/\s+/g, " ").slice(0, 20000);
+  };
+  addEventListener("hashchange", () => setTimeout(capture, 1200));
+  setTimeout(capture, 1500);
+
+  /* everything this person can open, most important first */
+  const items = () => {
+    const ST = STATIC_TEXT();
+    const A = (name, href, icon, c, sub, keys) => ({name, href, icon, c, sub:sub||"", keys:(keys||"").toLowerCase(), text:((ST[href]||"") + " " + (SEEN_TEXT[href]||"")).toLowerCase()});
+    const pub = [A("Town site","#map",APP_ICONS.town,"#5e5a60","Public pages","home map spawn"), A("Projects","#projects",APP_ICONS.guilds,"#5e5a60","Public pages","builds steamer arena"), A("Guides","#guides",BOOK_ICON,"#7a4fa0","Free and residents-only","gold netherite trial mining help"),
+      ...ALL_GUIDES().filter(g => !g.members || M.user).map(g => A(`Guide · ${g.name}`, `#guide-${g.id}`, BOOK_ICON, g.c || "#7a4fa0", g.members ? "Residents only" : "Free guide", g.text)),
+      ...GUILDS.filter(g=>g.id!=="council").map(g => A(`${g.short} (public)`, `#${g.id}`, guildIcon(g.id), GUILD_COLORS[g.id], "Public guild page", g.name))];
+    if (!M.user) return [A("Sign in","signin",APP_ICONS.bank,"#b02e26","Residents only","login portal"), A("Bank policy","#bank-policy",APP_ICONS.bank,"#8a6400","Public","rules"), ...pub];
+    const L = [A("Portal","#portal",FLAG_SVG,"transparent","Home","home start")];
+    if (canOpenGuild("council")) L.push(A("Council","#hq-council",guildIcon("council"),GUILD_COLORS.council,"Town hall","mayor"));
+    if (isAdmin()) L.push(A("Treasury","#admin",APP_ICONS.treasury,"#18161a","Town hall · Desk","desk log deposit withdrawal"), A("Treasury · Residents","#admin/residents",APP_ICONS.treasury,"#18161a","Town hall","overview people"), A("Treasury · Budget","#admin/budget",APP_ICONS.treasury,"#18161a","Town hall","pots reserve"), A("Treasury · Stats","#admin/stats",APP_ICONS.treasury,"#18161a","Town hall","charts loans"));
+    L.push(A("Bank","#player-"+encodeURIComponent(M.user),APP_ICONS.bank,"#8a6400","My bank","roubles savings money"), A("Town bank","#members",APP_ICONS.bank,"#8a6400","Bank","leaderboard"), A("Bank policy","#bank-policy",APP_ICONS.bank,"#8a6400","Bank","rules loans"),
+      A("Housing","#housing",APP_ICONS.housing,"#2c5aa0","Apartments","home apartment vacant"));
+    if (M.data && isRealtor()) L.push(A("Housing · Realtor view","#housing/realtor",APP_ICONS.housing,"#2c5aa0","Who lives where","realtor"));
+    L.push(A("Stocks","#stocks",APP_ICONS.stocks,"#4c7a12","Coming soon","market"));
+    const own = M.data && GUILDS.find(g => g.id === myGuild() && g.id !== "council");
+    if (own) L.push(A(own.short, `#hq-${own.id}`, guildIcon(own.id), GUILD_COLORS[own.id], "Your guild", own.name+" todo"));
+    L.push(A("Guild HQ","#guilds",APP_ICONS.guilds,"#b02e26","Guilds","join"));
+    if (M.data) GUILDS.filter(g => g.id !== "council" && g !== own && canOpenGuild(g.id)).forEach(g => L.push(A(g.short, `#hq-${g.id}`, guildIcon(g.id), GUILD_COLORS[g.id], "Guild", g.name)));
+    return [...L, ...pub];
+  };
+  const score = (it, q) => {
+    const n = it.name.toLowerCase();
+    if (n.startsWith(q)) return 4;
+    if (n.split(/[\s·()]+/).some(w => w.startsWith(q))) return 3;
+    if (n.includes(q)) return 2;
+    if (it.keys.split(/\s+/).some(w => w.startsWith(q)) || it.sub.toLowerCase().includes(q)) return 1;
+    if (q.length >= 3 && it.text.includes(q)) return 0.5;   /* the word is on that page */
+    return 0;
+  };
+  const render = () => {
+    const q = input.value.trim().toLowerCase(), all = items();
+    shown = q ? all.map((it,i) => ({it, s:score(it,q), i})).filter(x => x.s).sort((a,b) => b.s - a.s || a.i - b.i).map(x => x.it).slice(0, 6) : all.filter(it => !/·|\(public\)|Town bank|Bank policy/.test(it.name)).slice(0, 7);
+    sel = Math.min(sel, Math.max(0, shown.length - 1));
+    list.innerHTML = shown.length ? shown.map((it,i) => `<li role="option" id="qs-o${i}" aria-selected="${i===sel}" data-i="${i}"><span class="app-ic xs${it.c==="transparent"?" flagic":""}" style="--ac:${it.c}">${it.icon}</span><span class="qs-name">${esc(it.name)}</span><span class="qs-sub">${esc(it.sub)}</span>${i===sel?`<kbd>Enter</kbd>`:""}</li>`).join("")
+      : `<li class="qs-none">No app called “${esc(input.value.trim())}”</li>`;
+    input.setAttribute("aria-activedescendant", shown.length ? `qs-o${sel}` : "");
+    list.querySelectorAll("li[data-i]").forEach(li => {
+      li.addEventListener("mousemove", () => { if (sel !== +li.dataset.i) { sel = +li.dataset.i; render(); } });
+      li.addEventListener("mousedown", e => { e.preventDefault(); sel = +li.dataset.i; go(); });
+    });
+  };
+  const go = () => {
+    const it = shown[sel]; if (!it) return;
+    close();
+    if (it.href === "signin") return showLogin("portal");
+    if (location.hash === it.href) route(); else location.hash = it.href.slice(1);
+  };
+  const dock = () => document.querySelector(".flag-dock");
+  const open = () => {
+    if (isOpen) return; isOpen = true; sel = 0; input.value = "";
+    qs.hidden = false; render();
+    const d = dock(); if (d) d.classList.add("qs-hide");
+    requestAnimationFrame(() => requestAnimationFrame(() => qs.classList.add("on")));
+    setTimeout(() => input.focus(), 30);
+  };
+  const close = () => {
+    if (!isOpen) return; isOpen = false;
+    qs.classList.remove("on"); input.blur();
+    const d = dock(); if (d) d.classList.remove("qs-hide");
+    setTimeout(() => { if (!isOpen) qs.hidden = true; }, 420);
+  };
+  input.addEventListener("input", () => { sel = 0; render(); });
+  input.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { e.preventDefault(); sel = (sel + 1) % Math.max(1, shown.length); render(); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); sel = (sel - 1 + shown.length) % Math.max(1, shown.length); render(); }
+    else if (e.key === "Enter") { e.preventDefault(); go(); }
+    else if (e.key === "Escape") { e.preventDefault(); close(); }
+  });
+  input.addEventListener("blur", () => setTimeout(() => { if (isOpen && document.activeElement !== input) close(); }, 120));
+
+  /* Space + S. Space on its own still scrolls the page as usual. */
+  let spaceHeld = false, usedS = false;
+  const busy = t => t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON|A|SUMMARY)$/.test(t.tagName) || t.getAttribute("role") === "button");
+  addEventListener("keydown", e => {
+    if (isOpen || e.ctrlKey || e.metaKey || e.altKey || busy(e.target) || document.querySelector(".login-veil")) return;
+    if (e.code === "Space") { e.preventDefault(); if (!e.repeat) { spaceHeld = true; usedS = false; } return; }
+    if (spaceHeld && e.code === "KeyS") { e.preventDefault(); usedS = true; open(); }
+  });
+  addEventListener("keyup", e => {
+    if (e.code !== "Space" || !spaceHeld) return;
+    spaceHeld = false;
+    if (!usedS && !isOpen) window.scrollBy({top:(e.shiftKey ? -1 : 1) * innerHeight * 0.85, behavior:"smooth"});
+  });
+  window.openQuickSwitch = open;
+})();
+document.querySelectorAll(".hero .flag").forEach(flag => {
+  flag.insertAdjacentHTML("beforeend", `<span class="flag-tip"><kbd>Space</kbd> + <kbd>S</kbd></span>`);
   flag.classList.add("flag-btn"); flag.setAttribute("role","button"); flag.setAttribute("tabindex","0");
-  flag.setAttribute("aria-label","Kynograd flag. Residents: sign in to the member area");
-  const go = () => M.user ? (location.hash = "player-"+encodeURIComponent(M.user)) : showLogin("me");
+  flag.setAttribute("aria-label","Kynograd flag. Go to the portal");
+  const go = goPortal;
   flag.addEventListener("click", go);
   flag.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
-})();
+});
 
 function route(){
   let id = location.hash.slice(1);
   const pol = id==="bank-policy";
-  const mv = id==="members" || id==="admin" || id.startsWith("player-");
+  const mv = id.startsWith("admin/") || id.startsWith("hq-") || id==="housing" || id==="housing/realtor" || id==="housing/resident" || id==="stocks" || id==="guilds" || id==="portal" || id==="members" || id==="admin" || id.startsWith("player-");
   if (mv && !M.user) { showLogin(id); id = ""; }
   const g = GUILDS.find(x=>x.id===id);
-  const views = {guilds:["guildsView",renderLanding], projects:["projectsView",renderProjects], education:["educationView",renderEducation], guides:["guidesView",renderGuides]};
-  const v = views[id] || (id.startsWith("guide-") && GUIDE_TEASERS.some(x=>"guide-"+x.id===id) ? ["guidesView", ()=>renderGuides(id.slice(6))] : null);
+  const views = {projects:["projectsView",renderProjects], education:["educationView",renderEducation], guides:["guidesView",renderGuides]};
+  const v = views[id] || (id.startsWith("guide-") && ALL_GUIDES().some(x=>"guide-"+x.id===id) ? ["guidesView", ()=>renderGuides(id.slice(6))] : null);
   const showM = (mv && !!M.user) || pol;
   document.getElementById("memberView").hidden = !showM;
   document.getElementById("home").hidden = !!g || !!v || showM;
   document.getElementById("guildView").hidden = !g;
   for (const k in views) document.getElementById(views[k][0]).hidden = !(v && views[k][0]===v[0]);
-  if(showM){ (pol ? renderPolicy() : id==="members" ? renderMembers() : id==="admin" ? renderAdmin() : renderPlayer(decodeURIComponent(id.slice(7)))); window.scrollTo(0,0); }
+  if(showM){ (pol ? renderPolicy() : id.startsWith("hq-") ? renderGuildApp(id.slice(3)) : id.startsWith("housing") ? renderHousing(id.split("/")[1]) : id==="stocks" ? renderStocks() : id==="guilds" ? renderGuildHQ() : id==="portal" ? renderPortal() : id==="members" ? renderMembers() : id==="admin" || id.startsWith("admin/") ? renderAdmin(id.split("/")[1]) : renderPlayer(decodeURIComponent(id.slice(7)))); window.scrollTo(0,0); }
   else if(g){ renderGuild(g); window.scrollTo(0,0); }
   else if(v){ (id==="guides" ? ()=>renderGuides() : v[1])(); window.scrollTo(0,0); }
   else if(id){ const t=document.getElementById(id); if(t) t.scrollIntoView(); }
@@ -1722,6 +2741,4 @@ window.addEventListener("hashchange", route);
 route();
 </script>
 
-
-</body>
-</html>
+</body></html>

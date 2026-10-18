@@ -18,5 +18,159 @@
    "Nurlanitos": 0.0,
    "Me_Monies": 0.0
   }
+ },
+ {
+  "t": 1792349903557,
+  "town": 112.0,
+  "players": {
+   "Hbum": 84.0,
+   "Zaksmak8113": 4.0,
+   "GarrisonGrim": 113.0,
+   "Toasty027": 0.0,
+   "KyuIsHere": 41.0,
+   "RoyaumeLusignan": 24.0,
+   "TheJohnTron": 0.0,
+   "FlameyBoi_": 47.0,
+   "thomasmns": 0.0,
+   "vexy1342": 0.0,
+   "T_p0tt": 5.0,
+   "diaplay": 204.0,
+   "Nurlanitos": 0.0,
+   "Me_Monies": 0.0
+  }
+ },
+ {
+  "t": 1792352532074,
+  "town": 112.0,
+  "players": {
+   "Hbum": 84.0,
+   "Zaksmak8113": 4.0,
+   "GarrisonGrim": 113.0,
+   "Toasty027": 0.0,
+   "KyuIsHere": 41.0,
+   "RoyaumeLusignan": 24.0,
+   "TheJohnTron": 0.0,
+   "FlameyBoi_": 49.0,
+   "thomasmns": 0.0,
+   "vexy1342": 0.0,
+   "T_p0tt": 5.0,
+   "diaplay": 216.0,
+   "Nurlanitos": 0.0,
+   "Me_Monies": 0.0
+  },
+  "seen": {
+   "Hbum": 1792352408026,
+   "Zaksmak8113": 1792351926772,
+   "GarrisonGrim": 1792338827461,
+   "Toasty027": 1791308127769,
+   "KyuIsHere": 1791982102553,
+   "RoyaumeLusignan": 1791466860348,
+   "TheJohnTron": 1791350604816,
+   "FlameyBoi_": 1792350159622,
+   "thomasmns": 1791890889169,
+   "vexy1342": 1791881637548,
+   "T_p0tt": 1791904973233,
+   "diaplay": 1792351732983,
+   "Nurlanitos": 1792151828423,
+   "Me_Monies": 1792306846468
+  },
+  "townInfo": {
+   "checked": 1792352705261,
+   "chunks": 144,
+   "maxChunks": 268,
+   "residents": 14,
+   "nation": "Soviet_Union",
+   "mayor": "Hbum",
+   "outlaws": [],
+   "trusted": [
+    "Zaksmak8113",
+    "GarrisonGrim"
+   ],
+   "ranks": {
+    "Councillor": [
+     "Zaksmak8113",
+     "GarrisonGrim"
+    ],
+    "Police": [
+     "Zaksmak8113",
+     "KyuIsHere"
+    ],
+    "Treasurer": [
+     "GarrisonGrim"
+    ],
+    "Builder": [],
+    "Realtor": [],
+    "Recruiter": [],
+    "Settler": [],
+    "Tax-exempt": []
+   }
+  }
+ },
+ {
+  "t": 1792355823373,
+  "town": 112.0,
+  "players": {
+   "Hbum": 84.0,
+   "Zaksmak8113": 4.0,
+   "GarrisonGrim": 113.0,
+   "Toasty027": 0.0,
+   "KyuIsHere": 41.0,
+   "RoyaumeLusignan": 24.0,
+   "TheJohnTron": 0.0,
+   "FlameyBoi_": 49.0,
+   "thomasmns": 0.0,
+   "vexy1342": 0.0,
+   "T_p0tt": 5.0,
+   "diaplay": 225.0,
+   "Nurlanitos": 0.0,
+   "Me_Monies": 0.0
+  },
+  "seen": {
+   "Hbum": 1792352408026,
+   "Zaksmak8113": 1792351926772,
+   "GarrisonGrim": 1792338827461,
+   "Toasty027": 1791308127769,
+   "KyuIsHere": 1791982102553,
+   "RoyaumeLusignan": 1791466860348,
+   "TheJohnTron": 1791350604816,
+   "FlameyBoi_": 1792350159622,
+   "thomasmns": 1791890889169,
+   "vexy1342": 1791881637548,
+   "T_p0tt": 1791904973233,
+   "diaplay": 1792353556446,
+   "Nurlanitos": 1792151828423,
+   "Me_Monies": 1792306846468
+  },
+  "townInfo": {
+   "checked": 1792355823373,
+   "chunks": 144,
+   "maxChunks": 268,
+   "residents": 14,
+   "nation": "Soviet_Union",
+   "mayor": "Hbum",
+   "outlaws": [],
+   "trusted": [
+    "Zaksmak8113",
+    "GarrisonGrim"
+   ],
+   "ranks": {
+    "Builder": [],
+    "Councillor": [
+     "Zaksmak8113",
+     "GarrisonGrim"
+    ],
+    "Police": [
+     "Zaksmak8113",
+     "KyuIsHere"
+    ],
+    "Realtor": [],
+    "Recruiter": [],
+    "Settler": [],
+    "Tax-exempt": [],
+    "Treasurer": [
+     "GarrisonGrim"
+    ]
+   }
+  }
  }
 ]

@@ -9,5 +9,6 @@
  "loanDays": 30,
  "noticeShare": 0.25,
  "maxWorkdays": 5,
- "repo": ""
+ "branch": "main",
+ "bankRepo": ""
 }

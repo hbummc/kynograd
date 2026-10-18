@@ -1,0 +1,310 @@
+{
+ "updated": "18 Oct 2026",
+ "goal": 40,
+ "buildings": [
+  {
+   "id": "lykeion",
+   "name": "The Lykeion",
+   "where": "Guild quarter, north-east, by the town square",
+   "status": "built",
+   "apartments": [
+    {
+     "id": "lykeion-1",
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "lykeion-2",
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "lykeion-3",
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "lykeion-4",
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "lykeion-5",
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null
+    }
+   ]
+  },
+  {
+   "id": "bank",
+   "name": "People's Bank (Keyholders' HQ)",
+   "where": "Guild quarter, north",
+   "status": "built",
+   "apartments": [
+    {
+     "id": "bank-1",
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "bank-2",
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "bank-3",
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "bank-4",
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "bank-5",
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null
+    }
+   ]
+  },
+  {
+   "id": "policehq",
+   "name": "Police HQ",
+   "where": "Guild quarter, east",
+   "status": "built",
+   "apartments": [
+    {
+     "id": "policehq-1",
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "policehq-2",
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "policehq-3",
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "policehq-4",
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "policehq-5",
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null
+    }
+   ]
+  },
+  {
+   "id": "hall-resource",
+   "name": "Resource Hall",
+   "where": "Guild quarter, north-west",
+   "status": "planned",
+   "apartments": [
+    {
+     "id": "hall-resource-1",
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-resource-2",
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-resource-3",
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-resource-4",
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-resource-5",
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null
+    }
+   ]
+  },
+  {
+   "id": "hall-builders",
+   "name": "Builders' Hall",
+   "where": "Guild quarter, south-east",
+   "status": "planned",
+   "apartments": [
+    {
+     "id": "hall-builders-1",
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-builders-2",
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-builders-3",
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-builders-4",
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null
+    },
+    {
+     "id": "hall-builders-5",
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null
+    }
+   ]
+  },
+  {
+   "id": "hall-open-w",
+   "name": "Open hall (west)",
+   "where": "Guild quarter, west \u00b7 no guild yet",
+   "status": "planned",
+   "apartments": [
+    {
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-w-1"
+    },
+    {
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-w-2"
+    },
+    {
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-w-3"
+    },
+    {
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-w-4"
+    },
+    {
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-w-5"
+    }
+   ]
+  },
+  {
+   "id": "hall-open-sw",
+   "name": "Open hall (south-west)",
+   "where": "Guild quarter, south-west \u00b7 no guild yet",
+   "status": "planned",
+   "apartments": [
+    {
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-sw-1"
+    },
+    {
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-sw-2"
+    },
+    {
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-sw-3"
+    },
+    {
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-sw-4"
+    },
+    {
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-sw-5"
+    }
+   ]
+  },
+  {
+   "id": "hall-open-s",
+   "name": "Open hall (south)",
+   "where": "Guild quarter, south \u00b7 no guild yet",
+   "status": "planned",
+   "apartments": [
+    {
+     "label": "Apt 1",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-s-1"
+    },
+    {
+     "label": "Apt 2",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-s-2"
+    },
+    {
+     "label": "Apt 3",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-s-3"
+    },
+    {
+     "label": "Apt 4",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-s-4"
+    },
+    {
+     "label": "Apt 5",
+     "ready": false,
+     "resident": null,
+     "id": "hall-open-s-5"
+    }
+   ]
+  }
+ ]
+}
