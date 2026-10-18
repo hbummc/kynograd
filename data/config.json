@@ -1,0 +1,13 @@
+{
+ "roublesPerGold": 100,
+ "savingsRate": 0.025,
+ "loanRate": 0.05,
+ "lateDaily": 0.02,
+ "earlyFee": 0.1,
+ "lockDays": 30,
+ "defaultAfter": 7,
+ "loanDays": 30,
+ "noticeShare": 0.25,
+ "maxWorkdays": 5,
+ "repo": ""
+}

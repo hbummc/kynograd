@@ -23,9 +23,9 @@
 <meta name="twitter:description" content="Kynograd is a town on EarthMC where two rivers meet. See the town map, join one of four guilds, and earn gold with our guides to trial chambers, gold mining and netherite.">
 <meta name="twitter:image" content="SITE_URL/img/preview.jpg">
 <link rel="canonical" href="SITE_URL/">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20120%20120%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20fill%3D%22%23b02e26%22/%3E%3Crect%20x%3D%2220%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Crect%20x%3D%2260%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Crect%20x%3D%22100%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2235.6%22%20fill%3D%22%2380c71f%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -351,6 +351,100 @@ section > header h2{font-size:clamp(1.7rem,5.5vw,2.4rem)}
 .gi-body p{margin:0;color:var(--muted)}
 .gi-body .btn{align-self:flex-start}
 @media (max-width:520px){.gi{grid-template-columns:1fr}}
+/* member area: sign-in sheet, ledger tables, gold charts */
+.flag-btn{cursor:pointer}
+.login-veil{position:fixed;inset:0;z-index:50;background:rgba(10,8,12,.62);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.login-card{width:min(380px,100%);background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-top:8px solid var(--red);padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.login-card h2{font-size:1.6rem}
+.login-card label{display:flex;flex-direction:column;gap:6px;font:500 .72rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.login-card select,.login-card input,.adm input,.adm select{font:400 1rem/1.2 var(--body);padding:10px 12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:0;width:100%;min-width:0}
+.login-card select:focus,.login-card input:focus,.adm input:focus,.adm select:focus{outline:none;border-color:var(--ink)}
+.login-err{color:var(--red);font:500 .85rem/1.3 var(--mono);min-height:1.1em;margin:0}
+.login-row{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.m-who{display:inline-flex;align-items:center;gap:10px;margin-top:14px;font:500 .8rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.m-who button{font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.7);padding:6px 9px;cursor:pointer}
+.m-who button:hover{background:#fff;color:#b3201c}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:12px}
+.tile{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--tc,var(--ink));padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile b{font:400 clamp(1.5rem,5vw,2rem)/1 var(--display);font-variant-numeric:tabular-nums}
+.tile span{color:var(--muted);font-size:.85rem}
+.t-gold{--tc:var(--gold)} .t-red{--tc:var(--red)} .t-ok{--tc:var(--ok)}
+.chart{position:relative;background:var(--paper);border:1px solid var(--line);padding:14px 14px 8px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font:500 .78rem/1.35 var(--mono);padding:6px 8px;white-space:nowrap;transform:translate(-50%,-100%);margin-top:-10px}
+.chart .empty{color:var(--muted);margin:0;padding:24px 0;text-align:center}
+.ledger{width:100%;border-collapse:collapse;font-size:.92rem}
+.ledger th{text-align:left;font:500 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 10px 8px 0;border-bottom:2px solid var(--ink);white-space:nowrap}
+.ledger td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.ledger .num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ledger th.num{text-align:right}
+.ledger a{color:inherit;text-decoration:none}
+.ledger a:hover .person span{text-decoration:underline}
+.ledger tr.me td{background:color-mix(in srgb,var(--gold) 12%,transparent)}
+.amt-in{color:var(--ok)} .amt-out{color:var(--red)}
+.feed{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.feed li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.feed time{font:500 .75rem/1 var(--mono);color:var(--muted);white-space:nowrap}
+.feed .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.ptitle{display:flex;align-items:center;gap:16px;margin-top:14px}
+.ptitle img,.ptitle .face-none{width:72px!important;height:72px!important;outline:3px solid #fff;font-size:1.6rem}
+.ptitle h1{margin:0}
+.adm{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px;align-items:end}
+.adm label{display:flex;flex-direction:column;gap:6px;font:500 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.snippet{margin:0;background:var(--ink);color:var(--bg);font:500 .82rem/1.5 var(--mono);padding:12px;overflow-x:auto;white-space:pre}
+.notice{border-left:4px solid var(--gold);background:var(--paper);padding:10px 14px;margin:0;color:var(--muted);font-size:.9rem}
+.mv-sub{color:rgba(255,255,255,.85);font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;margin-left:4px}
+.mv-sub:hover{color:#fff}
+.mv-link{padding:7px 10px!important;font-size:.72rem!important}
+.bank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;align-items:start}
+.bank-card{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--red);padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.bank-card h3{font-size:1.15rem}
+.bank-card .hint{margin:0}
+.bank-card label{display:flex;flex-direction:column;gap:6px;font:500 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bank-card input,.bank-card select{font:400 1rem/1.2 var(--body);padding:10px 12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:0;width:100%;min-width:0}
+.bank-card input:focus,.bank-card select:focus{outline:none;border-color:var(--ink)}
+.bank-card .btn{text-align:center}
+.req{display:flex;flex-direction:column;gap:10px}
+.req .snippet{white-space:pre-wrap}
+.loans{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.loan{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--gold);padding:14px}
+.loan.s-overdue,.loan.s-in-default,.loan.s-defaulted{border-left-color:var(--red)}
+.loan.s-repaid,.loan.s-declined{border-left-color:var(--line);opacity:.75}
+.loan small{display:block;color:var(--muted);margin-top:4px}
+.loan-r{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.loan-r b{font:400 1.2rem/1 var(--display)}
+.loan-act{display:flex;gap:8px;flex-wrap:wrap}
+.mini-btn{padding:6px 9px!important;font-size:.7rem!important}
+.policy{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;max-width:68ch}
+.policy li::marker{font-family:var(--mono);color:var(--red)}
+.form-msg{margin:0;font:500 .85rem/1.4 var(--mono);color:var(--muted);min-height:0}
+.form-msg:empty{display:none}
+.form-msg.ok{color:var(--ok)} .form-msg.bad{color:var(--red)}
+.reqs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.reqrow{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--red);padding:12px 14px}
+.reqrow > div:first-child{display:flex;flex-direction:column;gap:4px;min-width:0}
+button:disabled{opacity:.5;cursor:default}
+.ask-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.ask-list li{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--red);padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.ask-list span{color:var(--muted);font-size:.9rem}
+.askform{max-width:520px}
+.askform [hidden]{display:none!important}
+.hbars{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hbars li{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) auto;gap:12px;align-items:center}
+.hbars a{color:inherit;text-decoration:none;min-width:0}
+.hbars a:hover .person span{text-decoration:underline}
+.hbar{height:14px;background:color-mix(in srgb,var(--line) 45%,transparent);position:relative}
+.hbar i{position:absolute;inset:0 auto 0 0;background:var(--gold);border-radius:0 4px 4px 0}
+.hbars b{font:500 .85rem/1 var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:480px){.hbars li{grid-template-columns:minmax(0,110px) minmax(0,1fr) auto}}
+.login-card{width:min(440px,100%);max-height:calc(100dvh - 32px);overflow-y:auto}
+.pick{display:flex;flex-wrap:wrap;gap:6px;max-height:190px;overflow-y:auto;padding:2px}
+.pick button{display:inline-flex;align-items:center;gap:7px;padding:5px 9px 5px 5px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:500 .82rem/1 var(--mono);cursor:pointer}
+.pick button:hover{border-color:var(--ink)}
+.pick button[aria-selected="true"]{border-color:var(--red);background:var(--red);color:#fff}
+.pick button[hidden]{display:none}
+.pick .face{outline:0}
+.pick-none{margin:0}
 footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--muted);font:400 .8rem/1.5 var(--mono)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -490,6 +584,18 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
   <main class="wrap" id="gBody"></main>
 </div>
 
+<div id="memberView" hidden>
+  <div class="hero">
+    <div class="wrap">
+      <a class="back" href="#map">← Back to the town page</a>
+      <span class="label" id="mvLabel" style="display:block"></span>
+      <h1 id="mvTitle" style="font-size:clamp(2.2rem,8vw,4rem)"></h1>
+      <div class="m-who" id="mvWho"></div>
+    </div>
+  </div>
+  <main class="wrap" id="mvBody"></main>
+</div>
+
 <footer><div class="wrap" id="footText">Kynograd · EarthMC. Seat, goal and action status is updated by the council.</div></footer>
 
 <script>
@@ -511,10 +617,10 @@ const CHANNEL_IDS = {
 const PHASE = {label:"Phase 1", name:"Guild Quarter", summary:"Build the Police HQ with horse stables in its basement, and every guild leads a project: a paddle steamer, an arena, a public trial chamber with a mob farm, and a vault under the bank. The guild quarter grows around the arena."};
 
 /* Residents, as on the EarthMC town page. */
-const RESIDENTS = ["Hbum","Zaksmak8113","GarrisonGrim","Toasty027","KyulsHere","RoyaumeLusignan","TheJohnTron","FlameyBoi_","thomasmns","vexy1342","T_p0tt","diaplay","Nurlanitos","Me_Monies"];
+const RESIDENTS = ["Hbum","Zaksmak8113","GarrisonGrim","Toasty027","KyuIsHere","RoyaumeLusignan","TheJohnTron","FlameyBoi_","thomasmns","vexy1342","T_p0tt","diaplay","Nurlanitos","Me_Monies"];
 /* Minecraft heads (32 px, from mc-heads.net), embedded so the page can show them.
    Ask Claude to add a head whenever a new name appears; until then the page shows the first letter. */
-const HEADS = {"Hbum":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA60lEQVRYhWN8tqX8PwMSEBPiQeYyvHr3hYEUgK4fHaCbx0SS6TQAow5gvHnzJkoaUH67iqYW3hUOQ+EPeAiMOoDl1q1bqCJqYdhVQgHv7Xl45T+rJqHw0c1XE0ZVP+AhMOoAln/XV6AIyDjNQuGvqPJF4ceHO+I1cPu0TBR+RNtmFP6eqWko/AEPgVEHMKK3B05fe4JXg7eNBkkWbD1yA4VvqiWDwh/wEBh1AAu6AHocX2DzROWTaIG3DSp/tE046ByAkQbQ4/zpvn7KbHAqROFKMaxG4Q94CIw6gPHMmTP/CSujHRjwEBh1AADXBDq2FRG3fQAAAABJRU5ErkJggg==","Zaksmak8113":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAy0lEQVRYhWPUUdP5z4AENJRkkbkM1+48ROFzcrAw4APff/xB4WupyKPwHzx5gcJnwmsaHcCoA1jQ4/zth/cofPQ45+PhImDkN7zmKchIoPAHPARGHcCCHkfCAoIo/E9fvuGVR9ePDgipH/AQGHXAqANGHcCCnk8XFwTg1RA7YQMKf1tDIkkW2pRMReEPeAiMOoAFPc453NNQ+Pwhmij8lwWFeA0Un92Pwv+45joK/wia+gEPgVEHjDpg1AGM33fM/E9YGe3AgIfAqAMA9D4wc+nRmAIAAAAASUVORK5CYII=","GarrisonGrim":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABAUlEQVRYhWO8PY3hPwMS+PiNAQXoyaPyLz1kwAsIqefnQuUz4TeO9mDUASzocT6rBJU/ZTUq/yyaPDrQQ1OPbl5aDyp/wENg1AGMZ3pQywH0fIwOWDn58cr//v4Rrzx6uTDgITDqAMZYPdQ0oCCAquDBB1T+xL4avAZaZK1C4bsL3ELhf/iBqn7AQ2DUASzocYLOXyyEkkQYJjLU4jXwltRNFH5UPar8g3RGFP6Ah8CoAxhfLg9BiWSxCNQKnZExHYX/at0fvAaKBbGg8P//n4mqf0UoCn/AQ2DUARhpgJGdD0UBEzsvXj46+PfzM17+/5+fUM0jzp20A6MOGHXAqAMA1OFEJTq8Nq0AAAAASUVORK5CYII=","Toasty027":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhWM8ekrpPwMScLJ9isxlmD5bAIWfmfqBAR/Yd1gahW9tdg+FP2+ROAqfCa9pdACjDmBBF0CPc8kKlCTC4LqBH4W/3OYuCv+IujIK/+gpJRT+zRtfUfgDHgKjDmBBjxN1DW4U/s0OVPkXh3+h8B0Py6HwJ24QJMkBAx4Cow5g5ODgQMnof//+xavh379/KHx09aysrHj1MzGh+nnAQ2DUARh1we/fv/FqEBYWRuF/+IDaPiCkn52dHYU/4CEw6gCMNPCVxQyvBmtZ1LoAPV8/eK+IV78Qw0VU/XhV0wGMOoBRQ0MDpS7g5OREUcDNjdo+QC/rGRkZUfg/f/5E4X/58gWv/ICHwKgDWJiZmVEE0ONcSEgIhY/eHkAHhNoDf/78QeEPeAiMOgAAul1KSpkM6DsAAAAASUVORK5CYII=","KyulsHere":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","RoyaumeLusignan":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAxUlEQVRYhWM8qSr6nwEJaM9pZKAluJpSj8JnoqltRIBRB7B8+U9YET7w7/cPFD4TKwde9ej2DXgIjDqA8cvBaSixQmqckqoeHQx4CIw6YNQBow5gIaTAN7sfhb95aiFV1Q94CIw6gNFRR5WkFsG+jatQ+J/v70fh+xdMJ8kBAx4Cow5g/H58Lkoa4LBIQlHwbUUYCp/Lvg2vgd8OVqGqj0BNMz9OzEPhD3gIjDqA8dPuHrzlAK+2P0UWfL66Ea/8gIfAqAMAykw1leySUzAAAAAASUVORK5CYII=","TheJohnTron":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA9ElEQVRYhWO0NzP+z4AEvnz5isxl4OHhRuFzc6Py0cHXr6j6CZnHhNc0OoBRB7Cgx9H3H//RlHxlIAWQat6Ah8CoA1jQ4+jHL1R+TN4yFP6XVzwofMaDH1H4yvJ/UPgtlxPwOmDAQ2DUASzocW7eswqFXxVhQJEFZ8KPoPDDjiah8Ac8BEYdwBg25xBKImALsUBRsOH+exT+F0NxvAa+5DmEwhcMEELhn/j1FIU/4CEw6gCWp2++oQgcFWCjyEDxL3aoAktQudPNJqHwBzwERh3A8vzEBrpaePHNJRT+gIfAqANYvr99RVcLX31HtW/AQ2DUAQDpH0xcorxMdAAAAABJRU5ErkJggg==","FlameyBoi_":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAmklEQVRYhe1XwQ2AIAykhp9O4C7OwYzO4S5OgG99cyZeGkzK4+5XKHDplRbsXtOdOnBt1tjz8b0d+k89h/8BEbBazJUDXo2Zf3gERCDjAGqGmiKY5mx9eARE4JUDdrZ2JRswzZe9na9FvWAwAuZ9D/T2f/QPj4AIZFar8R4ntAlYHQmPgAjQOuC99wz6FwxHgNYBBu969YLhCDytYTTPoV5hMwAAAABJRU5ErkJggg==","thomasmns":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAnElEQVRYhe2WsQrEIBBEs5pWBPFDxN8JIdyXHSHcz9la66a9TbHXXM7iZrpxVniMsEg5Z57e5JybNFlr1by1pua1VuGNOv0DAYC89/x57D4NbwAAAADAnFISB9ddf93t386HNwCAuZQiDohI9cbozL134ZlZ9cMbAADFGMWjPPdDvbCti5rvx0vNH9sq/PAGAEAhBPwJAQCA/wY4AXC9JsljO1tuAAAAAElFTkSuQmCC","vexy1342":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","T_p0tt":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","Nurlanitos":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","diaplay":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAvklEQVRYhe2XwQqCQBRF3zSDI4kLLYJ2LVoUzf//iRi0kWjTwqDAGiOx9VVQZvU27+2OXsbjHRlQNdWtJ8ZZcD5cBERABERABIiITP/r4IIyGnju/nBC12NvQATMXKA4l8CnwzEo75ybzLM3IAKjc8AvLbCKkeNVjvn6MZn/RPiZWf8FZm9ABEbnQLZZA+ftHlinuMdJusW8xncarvd+XYHZGxAB9Swu8G+obQSBZId7HDpNdQfuWg/M3oAI/AEZuS6I1PKq1QAAAABJRU5ErkJggg==","Me_Monies":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABTklEQVRYhe2WMUvDQBTHe0nTWGzqoljEGlyKoJDBSmY3cXEUnARB0MXNb+AsroKrIO7iR0gGh2yupR2sRNA2WGKa6NpfhnO85d72Sx7v/vd/L5cTl7urv5WZsE1jFis1ew68slSvyGL4mYMnyQic5gWYqykILaBaK/XcMARYGHz/PmIPy1HkU2m9WmnPyh3QAkR30eE5UOd33nAc8N52S1rw+eUNnIzH4HQyASt3QAsQa815zEDvK0HCycU9uN2/lRbst0/BdzdHYHehAVbugBYgznfWMQP7hxtIsGz27OpxCI7jGHx9tgnOUs7U08MrWLkDWkA1z37w4GPAnlVt/v8POiYrdJaB8YB3wGn6DS6vp9wBLUAEQYBzwPd9JERRBPY8T1rwv/wwDMHKHdACxPFWCzNgle7xrtsEG6YlLVjkGbjX47mQFVhOvQNawB8zalpbPJk9ygAAAABJRU5ErkJggg=="};
+const HEADS = {"Hbum":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA60lEQVRYhWN8tqX8PwMSEBPiQeYyvHr3hYEUgK4fHaCbx0SS6TQAow5gvHnzJkoaUH67iqYW3hUOQ+EPeAiMOoDl1q1bqCJqYdhVQgHv7Xl45T+rJqHw0c1XE0ZVP+AhMOoAln/XV6AIyDjNQuGvqPJF4ceHO+I1cPu0TBR+RNtmFP6eqWko/AEPgVEHMKK3B05fe4JXg7eNBkkWbD1yA4VvqiWDwh/wEBh1AAu6AHocX2DzROWTaIG3DSp/tE046ByAkQbQ4/zpvn7KbHAqROFKMaxG4Q94CIw6gPHMmTP/CSujHRjwEBh1AADXBDq2FRG3fQAAAABJRU5ErkJggg==","Zaksmak8113":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAy0lEQVRYhWPUUdP5z4AENJRkkbkM1+48ROFzcrAw4APff/xB4WupyKPwHzx5gcJnwmsaHcCoA1jQ4/zth/cofPQ45+PhImDkN7zmKchIoPAHPARGHcCCHkfCAoIo/E9fvuGVR9ePDgipH/AQGHXAqANGHcCCnk8XFwTg1RA7YQMKf1tDIkkW2pRMReEPeAiMOoAFPc453NNQ+Pwhmij8lwWFeA0Un92Pwv+45joK/wia+gEPgVEHjDpg1AGM33fM/E9YGe3AgIfAqAMA9D4wc+nRmAIAAAAASUVORK5CYII=","GarrisonGrim":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABAUlEQVRYhWO8PY3hPwMS+PiNAQXoyaPyLz1kwAsIqefnQuUz4TeO9mDUASzocT6rBJU/ZTUq/yyaPDrQQ1OPbl5aDyp/wENg1AGMZ3pQywH0fIwOWDn58cr//v4Rrzx6uTDgITDqAMZYPdQ0oCCAquDBB1T+xL4avAZaZK1C4bsL3ELhf/iBqn7AQ2DUASzocYLOXyyEkkQYJjLU4jXwltRNFH5UPar8g3RGFP6Ah8CoAxhfLg9BiWSxCNQKnZExHYX/at0fvAaKBbGg8P//n4mqf0UoCn/AQ2DUARhpgJGdD0UBEzsvXj46+PfzM17+/5+fUM0jzp20A6MOGHXAqAMA1OFEJTq8Nq0AAAAASUVORK5CYII=","Toasty027":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhWM8ekrpPwMScLJ9isxlmD5bAIWfmfqBAR/Yd1gahW9tdg+FP2+ROAqfCa9pdACjDmBBF0CPc8kKlCTC4LqBH4W/3OYuCv+IujIK/+gpJRT+zRtfUfgDHgKjDmBBjxN1DW4U/s0OVPkXh3+h8B0Py6HwJ24QJMkBAx4Cow5g5ODgQMnof//+xavh379/KHx09aysrHj1MzGh+nnAQ2DUARh1we/fv/FqEBYWRuF/+IDaPiCkn52dHYU/4CEw6gCMNPCVxQyvBmtZ1LoAPV8/eK+IV78Qw0VU/XhV0wGMOoBRQ0MDpS7g5OREUcDNjdo+QC/rGRkZUfg/f/5E4X/58gWv/ICHwKgDWJiZmVEE0ONcSEgIhY/eHkAHhNoDf/78QeEPeAiMOgAAul1KSpkM6DsAAAAASUVORK5CYII=","KyuIsHere":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","RoyaumeLusignan":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAxUlEQVRYhWM8qSr6nwEJaM9pZKAluJpSj8JnoqltRIBRB7B8+U9YET7w7/cPFD4TKwde9ej2DXgIjDqA8cvBaSixQmqckqoeHQx4CIw6YNQBow5gIaTAN7sfhb95aiFV1Q94CIw6gNFRR5WkFsG+jatQ+J/v70fh+xdMJ8kBAx4Cow5g/H58Lkoa4LBIQlHwbUUYCp/Lvg2vgd8OVqGqj0BNMz9OzEPhD3gIjDqA8dPuHrzlAK+2P0UWfL66Ea/8gIfAqAMAykw1leySUzAAAAAASUVORK5CYII=","TheJohnTron":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA9ElEQVRYhWO0NzP+z4AEvnz5isxl4OHhRuFzc6Py0cHXr6j6CZnHhNc0OoBRB7Cgx9H3H//RlHxlIAWQat6Ah8CoA1jQ4+jHL1R+TN4yFP6XVzwofMaDH1H4yvJ/UPgtlxPwOmDAQ2DUASzocW7eswqFXxVhQJEFZ8KPoPDDjiah8Ac8BEYdwBg25xBKImALsUBRsOH+exT+F0NxvAa+5DmEwhcMEELhn/j1FIU/4CEw6gCWp2++oQgcFWCjyEDxL3aoAktQudPNJqHwBzwERh3A8vzEBrpaePHNJRT+gIfAqANYvr99RVcLX31HtW/AQ2DUAQDpH0xcorxMdAAAAABJRU5ErkJggg==","FlameyBoi_":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAmklEQVRYhe1XwQ2AIAykhp9O4C7OwYzO4S5OgG99cyZeGkzK4+5XKHDplRbsXtOdOnBt1tjz8b0d+k89h/8BEbBazJUDXo2Zf3gERCDjAGqGmiKY5mx9eARE4JUDdrZ2JRswzZe9na9FvWAwAuZ9D/T2f/QPj4AIZFar8R4ntAlYHQmPgAjQOuC99wz6FwxHgNYBBu969YLhCDytYTTPoV5hMwAAAABJRU5ErkJggg==","thomasmns":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAnElEQVRYhe2WsQrEIBBEs5pWBPFDxN8JIdyXHSHcz9la66a9TbHXXM7iZrpxVniMsEg5Z57e5JybNFlr1by1pua1VuGNOv0DAYC89/x57D4NbwAAAADAnFISB9ddf93t386HNwCAuZQiDohI9cbozL134ZlZ9cMbAADFGMWjPPdDvbCti5rvx0vNH9sq/PAGAEAhBPwJAQCA/wY4AXC9JsljO1tuAAAAAElFTkSuQmCC","vexy1342":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","T_p0tt":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","Nurlanitos":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","diaplay":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAvklEQVRYhe2XwQqCQBRF3zSDI4kLLYJ2LVoUzf//iRi0kWjTwqDAGiOx9VVQZvU27+2OXsbjHRlQNdWtJ8ZZcD5cBERABERABIiITP/r4IIyGnju/nBC12NvQATMXKA4l8CnwzEo75ybzLM3IAKjc8AvLbCKkeNVjvn6MZn/RPiZWf8FZm9ABEbnQLZZA+ftHlinuMdJusW8xncarvd+XYHZGxAB9Swu8G+obQSBZId7HDpNdQfuWg/M3oAI/AEZuS6I1PKq1QAAAABJRU5ErkJggg==","Me_Monies":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABTklEQVRYhe2WMUvDQBTHe0nTWGzqoljEGlyKoJDBSmY3cXEUnARB0MXNb+AsroKrIO7iR0gGh2yupR2sRNA2WGKa6NpfhnO85d72Sx7v/vd/L5cTl7urv5WZsE1jFis1ew68slSvyGL4mYMnyQic5gWYqykILaBaK/XcMARYGHz/PmIPy1HkU2m9WmnPyh3QAkR30eE5UOd33nAc8N52S1rw+eUNnIzH4HQyASt3QAsQa815zEDvK0HCycU9uN2/lRbst0/BdzdHYHehAVbugBYgznfWMQP7hxtIsGz27OpxCI7jGHx9tgnOUs7U08MrWLkDWkA1z37w4GPAnlVt/v8POiYrdJaB8YB3wGn6DS6vp9wBLUAEQYBzwPd9JERRBPY8T1rwv/wwDMHKHdACxPFWCzNgle7xrtsEG6YlLVjkGbjX47mQFVhOvQNawB8zalpbPJk9ygAAAABJRU5ErkJggg=="};
 
 /* Seats: status "filled" or "open"; add who:"Name" when filled. head:true marks the guild head. */
 const GUILDS = [
@@ -589,7 +695,7 @@ const GUILDS = [
 
  {id:"police", name:"Police Force", short:"Police", motto:"Protecting the people of Kynograd.",
   seats:[{role:"Chief of Police", head:true, who:"Zaksmak8113", status:"filled"},{role:"Apprentice", status:"open"}],
-  members:["KyulsHere"],
+  members:["KyuIsHere"],
   ranks:["Chief of Police", "Apprentice → Lieutenant", "Squads"],
   channel:"#police-guild",
   duties:[
@@ -1174,15 +1280,440 @@ if(DISCORD_INVITE){
   document.getElementById("discordHint").hidden = true;
 }
 
+
+/* ===== Member area & Kynograd Bank =====
+   Click the flag in the header to sign in. Data comes from the data/ folder:
+   snapshots.json + deposits.json  written by the tracker every ~10 min
+   players.json                    guilds and project history (edited by hand)
+   bank.json                       roubles, savings, cash-outs and loans (the Treasurer pastes lines from the Treasury desk)
+   auth.json                       password hashes, admins, treasurer
+   config.json                     rates and the repo address
+   There is no database: players' buttons copy a request to post in #town-bank,
+   and the Treasurer records it. The sign-in is a soft lock, not real security. */
+const M = { data:null, user:null };
+const DAY = 864e5;
+const sess = {
+  get(){ try { return sessionStorage.getItem("kyno-user"); } catch(e){ return M._u || null; } },
+  set(v){ M._u = v; try { v ? sessionStorage.setItem("kyno-user", v) : sessionStorage.removeItem("kyno-user"); } catch(e){} }
+};
+M.user = sess.get();
+const BANK_DEFAULT = {transfers:[], savings:[], cashouts:[], spending:[], loans:[]};
+
+async function loadMemberData(force){
+  if (M.data && !force) return M.data;
+  const get = async (f, d) => { try { const r = await fetch("data/"+f+"?v="+Date.now(), {cache:"no-store"}); return r.ok ? await r.json() : d; } catch(e){ return d; } };
+  const [snaps, deps, players, bank, auth, cfg] = await Promise.all([
+    get("snapshots.json", []), get("deposits.json", []), get("players.json", {}),
+    get("bank.json", BANK_DEFAULT), get("auth.json", {admins:[], hashes:{}}), get("config.json", {})]);
+  M.data = {snaps, deps, players, bank:{...BANK_DEFAULT, ...bank}, auth,
+    cfg:{roublesPerGold:100, savingsRate:0.025, loanRate:0.05, lateDaily:0.02, earlyFee:0.10, lockDays:30, defaultAfter:7, loanDays:30, noticeShare:0.25, maxWorkdays:5, ...cfg}};
+  return M.data;
+}
+async function sha256(s){
+  const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+const hashFor = (name, pw) => sha256(`kynograd:${name.toLowerCase()}:${pw}`);
+const isAdmin = () => !!(M.user && M.data && (M.data.auth.admins||[]).includes(M.user));
+const treasurer = () => (M.data && M.data.auth.treasurer) || "the Treasurer";
+
+async function showLogin(next){
+  const d = await loadMemberData();
+  const names = Object.keys(d.auth.hashes||{}).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:"base"}));
+  const veil = document.createElement("div");
+  veil.className = "login-veil";
+  veil.innerHTML = `<form class="login-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <span class="label">Residents only</span><h2 id="loginTitle">Sign in to Kynograd</h2>
+    <label>Who are you?<input id="loginFind" type="text" autocomplete="username" spellcheck="false" placeholder="Start typing your name" aria-controls="loginPick"></label>
+    <div class="pick" id="loginPick" role="listbox" aria-label="Residents">${names.map(n=>`<button type="button" role="option" aria-selected="false" data-n="${esc(n)}">${face(n,24)}<span>${esc(n)}</span></button>`).join("")}</div>
+    <p class="hint pick-none" id="loginNone" hidden>No resident with that name. Ask the Mayor for an account.</p>
+    <label>Password<input id="loginPw" type="password" autocomplete="current-password" required></label>
+    <p class="login-err" id="loginErr" aria-live="polite"></p>
+    <div class="login-row"><button type="button" class="btn btn-line" id="loginCancel">Cancel</button><button class="btn btn-red" type="submit">Sign in</button></div>
+    <p class="hint" style="margin:0">No password yet? Ask the Mayor.</p></form>`;
+  document.body.appendChild(veil);
+  const $ = s => veil.querySelector(s), find = $("#loginFind"), pick = $("#loginPick"), err = $("#loginErr");
+  const btns = [...pick.querySelectorAll("button")];
+  let chosen = null;
+  const choose = n => { chosen = n; btns.forEach(b => b.setAttribute("aria-selected", b.dataset.n === n ? "true" : "false")); if (n) { find.value = n; filter(); } };
+  const filter = () => {
+    const q = find.value.trim().toLowerCase(); let shown = 0;
+    btns.forEach(b => { const hit = !q || b.dataset.n.toLowerCase().includes(q); b.hidden = !hit; if (hit) shown++; });
+    $("#loginNone").hidden = shown > 0;
+    const exact = btns.find(b => b.dataset.n.toLowerCase() === q);
+    if (exact) { chosen = exact.dataset.n; btns.forEach(b => b.setAttribute("aria-selected", b === exact ? "true" : "false")); }
+    else if (chosen && chosen.toLowerCase() !== q) { chosen = null; btns.forEach(b => b.setAttribute("aria-selected","false")); }
+  };
+  find.addEventListener("input", () => { err.textContent = ""; filter(); });
+  find.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); const first = btns.find(b => !b.hidden); if (first) { choose(first.dataset.n); $("#loginPw").focus(); } } });
+  btns.forEach(b => b.addEventListener("click", () => { choose(b.dataset.n); $("#loginPw").focus(); }));
+  const close = () => { veil.remove(); document.removeEventListener("keydown", onKey); };
+  const onKey = e => { if (e.key === "Escape") close(); };
+  document.addEventListener("keydown", onKey);
+  veil.addEventListener("click", e => { if (e.target === veil) close(); });
+  $("#loginCancel").addEventListener("click", close);
+  find.focus();
+  $("form").addEventListener("submit", async e => {
+    e.preventDefault();
+    if (!chosen) { const only = btns.filter(b => !b.hidden); if (only.length === 1) choose(only[0].dataset.n); }
+    if (!chosen) { err.textContent = "Pick your name from the list first."; find.focus(); return; }
+    const pw = $("#loginPw").value;
+    const ok = d.auth.hashes[chosen] && (await hashFor(chosen, pw)) === d.auth.hashes[chosen];
+    if (!ok) { err.textContent = "Wrong password for "+chosen+". Check it and try again."; return; }
+    M.user = chosen; sess.set(chosen); close();
+    const dest = !next || next === "me" ? "player-"+encodeURIComponent(chosen) : next;
+    if (location.hash === "#"+dest) route(); else location.hash = dest;
+  });
+}
+
+function signOut(){ M.user = null; sess.set(null); location.hash = "map"; }
+
+/* ---- money maths ---- */
+const r2 = v => Math.round(v*100)/100;
+/* Walk day by day from start to now. Every 30 days the balance grows by `monthly`;
+   after `due`, it grows by `lateDaily` each day. Events add to (or take from) the balance on their day. */
+function accrue(start, events, monthly, now, due, lateDaily){
+  const ev = events.slice().sort((a,b)=>a.t-b.t); let bal = 0, i = 0;
+  for (let day = 0; start + day*DAY <= now; day++) {
+    const t = start + day*DAY;
+    if (day > 0 && day % 30 === 0 && bal > 0) bal *= 1 + monthly;
+    if (due && t > due && bal > 0) bal *= 1 + lateDaily;
+    while (i < ev.length && ev[i].t < t + DAY) bal += ev[i++].v;
+  }
+  while (i < ev.length) bal += ev[i++].v;
+  return r2(bal);
+}
+function savingsOf(d, name, now){
+  const ev = d.bank.savings.filter(s => s.player === name);
+  if (!ev.length) return {balance:0, principal:0, interest:0, lastIn:null, nextInterest:null};
+  const start = Math.min(...ev.map(s=>s.t));
+  const balance = accrue(start, ev.map(s=>({t:s.t, v:s.roubles})), d.cfg.savingsRate, now);
+  const principal = ev.reduce((a,s)=>a+s.roubles,0);
+  const ins = ev.filter(s=>s.roubles>0).map(s=>s.t), lastIn = ins.length ? Math.max(...ins) : null;
+  const days = Math.floor((now-start)/DAY), nextInterest = start + (Math.floor(days/30)+1)*30*DAY;
+  return {balance:Math.round(balance), principal, interest:Math.round(balance-principal), lastIn, nextInterest};
+}
+function loanState(d, L, now){
+  if (!L.accepted) return {...L, state: L.status === "declined" ? "declined" : "offered", owed:L.gold, due:null};
+  const due = L.accepted + (L.days||d.cfg.loanDays)*DAY;
+  const ev = [{t:L.accepted, v:L.gold}, ...(L.repaid||[]).map(p=>({t:p.t, v:-p.gold}))];
+  const owed = Math.max(0, accrue(L.accepted, ev, d.cfg.loanRate, now, due, d.cfg.lateDaily));
+  const overdue = owed > 0 && now > due ? Math.floor((now - due)/DAY) : 0;
+  const paid = (L.repaid||[]).reduce((a,p)=>a+p.gold,0);
+  const state = L.status === "defaulted" ? "defaulted" : owed <= 0.005 ? "repaid" : overdue > d.cfg.defaultAfter ? "in default" : overdue > 0 ? "overdue" : "active";
+  return {...L, state, owed, due, overdue, paid};
+}
+/* rouble wallet for one player, plus the totals behind it */
+function walletOf(d, name, now){
+  const rate = d.cfg.roublesPerGold;
+  const deposited = r2(d.deps.filter(e => e.player === name && e.amount > 0).reduce((a,e)=>a+e.amount,0));
+  const earned = Math.round(deposited*rate);
+  const spent = d.bank.spending.filter(s=>s.player===name).reduce((a,s)=>a+s.roubles,0);
+  const sentOut = d.bank.transfers.filter(x=>x.from===name).reduce((a,x)=>a+x.roubles,0);
+  const got = d.bank.transfers.filter(x=>x.to===name).reduce((a,x)=>a+x.roubles,0);
+  const toSav = d.bank.savings.filter(s=>s.player===name && s.roubles>0).reduce((a,s)=>a+s.roubles,0);
+  const fromSav = d.bank.savings.filter(s=>s.player===name && s.roubles<0).reduce((a,s)=>a+(-s.roubles-(s.fee||0)),0);
+  const cashed = d.bank.cashouts.filter(c=>c.player===name).reduce((a,c)=>a+c.roubles,0);
+  const wallet = earned - spent - sentOut + got - toSav + fromSav - cashed;
+  const sav = savingsOf(d, name, now);
+  return {name, deposited, earned, spent, sentOut, got, cashed, wallet, savings:sav.balance, total:wallet+sav.balance, sav};
+}
+function ledger(d){
+  const now = Date.now();
+  const names = new Set([...Object.keys(d.players||{}), ...Object.keys((d.snaps.at(-1)||{}).players||{})]);
+  return [...names].map(n => ({...walletOf(d, n, now), gold:(d.snaps.at(-1)||{players:{}}).players[n] ?? null}))
+    .sort((a,b)=> b.total-a.total || a.name.localeCompare(b.name));
+}
+/* add working days (Mon–Fri) */
+function addWorkdays(t, n){ const x = new Date(t); let k = 0; while (k < n) { x.setDate(x.getDate()+1); const w = x.getDay(); if (w !== 0 && w !== 6) k++; } return x.getTime(); }
+function workdaysSince(t, now){ let n = 0; const x = new Date(t); while (x.getTime() + DAY <= now) { x.setDate(x.getDate()+1); const w = x.getDay(); if (w !== 0 && w !== 6) n++; } return n; }
+
+const fmtG = v => (v == null ? "–" : (Math.round(v*100)/100).toLocaleString("en-GB")+"g");
+const fmtR = v => Math.round(v).toLocaleString("en-GB")+" ₽";
+const fmtT = t => new Date(t).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+const fmtD = t => new Date(t).toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+const pct = v => (Math.round(v*1000)/10)+"%";
+
+/* step chart of a balance over time, with deposit markers and a hover readout */
+function goldChart(points, marks, label){
+  if (!points.length) return `<div class="chart"><p class="empty">No data yet. A point is added each time the records are updated.</p></div>`;
+  const W = 640, H = 230, L = 46, R = 14, T = 14, B = 28;
+  const now = Date.now();
+  let t0 = points[0].t, t1 = Math.max(now, points.at(-1).t);
+  if (t1 - t0 < 6*3600e3) t0 = t1 - 6*3600e3;
+  const vmax = Math.max(1, ...points.map(p=>p.v));
+  const step = [1,2,5,10,20,25,50,100,200,250,500,1000,2000,5000].find(s => vmax/s <= 4) || 10000;
+  const ymax = Math.ceil(vmax/step)*step;
+  const X = t => L + (t - t0)/(t1 - t0)*(W - L - R), Y = v => T + (1 - v/ymax)*(H - T - B);
+  let grid = "";
+  for (let v = 0; v <= ymax + 1e-9; v += step) grid += `<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${v}g</text>`;
+  const ticks = 4;
+  for (let i = 0; i <= ticks; i++) { const t = t0 + (t1-t0)*i/ticks; grid += `<text x="${X(t)}" y="${H-8}" text-anchor="${i===0?"start":i===ticks?"end":"middle"}" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${fmtD(t)}</text>`; }
+  let d = `M${X(points[0].t)} ${Y(points[0].v)}`;
+  points.slice(1).forEach(p => { d += `H${X(p.t)}V${Y(p.v)}`; });
+  d += `H${X(t1)}`;
+  const area = `${d}V${Y(0)}H${X(points[0].t)}Z`;
+  const dots = marks.map(m => { const p = [...points].reverse().find(q => q.t <= m.t) || points[0];
+    return `<circle cx="${X(m.t)}" cy="${Y(p.v)}" r="5" fill="${m.amount>0?"var(--ok)":"var(--red)"}" stroke="var(--paper)" stroke-width="2"><title>${esc((m.amount>0?"Deposited ":"Withdrew ")+fmtG(Math.abs(m.amount))+" · "+fmtT(m.t))}</title></circle>`; }).join("");
+  const id = "c"+Math.random().toString(36).slice(2,8);
+  setTimeout(() => {
+    const box = document.getElementById(id); if (!box) return;
+    const svg = box.querySelector("svg"), tip = box.querySelector(".tip"), cross = box.querySelector(".cross");
+    const move = e => {
+      const r = svg.getBoundingClientRect(), x = (e.clientX - r.left)/r.width*W;
+      const t = t0 + (x - L)/(W - L - R)*(t1 - t0);
+      if (x < L || x > W - R) { tip.hidden = true; cross.setAttribute("opacity","0"); return; }
+      const p = [...points].reverse().find(q => q.t <= t) || points[0];
+      cross.setAttribute("x1", x); cross.setAttribute("x2", x); cross.setAttribute("opacity","1");
+      tip.hidden = false; tip.textContent = `${fmtT(Math.max(p.t, Math.min(t, now)))} · ${fmtG(p.v)}`;
+      tip.style.left = (x/W*100)+"%"; tip.style.top = (Y(p.v)/H*r.height + 14)+"px";
+    };
+    svg.addEventListener("pointermove", move);
+    svg.addEventListener("pointerleave", () => { tip.hidden = true; cross.setAttribute("opacity","0"); });
+  });
+  return `<div class="chart" id="${id}"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}: ${fmtG(points.at(-1).v)} now">
+    ${grid}<path d="${area}" fill="var(--gold)" fill-opacity=".14"/><path d="${d}" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"/>
+    <line class="cross" y1="${T}" y2="${H-B}" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>${dots}
+    <rect x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="transparent"/></svg><div class="tip" hidden></div></div>`;
+}
+const series = (snaps, pick) => { const out = []; snaps.forEach(s => { const v = pick(s); if (v == null) return; if (!out.length || out.at(-1).v !== v) out.push({t:s.t, v}); }); return out; };
+
+function memberHero(title, sub){
+  document.getElementById("mvLabel").textContent = sub;
+  document.getElementById("mvTitle").innerHTML = title;
+  const who = document.getElementById("mvWho");
+  if (!M.user) { who.innerHTML = ""; return; }
+  who.innerHTML = `Signed in as ${person(M.user, 20)} <button type="button" id="mvOut">Sign out</button>
+    <a class="btn btn-ghost mv-link" href="#player-${encodeURIComponent(M.user)}">My bank</a> <a class="btn btn-ghost mv-link" href="#members">Members</a>${isAdmin() ? ` <a class="mv-sub" href="#admin">Bank stats</a>` : ""}`;
+  document.getElementById("mvOut").addEventListener("click", signOut);
+}
+function feedItem(e){
+  const who = e.player ? `<a href="#player-${encodeURIComponent(e.player)}" style="color:inherit;text-decoration:none">${person(e.player,20)}</a>` : `<span class="hint">Town change (taxes, upkeep or an unmatched deposit)</span>`;
+  const verb = e.amount > 0 ? "deposited" : "withdrew";
+  return `<li><time datetime="${new Date(e.t).toISOString()}">${fmtT(e.t)}</time><span>${who}${e.player?` <span class="hint">${verb}</span>`:""}</span><span class="num ${e.amount>0?"amt-in":"amt-out"}">${e.amount>0?"+":"−"}${fmtG(Math.abs(e.amount))}</span></li>`;
+}
+
+
+async function renderMembers(){
+  const d = await loadMemberData(true);
+  const L = ledger(d), me = L.find(r => r.name === M.user);
+  const week = Date.now() - 7*DAY;
+  const weekIn = d.deps.filter(e => e.amount > 0 && e.t >= week).reduce((a,e)=>a+e.amount,0);
+  memberHero("MEMBERS", "Kynograd · residents only");
+  document.getElementById("mvBody").innerHTML = `
+  <section><div class="tiles">
+    <div class="tile t-ok"><span>Deposited this week</span><b>${fmtG(weekIn)}</b><span>by all residents</span></div>
+    <div class="tile t-red"><span>Your roubles</span><b>${me ? fmtR(me.wallet) : "–"}</b><span>${me && me.savings ? fmtR(me.savings)+" more in savings" : d.cfg.roublesPerGold+" ₽ for every 1g you deposit"}</span></div>
+  </div><a class="btn btn-red" style="align-self:flex-start" href="#player-${encodeURIComponent(M.user)}">Open my bank →</a></section>
+  <section><header><span class="label">Town bank</span><h2>Gold in the bank over time</h2></header>
+    ${goldChart(series(d.snaps, s => s.town), d.deps.filter(e=>e.player), "Town bank balance")}</section>
+  <section><header><span class="label">Roubles</span><h2>Leaderboard</h2></header>
+    <p class="lede">Every 1g you deposit in the town bank earns ${d.cfg.roublesPerGold} roubles, savings included. <a href="#bank-policy">Bank policy</a></p>
+    <div class="tablewrap"><table class="ledger"><thead><tr><th>#</th><th>Player</th><th class="num">Gold deposited</th><th class="num">Roubles</th></tr></thead>
+    <tbody>${L.map((r,i)=>`<tr class="${r.name===M.user?"me":""}"><td class="num" style="text-align:left">${i+1}</td><td><a href="#player-${encodeURIComponent(r.name)}">${person(r.name,20)}</a></td><td class="num">${fmtG(r.deposited)}</td><td class="num"><strong>${fmtR(r.total)}</strong></td></tr>`).join("")}</tbody></table></div></section>
+  <section><header><span class="label">Bank activity</span><h2>Recent deposits</h2></header>
+    ${d.deps.length ? `<ul class="feed">${d.deps.slice(-10).reverse().map(feedItem).join("")}</ul>` : `<p class="notice">No deposits logged yet. Deposits show up here when the records are updated, about twice a day.</p>`}
+    <p class="hint">Deposits are matched by comparing balances between updates, so a deposit and a shop purchase in the same period can occasionally be mixed up.</p></section>`;
+}
+
+async function renderPlayer(name){
+  const d = await loadMemberData(true), now = Date.now();
+  const L = ledger(d), r = L.find(x => x.name === name);
+  if (!r) { memberHero("NOT FOUND", "Player"); document.getElementById("mvBody").innerHTML = `<p class="lede">${esc(name)} isn't a resident of Kynograd.</p><a class="btn btn-red" href="#members">Back to members</a>`; return; }
+  const own = name === M.user, c = d.cfg, info = d.players[name] || {}, g = GUILDS.find(x => x.id === info.guild);
+  const deps = d.deps.filter(e => e.player === name);
+  const loans = d.bank.loans.filter(l => l.player === name).map(l => loanState(d, l, now)).filter(l => l.state !== "declined").reverse();
+  const sav = r.sav, locked = sav.lastIn && now - sav.lastIn < c.lockDays*DAY, cap = Math.floor(r.total * c.noticeShare);
+  memberHero(`<span class="ptitle">${face(name, 72)}<span>${esc(name.toUpperCase())}</span></span>`, g ? `${g.name}${info.role?" · "+info.role:""}` : "Resident · no guild yet");
+
+  const tiles = `<section><div class="tiles">
+    <div class="tile t-red"><span>Roubles</span><b>${fmtR(r.wallet)}</b><span>from ${fmtG(r.deposited)} deposited</span></div>
+    <div class="tile t-ok"><span>Savings</span><b>${fmtR(sav.balance)}</b><span>${sav.balance ? `+${fmtR(sav.interest)} interest so far` : `${pct(c.savingsRate)} a month`}</span></div>
+    <div class="tile t-gold"><span>Gold on hand</span><b>${fmtG(r.gold)}</b><span>from EarthMC</span></div>
+  </div></section>`;
+
+  const others = L.map(x=>x.name).filter(n => n !== name).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:"base"}));
+  const ask = own ? `<section class="ask"><header><span class="label">Your bank</span><h2>Ask ${esc(treasurer())}</h2></header>
+    <p class="lede">Fill this in, copy it, and paste it in #town-bank.</p>
+    <form class="bank-card askform" id="fAsk">
+      <label>I want to<select id="aType">
+        <option value="send">Send roubles to someone</option>
+        <option value="in">Put roubles into savings</option>
+        <option value="out">Take roubles out of savings</option>
+        <option value="cash">Cash out roubles as gold</option>
+        <option value="loan">Take a gold loan</option></select></label>
+      <label data-for="send">To<select id="aTo">${others.map(n=>`<option>${esc(n)}</option>`).join("")}</select></label>
+      <label><span id="aUnit">Roubles</span><input id="aAmt" type="number" min="1" step="1" required></label>
+      <label>Note<input id="aNote" maxlength="80" placeholder="optional"></label>
+      <p class="hint" id="aHint"></p>
+      <button class="btn btn-red" type="submit">Copy message</button>
+      <div class="req" id="aOut" hidden><pre class="snippet"></pre><div class="cta-row" style="margin-top:0"><a class="btn btn-red" target="_blank" rel="noopener" href="${dcUrl("town-bank")}">Open #town-bank ↗</a><span class="hint" id="aCopied">Copied: paste it in the channel.</span></div></div>
+    </form>
+    <p class="hint"><a href="#bank-policy">Bank policy</a> · balances here are updated about twice a day.</p></section>` : "";
+
+  const loanList = loans.length ? `<section><header><span class="label">Gold loans</span><h2>Loans</h2></header><ul class="loans">${loans.map(l => `<li class="loan s-${l.state.replace(/ /g,"-")}"><div><strong>${fmtG(l.gold)}</strong> · due ${l.due ? fmtD(l.due) : "–"}<small>${l.paid ? `repaid ${fmtG(l.paid)}` : `taken ${fmtD(l.accepted || l.offered)}`}</small></div>
+      <div class="loan-r"><span class="chip ${l.state==="repaid"?"filled":l.state==="active"?"open":"wanted"}">${esc(l.state)}${l.overdue?` · ${l.overdue}d late`:""}</span>${l.state!=="repaid" ? `<b>${fmtG(l.owed)} owed</b>` : ""}</div></li>`).join("")}</ul></section>` : "";
+
+  const hist = [
+    ...deps.map(e => ({t:e.t, txt: e.amount > 0 ? "Deposited gold" : "Withdrew gold", v: fmtG(Math.abs(e.amount)), pos: e.amount > 0})),
+    ...(own ? [
+      ...d.bank.transfers.filter(x=>x.from===name||x.to===name).map(x=>({t:x.t, txt: x.from===name ? `Sent to ${x.to}` : `From ${x.from}`, v: fmtR(x.roubles), pos: x.to===name})),
+      ...d.bank.savings.filter(s=>s.player===name).map(s=>({t:s.t, txt: s.roubles>0 ? "Into savings" : "Out of savings", v: fmtR(Math.abs(s.roubles)), pos: s.roubles<0})),
+      ...d.bank.cashouts.filter(x=>x.player===name).map(x=>({t:x.t, txt:`Cashed out ${fmtG(x.gold)}`, v: fmtR(x.roubles), pos:false})),
+      ...d.bank.spending.filter(s=>s.player===name).map(s=>({t:s.t, txt: s.note || "Spent", v: fmtR(s.roubles), pos:false}))] : [])
+  ].sort((a,b)=>b.t-a.t).slice(0, 15);
+  const history = `<section><header><span class="label">History</span><h2>Recent activity</h2></header>
+    ${hist.length ? `<ul class="feed">${hist.map(h=>`<li><time>${fmtD(h.t)}</time><span>${esc(h.txt)}</span><span class="num ${h.pos?"amt-in":"amt-out"}">${h.pos?"+":"−"}${esc(h.v)}</span></li>`).join("")}</ul>` : `<p class="notice">Nothing yet.</p>`}</section>`;
+
+  const chart = `<section><header><span class="label">Gold over time</span><h2>Gold on hand</h2></header>${goldChart(series(d.snaps, s => s.players[name]), deps, name+"'s gold")}</section>`;
+  const projects = (info.projects||[]).length ? `<section><header><span class="label">Projects</span><h2>Worked on</h2></header><ul class="feed">${info.projects.map(p=>`<li><time>${esc(p.date||"")}</time><span><strong>${esc(p.project)}</strong></span><span class="hint">${esc(p.role||"")}</span></li>`).join("")}</ul></section>` : "";
+
+  document.getElementById("mvBody").innerHTML = tiles + ask + loanList + history + chart + projects +
+    `<section><div class="links"><a href="#members">← All members</a>${g ? `<a href="#${g.id}">${esc(g.short)} guild page</a>` : ""}<a href="#bank-policy">Bank policy</a></div></section>`;
+  if (!own) return;
+
+  const $ = id => document.getElementById(id);
+  const toRow = document.querySelector('[data-for="send"]');
+  const hintFor = t => ({
+    send: `You have ${fmtR(r.wallet)}. Transfers are free.`,
+    in: `You have ${fmtR(r.wallet)} to put in. ${pct(c.savingsRate)} interest every 30 days.`,
+    out: `You have ${fmtR(sav.balance)} in savings.${locked ? ` Locked until ${fmtD(sav.lastIn + c.lockDays*DAY)}: taking it out now costs ${pct(c.earlyFee)}.` : ""}`,
+    cash: `${c.roublesPerGold} ₽ = 1g. Up to ${fmtR(cap)} without notice; paid within ${c.maxWorkdays} working days.`,
+    loan: `${c.loanDays} days at ${pct(c.loanRate)} a month, ${pct(c.lateDaily)} a day once late.`
+  })[t];
+  const sync = () => { const t = $("aType").value; toRow.hidden = t !== "send"; $("aUnit").textContent = t === "loan" ? "Gold" : "Roubles";
+    $("aAmt").step = t === "cash" ? c.roublesPerGold : 1; $("aAmt").min = t === "cash" ? c.roublesPerGold : 1; $("aHint").textContent = hintFor(t); $("aOut").hidden = true; };
+  $("aType").addEventListener("change", sync); sync();
+  $("fAsk").addEventListener("submit", e => {
+    e.preventDefault();
+    const t = $("aType").value, v = +$("aAmt").value, note = $("aNote").value.trim();
+    const line = {
+      send: `Send ${fmtR(v)} to ${$("aTo").value}`,
+      in: `Put ${fmtR(v)} into my savings`,
+      out: `Take ${fmtR(v)} out of my savings${locked ? ` (early: ${pct(c.earlyFee)} fee)` : ""}`,
+      cash: `Cash out ${fmtR(v)} as ${fmtG(v/c.roublesPerGold)}${v > cap ? " (with notice)" : ""}`,
+      loan: `Gold loan of ${fmtG(v)} for ${c.loanDays} days. I agree to the bank policy.`
+    }[t];
+    const text = `🏦 Bank request from ${name}\n${line}${note ? `\nNote: ${note}` : ""}`;
+    const out = $("aOut"); out.hidden = false; out.querySelector("pre").textContent = text;
+    try { navigator.clipboard.writeText(text).then(() => { $("aCopied").textContent = "Copied: paste it in the channel."; }, () => { $("aCopied").textContent = "Select the text above and copy it."; }); }
+    catch(x) { $("aCopied").textContent = "Select the text above and copy it."; }
+  });
+}
+
+async function renderAdmin(){
+  const d = await loadMemberData(true), now = Date.now();
+  if (!isAdmin()) { location.hash = "members"; return; }
+  memberHero("BANK STATS", "Treasurer and Mayor");
+  const L = ledger(d), c = d.cfg;
+  const ins = d.deps.filter(e => e.player && e.amount > 0);
+  const total = ins.reduce((a,e)=>a+e.amount,0);
+  const week = ins.filter(e => e.t >= now - 7*DAY).reduce((a,e)=>a+e.amount,0);
+  const loans = d.bank.loans.map(l => loanState(d, l, now)).filter(l => l.accepted);
+  const out = loans.filter(l => l.state !== "repaid").reduce((a,l)=>a+l.owed,0);
+  const roubles = L.reduce((a,r)=>a+r.total,0);
+
+  /* gold deposited per player: horizontal bars, biggest first */
+  const per = L.filter(r => r.deposited > 0).sort((a,b)=>b.deposited-a.deposited);
+  const maxP = Math.max(1, ...per.map(r=>r.deposited));
+  const bars = per.length ? `<ul class="hbars">${per.map(r=>`<li><a href="#player-${encodeURIComponent(r.name)}">${person(r.name,20)}</a><span class="hbar" title="${esc(r.name)}: ${fmtG(r.deposited)}"><i style="width:${Math.max(2, r.deposited/maxP*100)}%"></i></span><b>${fmtG(r.deposited)}</b></li>`).join("")}</ul>`
+    : `<p class="notice">No deposits yet. They show up after the next update.</p>`;
+
+  /* gold deposited per day, last 14 days: columns */
+  const days = [...Array(14)].map((_,i) => { const s = new Date(now - (13-i)*DAY); s.setHours(0,0,0,0); return s.getTime(); });
+  const perDay = days.map(t0 => ins.filter(e => e.t >= t0 && e.t < t0 + DAY).reduce((a,e)=>a+e.amount,0));
+  const maxD = Math.max(...perDay);
+  let cols = "";
+  if (maxD > 0) {
+    const W = 640, H = 200, Lp = 40, R = 8, T = 12, B = 26, bw = (W-Lp-R)/14;
+    const step = [1,2,5,10,20,25,50,100,200,250,500,1000].find(s => maxD/s <= 4) || 2000, ymax = Math.ceil(maxD/step)*step;
+    const Y = v => T + (1 - v/ymax)*(H-T-B);
+    let g = "";
+    for (let v = 0; v <= ymax; v += step) g += `<line x1="${Lp}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${Lp-6}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${v}g</text>`;
+    perDay.forEach((v,i) => { const x = Lp + i*bw + 3, h = Y(0) - Y(v);
+      if (v > 0) g += `<path d="M${x} ${Y(0)}V${Y(v)+Math.min(4,h)}q0 -4 4 -4H${x+bw-10}q4 0 4 4V${Y(0)}Z" fill="var(--gold)"><title>${fmtD(days[i])}: ${fmtG(v)}</title></path>`;
+      if (i % 2 === 1 || i === 13) g += `<text x="${x+(bw-6)/2}" y="${H-8}" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${fmtD(days[i])}</text>`; });
+    cols = `<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Gold deposited per day over the last 14 days, most on one day: ${fmtG(maxD)}">${g}</svg></div>`;
+  } else cols = `<p class="notice">No deposits in the last 14 days.</p>`;
+
+  /* who holds the roubles */
+  const holders = L.filter(r => r.total > 0).sort((a,b)=>b.total-a.total);
+
+  document.getElementById("mvBody").innerHTML = `
+  <section><div class="tiles">
+    <div class="tile t-gold"><span>Gold deposited</span><b>${fmtG(total)}</b><span>${fmtG(week)} this week</span></div>
+    <div class="tile t-red"><span>Roubles out there</span><b>${fmtR(roubles)}</b><span>held by ${holders.length} resident${holders.length===1?"":"s"}</span></div>
+    <div class="tile t-ok"><span>Gold out on loan</span><b>${fmtG(out)}</b><span>${loans.filter(l=>l.overdue).length} late</span></div>
+  </div></section>
+  <section><header><span class="label">Deposits</span><h2>Who deposited the most</h2></header>${bars}</section>
+  <section><header><span class="label">Deposits</span><h2>Gold deposited per day</h2></header>${cols}<p class="hint">Last 14 days. Hover a bar for the exact amount.</p></section>
+  <section><header><span class="label">Town bank</span><h2>Bank balance over time</h2></header>${goldChart(series(d.snaps, s => s.town), ins, "Town bank balance")}</section>
+  ${loans.length ? `<section><header><span class="label">Loans</span><h2>Loan book</h2></header><div class="tablewrap"><table class="ledger"><thead><tr><th>Player</th><th class="num">Lent</th><th class="num">Owed now</th><th>Due</th><th>Status</th></tr></thead><tbody>${loans.slice().reverse().map(l=>`<tr><td>${person(l.player,20)}</td><td class="num">${fmtG(l.gold)}</td><td class="num">${fmtG(l.owed)}</td><td>${fmtD(l.due)}</td><td><span class="chip ${l.state==="repaid"?"filled":l.state==="active"?"open":"wanted"}">${esc(l.state)}${l.overdue?` · ${l.overdue}d`:""}</span></td></tr>`).join("")}</tbody></table></div></section>` : ""}
+  ${holders.length ? `<section><header><span class="label">Roubles</span><h2>Who holds the roubles</h2></header><div class="tablewrap"><table class="ledger"><thead><tr><th>Player</th><th class="num">Roubles</th><th class="num">Savings</th><th class="num">Total</th></tr></thead><tbody>${holders.map(r=>`<tr><td><a href="#player-${encodeURIComponent(r.name)}">${person(r.name,20)}</a></td><td class="num">${fmtR(r.wallet)}</td><td class="num">${fmtR(r.savings)}</td><td class="num"><strong>${fmtR(r.total)}</strong></td></tr>`).join("")}</tbody></table></div></section>` : ""}`;
+}
+
+async function renderPolicy(){
+  const d = await loadMemberData();
+  const c = d.cfg, t = treasurer();
+  memberHero("BANK POLICY", "Kynograd People's Bank");
+  const sec = (label, title, items) => `<section><header><span class="label">${label}</span><h2>${title}</h2></header><ol class="policy">${items.map(i=>`<li>${i}</li>`).join("")}</ol></section>`;
+  document.getElementById("mvBody").innerHTML = `
+  <p class="lede">The People's Bank of Kynograd runs on Minecraft gold and roubles, the town's own currency. By using any bank service you agree to this policy. ${esc(t)} runs the bank day to day; the Mayor settles disputes.</p>
+  ${sec("Article 1","Roubles",[
+    `Every 1g you deposit in the town bank earns <strong>${c.roublesPerGold} ₽</strong>. Deposits are picked up when the bank's records are updated, about twice a day.`,
+    `To send roubles to another resident, ask the Treasurer in #town-bank. Transfers are free and final once recorded.`,
+    `Roubles are spent with the Mayor or the Treasurer, for goods and services the town offers.`])}
+  ${sec("Article 2","Savings accounts",[
+    `Roubles in a savings account earn <strong>${pct(c.savingsRate)} interest every 30 days</strong>, counted from your first savings deposit.`,
+    `Each deposit into savings is locked for <strong>${c.lockDays} days</strong>.`,
+    `Ask the Treasurer to move roubles into or out of savings.`,
+    `Taking money out of savings within ${c.lockDays} days of your last deposit costs an <strong>early withdrawal fee of ${pct(c.earlyFee)}</strong> of the amount taken out.`])}
+  ${sec("Article 3","Withdrawals and cash-outs",[
+    `Roubles can be cashed out as gold at ${c.roublesPerGold} ₽ = 1g: ask the Treasurer, who pays you in-game.`,
+    `You can withdraw up to <strong>${pct(c.noticeShare)} of your account</strong> (roubles plus savings) in one request without notice.`,
+    `A larger withdrawal requires notice: your message in #town-bank counts as notice, and the Treasurer may pay it in parts.`,
+    `Every withdrawal is paid within <strong>${c.maxWorkdays} working days</strong> (Monday to Friday) of the request, no later.`])}
+  ${sec("Article 4","Gold loans",[
+    `Ask the Treasurer for a loan in #town-bank. The Treasurer decides; a loan starts on the day the gold is paid out.`,
+    `Every loan runs for <strong>${c.loanDays} days</strong>. Repay it in gold to the Treasurer before the due date. You may repay early at any time without a fee.`,
+    `Loans cost <strong>${pct(c.loanRate)} interest every 30 days</strong> on what you still owe, until repaid in full.`,
+    `You cannot get a new loan while one of yours is late.`])}
+  ${sec("Article 5","Not paying back",[
+    `Each day a loan is overdue, <strong>${pct(c.lateDaily)}</strong> is added to what you owe.`,
+    `After <strong>${c.defaultAfter} days overdue</strong> the loan is in default: the Treasurer collects the debt from your savings, roubles and deposits, and you are put on the town's outlaw list until it is paid.`,
+    `Residents in default cannot take new loans or send roubles until the debt is cleared.`])}
+  ${sec("Article 6","General",[
+    `The bank's records on this website are the official record. Report mistakes in #town-bank within 7 days.`,
+    `The council may change these rates and rules; changes are announced in #announcements before they apply.`])}
+  <section><div class="links">${M.user ? `<a href="#player-${encodeURIComponent(M.user)}">← My bank</a>` : `<a href="#map">← Back to the town page</a>`}</div></section>`;
+}
+
+/* the flag in the home header opens the member area */
+(function(){
+  const flag = document.querySelector("#home .hero .flag");
+  if (!flag) return;
+  flag.classList.add("flag-btn"); flag.setAttribute("role","button"); flag.setAttribute("tabindex","0");
+  flag.setAttribute("aria-label","Kynograd flag. Residents: sign in to the member area");
+  const go = () => M.user ? (location.hash = "player-"+encodeURIComponent(M.user)) : showLogin("me");
+  flag.addEventListener("click", go);
+  flag.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+})();
+
 function route(){
-  const id = location.hash.slice(1);
+  let id = location.hash.slice(1);
+  const pol = id==="bank-policy";
+  const mv = id==="members" || id==="admin" || id.startsWith("player-");
+  if (mv && !M.user) { showLogin(id); id = ""; }
   const g = GUILDS.find(x=>x.id===id);
   const views = {guilds:["guildsView",renderLanding], projects:["projectsView",renderProjects], education:["educationView",renderEducation], guides:["guidesView",renderGuides]};
   const v = views[id] || (id.startsWith("guide-") && GUIDE_TEASERS.some(x=>"guide-"+x.id===id) ? ["guidesView", ()=>renderGuides(id.slice(6))] : null);
-  document.getElementById("home").hidden = !!g || !!v;
+  const showM = (mv && !!M.user) || pol;
+  document.getElementById("memberView").hidden = !showM;
+  document.getElementById("home").hidden = !!g || !!v || showM;
   document.getElementById("guildView").hidden = !g;
   for (const k in views) document.getElementById(views[k][0]).hidden = !(v && views[k][0]===v[0]);
-  if(g){ renderGuild(g); window.scrollTo(0,0); }
+  if(showM){ (pol ? renderPolicy() : id==="members" ? renderMembers() : id==="admin" ? renderAdmin() : renderPlayer(decodeURIComponent(id.slice(7)))); window.scrollTo(0,0); }
+  else if(g){ renderGuild(g); window.scrollTo(0,0); }
   else if(v){ (id==="guides" ? ()=>renderGuides() : v[1])(); window.scrollTo(0,0); }
   else if(id){ const t=document.getElementById(id); if(t) t.scrollIntoView(); }
   fillDc();
