@@ -3,11 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Kynograd · EarthMC town</title>
+<meta name="description" content="Kynograd is a town on EarthMC where two rivers meet. See the town map, join one of four guilds, and earn gold with our guides to trial chambers, gold mining and netherite.">
+<meta name="keywords" content="Kynograd, EarthMC, Minecraft town, Minecraft guild, trial chambers, gold mining, netherite">
+<meta name="theme-color" content="#b02e26">
+<!-- Link previews (Discord, WhatsApp, X, Facebook).
+     Replace SITE_URL below with your real address, e.g. https://yourname.github.io/kynograd -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kynograd">
+<meta property="og:title" content="Kynograd · EarthMC town">
+<meta property="og:description" content="Kynograd is a town on EarthMC where two rivers meet. See the town map, join one of four guilds, and earn gold with our guides to trial chambers, gold mining and netherite.">
+<meta property="og:url" content="SITE_URL/">
+<meta property="og:image" content="SITE_URL/img/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Kynograd town spawn at night">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kynograd · EarthMC town">
+<meta name="twitter:description" content="Kynograd is a town on EarthMC where two rivers meet. See the town map, join one of four guilds, and earn gold with our guides to trial chambers, gold mining and netherite.">
+<meta name="twitter:image" content="SITE_URL/img/preview.jpg">
+<link rel="canonical" href="SITE_URL/">
 </head>
 <body>
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Kynograd</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20120%20120%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20fill%3D%22%23b02e26%22/%3E%3Crect%20x%3D%2220%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Crect%20x%3D%2260%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Crect%20x%3D%22100%22%20width%3D%2220%22%20height%3D%22120%22%20fill%3D%22%23fed83d%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2235.6%22%20fill%3D%22%2380c71f%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -128,6 +146,8 @@ code{font:500 .85em var(--mono);background:var(--paper);border:1px solid var(--l
 .cta-row .stamp{margin-top:0}
 .btn{display:inline-block;font:500 .85rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:14px 18px;background:#fff;color:#b3201c;border:2px solid #fff}
 .btn:hover{background:transparent;color:#fff}
+.btn-ghost{background:transparent;color:#fff}
+.btn-ghost:hover{background:#fff;color:#b3201c}
 .btn-red{background:var(--red);color:var(--red-ink);border-color:var(--red)}
 .btn-red:hover{background:transparent;color:var(--red)}
 .hint{font:400 .8rem/1.4 var(--mono);color:var(--muted)}
@@ -164,21 +184,28 @@ details.more-info .inner{display:flex;flex-direction:column;gap:18px}
 .ingame{margin:0;background:var(--paper);border:1px solid var(--line);padding:12px 14px}
 .ingame .label{margin-right:8px}
 .mapwrap{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
-.mapwrap .mapkey{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px 20px}
+.mapwrap .mapkey{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:12px 18px}
 @media (min-width:820px){
   .mapwrap{--mw:min(1080px, calc(100vw - 40px));width:var(--mw);margin-inline:calc((100% - var(--mw)) / 2);grid-template-columns:minmax(0,3fr) minmax(260px,2fr);gap:28px}
-  .mapwrap .mapkey{grid-template-columns:1fr;gap:10px;align-self:center}
+  .mapwrap .mapkey{display:flex;flex-direction:column;justify-content:space-between;gap:0;align-self:stretch}
+  .mapwrap .mapkey li{padding-block:8px;border-bottom:1px solid var(--line)}
+  .mapwrap .mapkey li:last-child{border-bottom:0}
 }
 @media (max-width:640px){.mapwrap{grid-template-columns:1fr}}
 .townmap{margin:0;background:var(--paper);border:1px solid var(--line);padding:10px}
 .townmap svg{display:block;width:100%;height:auto}
 .mapkey{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
-.mapkey li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.mapkey li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:center}
 .mapkey b{width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:600 .78rem/1 var(--mono)}
 .mapkey b.plan-key{background:transparent;color:var(--c,var(--red));border:2px dashed var(--c,var(--red))}
-.k-arena{--c:var(--red)} .k-police{--c:var(--blue)} .k-boat{--c:var(--gold)}
+.k-arena{--c:var(--red)} .k-trial{--c:var(--muted)} .k-out{--c:var(--ink)} .k-police{--c:var(--blue)} .k-boat{--c:var(--gold)}
 .mapkey b.road-key{border-radius:0;height:12px;margin-top:6px;background:var(--muted);opacity:.55}
 .mapkey strong{display:block}
+.mapkey small{display:block;color:var(--muted);font:500 .68rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.mapkey li{grid-template-columns:30px 1fr}
+.mapkey b.gk{width:28px;height:28px;background:var(--gc);color:#fff;border:2px solid var(--gc)}
+.mapkey b.gk.gk-plan{background:var(--paper);color:var(--gc);border-style:dashed}
+.mapkey b.gk svg{width:16px;height:16px}
 .mapkey span{color:var(--muted);font-size:.85rem;line-height:1.4}
 .btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn-line:hover{background:var(--ink);color:var(--bg)}
@@ -218,6 +245,7 @@ button.btn{cursor:pointer;font:500 .85rem/1 var(--mono)}
 .person>span{overflow-wrap:anywhere}
 .residents{display:flex;flex-direction:column;gap:10px}
 .residents ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.residents li .rtag{margin-left:8px;color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
 .residents li{background:var(--paper);border:1px solid var(--line);padding:6px 10px 6px 6px;font:500 .85rem/1 var(--mono)}
 .projguild .person{text-transform:none;letter-spacing:0;color:var(--ink)}
 .pimg{margin:0;display:flex;flex-direction:column;gap:6px}
@@ -233,91 +261,158 @@ a.gcard.gl:hover{border-color:var(--ink)}
 .trial-btn code{background:transparent;border:0;padding:0;color:var(--muted);font-size:.78rem;overflow-wrap:anywhere}
 .quarter{max-width:520px}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
+/* guild strip */
+
+.gstrip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.gx{flex:0 0 var(--cw);scroll-snap-align:center;background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.gx-top{display:flex;gap:12px;align-items:center;padding:14px;border-bottom:4px solid var(--gc)}
+.emblem{flex:0 0 52px;height:52px;display:grid;place-items:center;background:var(--gc);color:#fff;clip-path:polygon(0 0,100% 0,100% 78%,50% 100%,0 78%)}
+.emblem svg{width:28px;height:28px}
+.gx-top h3{font-size:1.15rem}
+.gx-top p{margin:2px 0 0;color:var(--muted);font-size:.85rem;line-height:1.35}
+.gx-body{padding:14px;display:flex;flex-direction:column;gap:12px;flex:1}
+.gx-row{display:flex;flex-direction:column;gap:6px}
+.gx-row ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.gx-row li{font:500 .82rem/1 var(--mono);border:1px solid var(--line);padding:4px 8px 4px 4px;background:var(--bg)}
+.gx-row .none{color:var(--muted);font-size:.88rem}
+.gx-img{margin:auto 0 0;aspect-ratio:16/9;max-width:100%;border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);background:var(--bg);overflow:hidden}
+.gx-img img{width:100%;height:100%;object-fit:cover;display:block}
+.gx-img span{font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.gx .btn{text-align:center}
+.g-keyholders{--gc:var(--gold)} .g-builders{--gc:var(--red)} .g-police{--gc:var(--blue)} .g-resource{--gc:var(--ok)}
+/* flow: hero → map card pulled up into the hero → guilds → guides → join */
+.hero{padding-block:56px 120px}
+main{gap:72px}
+.map-first{margin-top:-104px;position:relative;z-index:1;gap:14px}
+.map-first .mapwrap{background:var(--paper);border:2px solid var(--ink);padding:14px;box-shadow:0 18px 40px -24px rgba(0,0,0,.45)}
+.map-first .townmap{border:0;padding:0;background:transparent}
+.map-first .cta-row{margin-top:4px}
+section > header h2{font-size:clamp(1.7rem,5.5vw,2.4rem)}
+/* carousel: one card in the middle, neighbours tilted aside, arrows beside */
+.car{--cw:min(300px,calc(100vw - 150px));display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px 10px}
+.car-track{position:relative;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-block:18px;padding-inline:calc(50% - var(--cw)/2);scrollbar-width:none;min-width:0}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.car .gx{opacity:.4;transform:scale(.9);transition:opacity .3s,transform .3s,box-shadow .3s,border-color .3s;cursor:pointer}
+.car .gx.is-prev{transform:scale(.88) rotate(-3deg)}
+.car .gx.is-next{transform:scale(.88) rotate(3deg)}
+.car .gx.is-active{opacity:1;transform:none;border-color:var(--gc);box-shadow:0 0 0 2px var(--gc),0 16px 34px -20px rgba(0,0,0,.5);cursor:default}
+.car-btn{width:48px;height:48px;border-radius:50%;border:2px solid var(--gc,var(--ink));background:var(--gc,var(--ink));color:#fff;transition:background .25s,border-color .25s,transform .15s;font:500 1.15rem/1 var(--mono);cursor:pointer;display:grid;place-items:center;padding:0}
+.car-btn:hover{transform:scale(1.08)}
+.car-btn:active{transform:scale(.95)}
+.car-btn:disabled{opacity:.3;cursor:default}
+.car-dots{grid-column:1/-1;display:flex;justify-content:center;gap:8px}
+.car-dots button{width:26px;height:6px;border:0;padding:0;background:var(--line);cursor:pointer}
+.car-dots button[aria-current="true"]{background:var(--gc,var(--ink))}
+@media (max-width:480px){.car{--cw:calc(100vw - 120px);gap:8px 6px}.car-btn{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.car-track{scroll-behavior:auto}.car .gx{transition:none}.car .gx.is-prev,.car .gx.is-next{transform:scale(.9)}}
+.g-trial{--gc:var(--blue)} .g-gold{--gc:var(--gold)} .g-nether{--gc:var(--red)}
+/* guides: a picker on the left, the chosen guide on the right */
+.gpick{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);border:2px solid var(--ink);background:var(--paper)}
+.gpick-list{display:flex;flex-direction:column;border-right:2px solid var(--ink)}
+.gtab{display:flex;align-items:center;gap:12px;padding:16px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);text-align:left;cursor:pointer;font:400 1.05rem/1.1 var(--display)}
+.gtab:last-child{border-bottom:0}
+.gtab .emblem{flex-basis:46px;height:46px;background:#f3efe6;border:2px solid var(--gc);clip-path:none;image-rendering:pixelated}
+.gtab .emblem img{width:34px;height:34px;object-fit:contain;image-rendering:pixelated}
+.gtab:hover{background:var(--bg)}
+.gtab[aria-selected="true"]{background:var(--gc);color:#fff}
+.gtab[aria-selected="true"] .emblem{border-color:#fff}
+.gpick-panel{padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0;border-top:6px solid var(--gc)}
+.gpick-panel h3{font-size:1.5rem;margin-top:6px}
+.gp-head{display:flex;align-items:center;gap:14px}
+.gp-icon{flex:0 0 72px;height:72px;display:grid;place-items:center;background:#f3efe6;border:2px solid var(--gc)}
+.gp-icon img{width:56px;height:56px;object-fit:contain;image-rendering:pixelated}
+.gpick-panel p{margin:0}
+.gfacts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:10px}
+.gfacts li{border-top:2px solid var(--gc);padding-top:8px;display:flex;flex-direction:column;gap:4px}
+.gfacts b{font:400 1.25rem/1 var(--display);color:var(--ink)}
+.gfacts span{font-size:.85rem;color:var(--muted)}
+.gpick-panel .btn{align-self:flex-start}
+@media (max-width:640px){.gpick{grid-template-columns:1fr}.gpick-list{flex-direction:row;border-right:0;border-bottom:2px solid var(--ink)}.gtab{flex:1;flex-direction:column;gap:6px;padding:12px 6px;border-bottom:0;border-right:1px solid var(--line);font-size:.85rem;text-align:center}.gtab:last-child{border-right:0}}
+.gx-body .goalline{margin:0}
+.closing{background:var(--paper);border:2px solid var(--ink);padding:20px;gap:16px}
+.closing > header{border-top:0;padding-top:0}
+.gd-title{display:flex;align-items:center;gap:16px;margin-top:14px}
+.gd-title h1{margin:0}
+.gd-icon{flex:0 0 auto;width:clamp(56px,10vw,84px);aspect-ratio:1;max-width:100%;display:grid;place-items:center;background:#f3efe6;border:3px solid #fff}
+.gd-icon img{width:80%;height:80%;object-fit:contain;image-rendering:pixelated}
+.guide-card .gp-icon{width:60px;height:60px;flex:none}
+.guide-card .gp-icon img{width:46px;height:46px}
+.guide-card:hover{border-color:var(--gc)}
+.hero-spawn{background:linear-gradient(180deg,rgba(176,46,38,.78),rgba(120,24,20,.88)),url("img/spawn.webp") center 38%/cover no-repeat,var(--flag-red)}
+.hero-spawn .spawn-cap{display:block;margin-top:18px;font:500 .68rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.gindex{display:flex;flex-direction:column;gap:14px}
+.gi{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;padding:18px;background:var(--paper);border:2px solid var(--line);border-left:6px solid var(--gc);text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.gi:hover{border-color:var(--gc);transform:translateX(3px)}
+.gi .gp-icon{width:80px;height:80px}
+.gi .gp-icon img{width:62px;height:62px}
+.gi-body{display:flex;flex-direction:column;gap:12px;min-width:0}
+.gi-body h3{font-size:1.4rem}
+.gi-body p{margin:0;color:var(--muted)}
+.gi-body .btn{align-self:flex-start}
+@media (max-width:520px){.gi{grid-template-columns:1fr}}
 footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--muted);font:400 .8rem/1.5 var(--mono)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
 <div id="home">
-<div class="hero">
+<div class="hero hero-spawn">
   <div class="wrap">
-    <span class="label">EarthMC · Phase 1 · Guild Quarter</span>
     <h1>KYNOGRAD</h1>
-    <p>Phase 1 has begun, comrades. Coming up: a Police HQ with horses for every officer, a public trial chamber under the river, and the casino boat moored right above it.</p>
     <div class="cta-row">
       <a class="btn discord-btn" href="#join">Join the Discord to apply</a>
+      <a class="btn btn-ghost" href="#guides">Guides: earn gold</a>
       <span class="stamp"><span class="star" aria-hidden="true"></span>Now recruiting comrades</span>
     </div>
   </div>
 </div>
 
 <main class="wrap">
-  <section id="lykeion">
-    <header><span class="label">Where we are</span><h2>Phase 1: the guild quarter</h2></header>
-    <p class="lede">Phase 0 laid the foundations: the Lykeion, the town square and the People's Bank. In Phase 1 the Police HQ goes up and every guild leads a project, and the guild quarter grows around a central arena with one hall per guild. Every gold donation helps the town grow so more comrades can join the cause.</p>
-    <div class="meter" aria-label="Guild heads filled">
-      <div class="row"><span>Guild heads filled</span><span id="seatCount">0 / 4</span></div>
-      <div class="bar"><i id="seatBar" style="width:0%"></i></div>
-    </div>
-  </section>
-
-  <section id="map">
-    <header><span class="label" id="mapLabel">This phase</span><h2>The town now</h2></header>
-    <p class="lede">Kynograd sits where the north river meets the east river. The town square is in the corner where they meet, and both bridges start there: north to the farm, east to the tree farm.</p>
+  <section id="map" class="map-first">
     <div class="mapwrap">
       <figure class="townmap" id="townMap" aria-label="Map of Kynograd"></figure>
       <ol class="mapkey">
-        <li><b>1</b><div><strong>Town square</strong><span>Where the rivers meet; both bridges start here.</span></div></li>
-        <li><b>2</b><div><strong>The Lykeion</strong><span>The founders' house.</span></div></li>
-        <li><b>3</b><div><strong>People's Bank</strong><span>Built in Phase 0.</span></div></li>
-        <li><b class="plan-key k-arena">4</b><div><strong>Arena</strong><span>Planned. Games and police training.</span></div></li>
-        <li><b class="plan-key k-police">5</b><div><strong>Police HQ</strong><span>Half built. Horse stables in the basement.</span></div></li>
-        <li><b class="plan-key k-boat">6</b><div><strong>Paddle steamer</strong><span>Planned casino boat, about 2 × 6 chunks, with the trial chamber below.</span></div></li>
+        <li><b>1</b><div><strong>Town square</strong></div></li>
+        <li><b>2</b><div><strong>The Lykeion</strong></div></li>
+        <li><b class="gk g-keyholders" data-gicon="keyholders"></b><div><strong>People's Bank</strong><small>Keyholders' Guild</small></div></li>
+        <li><b class="gk g-police" data-gicon="police"></b><div><strong>Police HQ</strong><small>Police Force</small></div></li>
+        <li><b class="plan-key k-boat">3</b><div><strong>Paddle steamer</strong></div></li>
+        <li><b class="plan-key k-trial">4</b><div><strong>Trial chamber</strong></div></li>
+        <li><b class="gk gk-plan g-builders" data-gicon="builders"></b><div><strong>Builders' HQ</strong><small>Builders' Guild · planned</small></div></li>
+        <li><b class="gk gk-plan g-resource" data-gicon="resource"></b><div><strong>Resource HQ</strong><small>Resource Guild · planned</small></div></li>
+        <li><b class="plan-key k-out">5</b><div><strong>New building</strong></div></li>
       </ol>
     </div>
     <div class="cta-row">
       <a class="btn btn-red" href="https://map.earthmc.net/?world=minecraft_overworld&amp;zoom=6&amp;x=15414&amp;z=-15163" target="_blank" rel="noopener">Open the live EarthMC map</a>
-      <span class="hint">Kynograd is at x 15414, z −15163.</span>
       <span data-dc="town-info" data-label="Town info on Discord"></span>
     </div>
-  </section>
-
-  <section id="roster">
-    <header><span class="label">Goal now · a head for every guild</span><h2>Guild roster</h2></header>
-    <p class="lede">The goal right now is a head for each of the four guilds; <span id="headsNeeded"></span> Apprentices come after, so their seats stay open. The Mayor and Co-Mayor lead the council and don't count towards the four. Open a guild to see what it has to get done this phase.</p>
-    <div class="roster" id="rosterList"></div>
     <div class="residents"><span class="label" id="resLabel">Residents</span><ul id="resList"></ul></div>
   </section>
 
-  <section id="goals">
-    <header><span class="label" id="goalsLabel">This phase</span><h2>Goals for this phase</h2></header>
-    <ul class="goals" id="goalList"></ul>
-    <div data-dc="announcements" data-label="Updates in #announcements"></div>
-    <div class="cta-row"><a class="btn btn-red" href="#guilds">See every guild's actions</a><a class="btn btn-line" href="#projects">Projects</a><a class="btn btn-line" href="#guides">Guides</a><a class="btn btn-line" href="#education">Join a guild</a></div>
-  </section>
-
-  <section id="roadmap">
-    <header><span class="label">The plan</span><h2>One phase at a time</h2></header>
-    <p class="lede">Kynograd grows one phase at a time. Each phase has a small set of goals the town can afford, and the next phase starts when they are met.</p>
-    <div class="road three">
-      <div class="phase"><span class="label">Phase 0 · done</span><h3>Founding</h3><p>The Lykeion, the town square and the People's Bank.</p></div>
-      <div class="phase now"><span class="label" id="roadNowLabel">Now</span><h3 id="roadNowName"></h3><p id="roadNowText"></p></div>
-      <div class="phase"><span class="label">Later</span><h3>Announced by the council</h3><p>Each next phase is posted in #announcements once the current one's goals are met.</p></div>
+  <section id="guildlist">
+    <header><span class="label">The guilds</span><h2>Four guilds run the town</h2></header>
+    <p class="lede">Every resident can join one. Swipe, tap the arrows or use the arrow keys.</p>
+    <div class="car" data-name="guild">
+      <button class="car-btn prev" type="button" aria-label="Previous guild">←</button>
+      <div class="car-track" id="guildStrip" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Guilds"></div>
+      <button class="car-btn next" type="button" aria-label="Next guild">→</button>
+      <div class="car-dots"></div>
     </div>
   </section>
 
   <section id="guides-teaser">
     <header><span class="label">Earn gold</span><h2>Guides</h2></header>
-    <div class="gcards">
-      <a class="gcard gl" href="#guides"><h3>Public trial chambers</h3><p class="goalline">Run trials around the server and sell the loot. Around 250g for doing them all.</p><span class="go-link">Read →</span></a>
-      <a class="gcard gl" href="#guides"><h3>Gold mining</h3><p class="goalline">Gold ore is equally common from Y 0 down to Y −64.</p><span class="go-link">Read →</span></a>
-      <a class="gcard gl" href="#guides"><h3>Nether mining</h3><p class="goalline">Nether gold and netherite, and how to stay alive doing it.</p><span class="go-link">Read →</span></a>
+    <div class="gpick">
+      <div class="gpick-list" role="tablist" aria-label="Guides" id="guideTabs"></div>
+      <div class="gpick-panel" role="tabpanel" id="guidePanel" aria-live="polite"></div>
     </div>
   </section>
 
-  <section id="join">
+  <section id="join" class="closing">
     <header><span class="label">Apply</span><h2>Join a guild</h2></header>
     <ol class="steps">
-      <li><div><strong>Pick a guild</strong> from the roster above.</div></li>
+      <li><div><strong>Pick a guild</strong> from the <a href="#guildlist">guilds above</a>.</div></li>
       <li><div><strong>Join the Kynograd Discord</strong> with the button below and accept the rules in #rules.</div></li>
       <li><div><strong>Say you're interested</strong> in the guild's channel: your EarthMC name and what you're good at.</div></li>
       <li><div><strong>Earn the head's trust</strong> by helping with your guild's project. The head gives the rank.</div></li>
@@ -334,7 +429,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
 <div id="guildsView" hidden>
   <div class="hero">
     <div class="wrap">
-      <a class="back" href="#goals">← Back to the town page</a>
+      <a class="back" href="#map">← Back to the town page</a>
       <span class="label" id="glLabel"></span>
       <h1 style="font-size:clamp(2.2rem,8vw,4rem)">GUILD ACTIONS</h1>
       <p>What every guild has to get done this phase. Guild heads tick off actions as they finish them.</p>
@@ -347,7 +442,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
 <div id="projectsView" hidden>
   <div class="hero">
     <div class="wrap">
-      <a class="back" href="#goals">← Back to the town page</a>
+      <a class="back" href="#map">← Back to the town page</a>
       <span class="label" id="pjLabel"></span>
       <h1 style="font-size:clamp(2.2rem,8vw,4rem)">PROJECTS</h1>
       <p>Every build in Kynograd runs the same way: design, gather, claim, build. Here is what is being built and what it still needs.</p>
@@ -360,10 +455,10 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
 <div id="guidesView" hidden>
   <div class="hero">
     <div class="wrap">
-      <a class="back" href="#goals">← Back to the town page</a>
-      <span class="label">Guides</span>
-      <h1 style="font-size:clamp(2.2rem,8vw,4rem)">GUIDES</h1>
-      <p>How comrades earn gold: public trial chambers, overworld gold and the Nether.</p>
+      <a class="back" id="gdBack" href="#map">← Back to the town page</a>
+      <span class="label" id="gdLabel">Guides</span>
+      <div class="gd-title"><span class="gd-icon" id="gdIcon" hidden></span><h1 id="gdTitle" style="font-size:clamp(2.2rem,8vw,4rem)">GUIDES</h1></div>
+      <p id="gdText">How comrades earn gold: public trial chambers, gold mining and netherite.</p>
     </div>
   </div>
   <main class="wrap" id="gdBody"></main>
@@ -372,7 +467,7 @@ footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--mute
 <div id="educationView" hidden>
   <div class="hero">
     <div class="wrap">
-      <a class="back" href="#goals">← Back to the town page</a>
+      <a class="back" href="#map">← Back to the town page</a>
       <span class="label">Joining a guild</span>
       <h1 style="font-size:clamp(2.2rem,8vw,4rem)">JOIN A GUILD</h1>
       <p>Anyone in Kynograd can join a guild. Ranks come from the guild head, once you've earned their trust.</p>
@@ -416,10 +511,10 @@ const CHANNEL_IDS = {
 const PHASE = {label:"Phase 1", name:"Guild Quarter", summary:"Build the Police HQ with horse stables in its basement, and every guild leads a project: a paddle steamer, an arena, a public trial chamber with a mob farm, and a vault under the bank. The guild quarter grows around the arena."};
 
 /* Residents, as on the EarthMC town page. */
-const RESIDENTS = ["Hbum","GarrisonGrim","Zaksmak8113","Toasty027","KyulsHere","RoyaumeLusignan","TheJohnTron","FlameyBoi_"];
+const RESIDENTS = ["Hbum","Zaksmak8113","GarrisonGrim","Toasty027","KyulsHere","RoyaumeLusignan","TheJohnTron","FlameyBoi_","thomasmns","vexy1342","T_p0tt","diaplay","Nurlanitos","Me_Monies"];
 /* Minecraft heads (32 px, from mc-heads.net), embedded so the page can show them.
    Ask Claude to add a head whenever a new name appears; until then the page shows the first letter. */
-const HEADS = {"Hbum":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA60lEQVRYhWN8tqX8PwMSEBPiQeYyvHr3hYEUgK4fHaCbx0SS6TQAow5gvHnzJkoaUH67iqYW3hUOQ+EPeAiMOoDl1q1bqCJqYdhVQgHv7Xl45T+rJqHw0c1XE0ZVP+AhMOoAln/XV6AIyDjNQuGvqPJF4ceHO+I1cPu0TBR+RNtmFP6eqWko/AEPgVEHMKK3B05fe4JXg7eNBkkWbD1yA4VvqiWDwh/wEBh1AAu6AHocX2DzROWTaIG3DSp/tE046ByAkQbQ4/zpvn7KbHAqROFKMaxG4Q94CIw6gPHMmTP/CSujHRjwEBh1AADXBDq2FRG3fQAAAABJRU5ErkJggg==","Zaksmak8113":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAy0lEQVRYhWPUUdP5z4AENJRkkbkM1+48ROFzcrAw4APff/xB4WupyKPwHzx5gcJnwmsaHcCoA1jQ4/zth/cofPQ45+PhImDkN7zmKchIoPAHPARGHcCCHkfCAoIo/E9fvuGVR9ePDgipH/AQGHXAqANGHcCCnk8XFwTg1RA7YQMKf1tDIkkW2pRMReEPeAiMOoAFPc453NNQ+Pwhmij8lwWFeA0Un92Pwv+45joK/wia+gEPgVEHjDpg1AGM33fM/E9YGe3AgIfAqAMA9D4wc+nRmAIAAAAASUVORK5CYII=","GarrisonGrim":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABAUlEQVRYhWO8PY3hPwMS+PiNAQXoyaPyLz1kwAsIqefnQuUz4TeO9mDUASzocT6rBJU/ZTUq/yyaPDrQQ1OPbl5aDyp/wENg1AGMZ3pQywH0fIwOWDn58cr//v4Rrzx6uTDgITDqAMZYPdQ0oCCAquDBB1T+xL4avAZaZK1C4bsL3ELhf/iBqn7AQ2DUASzocYLOXyyEkkQYJjLU4jXwltRNFH5UPar8g3RGFP6Ah8CoAxhfLg9BiWSxCNQKnZExHYX/at0fvAaKBbGg8P//n4mqf0UoCn/AQ2DUARhpgJGdD0UBEzsvXj46+PfzM17+/5+fUM0jzp20A6MOGHXAqAMA1OFEJTq8Nq0AAAAASUVORK5CYII=","Toasty027":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhWM8ekrpPwMScLJ9isxlmD5bAIWfmfqBAR/Yd1gahW9tdg+FP2+ROAqfCa9pdACjDmBBF0CPc8kKlCTC4LqBH4W/3OYuCv+IujIK/+gpJRT+zRtfUfgDHgKjDmBBjxN1DW4U/s0OVPkXh3+h8B0Py6HwJ24QJMkBAx4Cow5g5ODgQMnof//+xavh379/KHx09aysrHj1MzGh+nnAQ2DUARh1we/fv/FqEBYWRuF/+IDaPiCkn52dHYU/4CEw6gCMNPCVxQyvBmtZ1LoAPV8/eK+IV78Qw0VU/XhV0wGMOoBRQ0MDpS7g5OREUcDNjdo+QC/rGRkZUfg/f/5E4X/58gWv/ICHwKgDWJiZmVEE0ONcSEgIhY/eHkAHhNoDf/78QeEPeAiMOgAAul1KSpkM6DsAAAAASUVORK5CYII=","KyulsHere":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","RoyaumeLusignan":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAxUlEQVRYhWM8qSr6nwEJaM9pZKAluJpSj8JnoqltRIBRB7B8+U9YET7w7/cPFD4TKwde9ej2DXgIjDqA8cvBaSixQmqckqoeHQx4CIw6YNQBow5gIaTAN7sfhb95aiFV1Q94CIw6gNFRR5WkFsG+jatQ+J/v70fh+xdMJ8kBAx4Cow5g/H58Lkoa4LBIQlHwbUUYCp/Lvg2vgd8OVqGqj0BNMz9OzEPhD3gIjDqA8dPuHrzlAK+2P0UWfL66Ea/8gIfAqAMAykw1leySUzAAAAAASUVORK5CYII=","TheJohnTron":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA9ElEQVRYhWO0NzP+z4AEvnz5isxl4OHhRuFzc6Py0cHXr6j6CZnHhNc0OoBRB7Cgx9H3H//RlHxlIAWQat6Ah8CoA1jQ4+jHL1R+TN4yFP6XVzwofMaDH1H4yvJ/UPgtlxPwOmDAQ2DUASzocW7eswqFXxVhQJEFZ8KPoPDDjiah8Ac8BEYdwBg25xBKImALsUBRsOH+exT+F0NxvAa+5DmEwhcMEELhn/j1FIU/4CEw6gCWp2++oQgcFWCjyEDxL3aoAktQudPNJqHwBzwERh3A8vzEBrpaePHNJRT+gIfAqANYvr99RVcLX31HtW/AQ2DUAQDpH0xcorxMdAAAAABJRU5ErkJggg==","FlameyBoi_":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAmklEQVRYhe1XwQ2AIAykhp9O4C7OwYzO4S5OgG99cyZeGkzK4+5XKHDplRbsXtOdOnBt1tjz8b0d+k89h/8BEbBazJUDXo2Zf3gERCDjAGqGmiKY5mx9eARE4JUDdrZ2JRswzZe9na9FvWAwAuZ9D/T2f/QPj4AIZFar8R4ntAlYHQmPgAjQOuC99wz6FwxHgNYBBu969YLhCDytYTTPoV5hMwAAAABJRU5ErkJggg=="};
+const HEADS = {"Hbum":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA60lEQVRYhWN8tqX8PwMSEBPiQeYyvHr3hYEUgK4fHaCbx0SS6TQAow5gvHnzJkoaUH67iqYW3hUOQ+EPeAiMOoDl1q1bqCJqYdhVQgHv7Xl45T+rJqHw0c1XE0ZVP+AhMOoAln/XV6AIyDjNQuGvqPJF4ceHO+I1cPu0TBR+RNtmFP6eqWko/AEPgVEHMKK3B05fe4JXg7eNBkkWbD1yA4VvqiWDwh/wEBh1AAu6AHocX2DzROWTaIG3DSp/tE046ByAkQbQ4/zpvn7KbHAqROFKMaxG4Q94CIw6gPHMmTP/CSujHRjwEBh1AADXBDq2FRG3fQAAAABJRU5ErkJggg==","Zaksmak8113":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAy0lEQVRYhWPUUdP5z4AENJRkkbkM1+48ROFzcrAw4APff/xB4WupyKPwHzx5gcJnwmsaHcCoA1jQ4/zth/cofPQ45+PhImDkN7zmKchIoPAHPARGHcCCHkfCAoIo/E9fvuGVR9ePDgipH/AQGHXAqANGHcCCnk8XFwTg1RA7YQMKf1tDIkkW2pRMReEPeAiMOoAFPc453NNQ+Pwhmij8lwWFeA0Un92Pwv+45joK/wia+gEPgVEHjDpg1AGM33fM/E9YGe3AgIfAqAMA9D4wc+nRmAIAAAAASUVORK5CYII=","GarrisonGrim":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABAUlEQVRYhWO8PY3hPwMS+PiNAQXoyaPyLz1kwAsIqefnQuUz4TeO9mDUASzocT6rBJU/ZTUq/yyaPDrQQ1OPbl5aDyp/wENg1AGMZ3pQywH0fIwOWDn58cr//v4Rrzx6uTDgITDqAMZYPdQ0oCCAquDBB1T+xL4avAZaZK1C4bsL3ELhf/iBqn7AQ2DUASzocYLOXyyEkkQYJjLU4jXwltRNFH5UPar8g3RGFP6Ah8CoAxhfLg9BiWSxCNQKnZExHYX/at0fvAaKBbGg8P//n4mqf0UoCn/AQ2DUARhpgJGdD0UBEzsvXj46+PfzM17+/5+fUM0jzp20A6MOGHXAqAMA1OFEJTq8Nq0AAAAASUVORK5CYII=","Toasty027":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABLklEQVRYhWM8ekrpPwMScLJ9isxlmD5bAIWfmfqBAR/Yd1gahW9tdg+FP2+ROAqfCa9pdACjDmBBF0CPc8kKlCTC4LqBH4W/3OYuCv+IujIK/+gpJRT+zRtfUfgDHgKjDmBBjxN1DW4U/s0OVPkXh3+h8B0Py6HwJ24QJMkBAx4Cow5g5ODgQMnof//+xavh379/KHx09aysrHj1MzGh+nnAQ2DUARh1we/fv/FqEBYWRuF/+IDaPiCkn52dHYU/4CEw6gCMNPCVxQyvBmtZ1LoAPV8/eK+IV78Qw0VU/XhV0wGMOoBRQ0MDpS7g5OREUcDNjdo+QC/rGRkZUfg/f/5E4X/58gWv/ICHwKgDWJiZmVEE0ONcSEgIhY/eHkAHhNoDf/78QeEPeAiMOgAAul1KSpkM6DsAAAAASUVORK5CYII=","KyulsHere":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","RoyaumeLusignan":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAxUlEQVRYhWM8qSr6nwEJaM9pZKAluJpSj8JnoqltRIBRB7B8+U9YET7w7/cPFD4TKwde9ej2DXgIjDqA8cvBaSixQmqckqoeHQx4CIw6YNQBow5gIaTAN7sfhb95aiFV1Q94CIw6gNFRR5WkFsG+jatQ+J/v70fh+xdMJ8kBAx4Cow5g/H58Lkoa4LBIQlHwbUUYCp/Lvg2vgd8OVqGqj0BNMz9OzEPhD3gIjDqA8dPuHrzlAK+2P0UWfL66Ea/8gIfAqAMAykw1leySUzAAAAAASUVORK5CYII=","TheJohnTron":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA9ElEQVRYhWO0NzP+z4AEvnz5isxl4OHhRuFzc6Py0cHXr6j6CZnHhNc0OoBRB7Cgx9H3H//RlHxlIAWQat6Ah8CoA1jQ4+jHL1R+TN4yFP6XVzwofMaDH1H4yvJ/UPgtlxPwOmDAQ2DUASzocW7eswqFXxVhQJEFZ8KPoPDDjiah8Ac8BEYdwBg25xBKImALsUBRsOH+exT+F0NxvAa+5DmEwhcMEELhn/j1FIU/4CEw6gCWp2++oQgcFWCjyEDxL3aoAktQudPNJqHwBzwERh3A8vzEBrpaePHNJRT+gIfAqANYvr99RVcLX31HtW/AQ2DUAQDpH0xcorxMdAAAAABJRU5ErkJggg==","FlameyBoi_":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAmklEQVRYhe1XwQ2AIAykhp9O4C7OwYzO4S5OgG99cyZeGkzK4+5XKHDplRbsXtOdOnBt1tjz8b0d+k89h/8BEbBazJUDXo2Zf3gERCDjAGqGmiKY5mx9eARE4JUDdrZ2JRswzZe9na9FvWAwAuZ9D/T2f/QPj4AIZFar8R4ntAlYHQmPgAjQOuC99wz6FwxHgNYBBu969YLhCDytYTTPoV5hMwAAAABJRU5ErkJggg==","thomasmns":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAnElEQVRYhe2WsQrEIBBEs5pWBPFDxN8JIdyXHSHcz9la66a9TbHXXM7iZrpxVniMsEg5Z57e5JybNFlr1by1pua1VuGNOv0DAYC89/x57D4NbwAAAADAnFISB9ddf93t386HNwCAuZQiDohI9cbozL134ZlZ9cMbAADFGMWjPPdDvbCti5rvx0vNH9sq/PAGAEAhBPwJAQCA/wY4AXC9JsljO1tuAAAAAElFTkSuQmCC","vexy1342":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","T_p0tt":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","Nurlanitos":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRYhe2Xu0oDQRSG9zKb3VViFMRNEdA38AUkpQiW2lsEtPARRGtRbGxsfAJFLLRQixR2voJCTDSoKcJC2Bg22Yut3xSLjUwzp/tm/j377zkzw6y5vFTOjV+RZAZCmBY4ThNwkqRgy6LeETY4x9sMg2oFoQ0IuedyJDkF014JXCmZ4NRgz/tRzPlcWjN/cfmfoQ0IeeB4dwvsOuy5782AR8MBE9j8pvDrA3x4fQdWXgFtwLzY38bpPOW6EHzH3Me2zflwEIIXgwVwp/1caEB5BbQBIfd8fe8UvFE/AjfqLbDc87PbAHz1eAK+PNgBK6+ANmCeN1ZxDgTVGgTCnQXfNJuFCTfXVsDdtxdwq9cHK6+ANiCiCe9o4y73eed9CC5bTmHC+4cncLXmg02DzyuvgDYgXj97GMgy/gfMz1UKE8STMdh3PXA04hqT9coroA38AOXdWewGL/KEAAAAAElFTkSuQmCC","diaplay":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAvklEQVRYhe2XwQqCQBRF3zSDI4kLLYJ2LVoUzf//iRi0kWjTwqDAGiOx9VVQZvU27+2OXsbjHRlQNdWtJ8ZZcD5cBERABERABIiITP/r4IIyGnju/nBC12NvQATMXKA4l8CnwzEo75ybzLM3IAKjc8AvLbCKkeNVjvn6MZn/RPiZWf8FZm9ABEbnQLZZA+ftHlinuMdJusW8xncarvd+XYHZGxAB9Swu8G+obQSBZId7HDpNdQfuWg/M3oAI/AEZuS6I1PKq1QAAAABJRU5ErkJggg==","Me_Monies":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABTklEQVRYhe2WMUvDQBTHe0nTWGzqoljEGlyKoJDBSmY3cXEUnARB0MXNb+AsroKrIO7iR0gGh2yupR2sRNA2WGKa6NpfhnO85d72Sx7v/vd/L5cTl7urv5WZsE1jFis1ew68slSvyGL4mYMnyQic5gWYqykILaBaK/XcMARYGHz/PmIPy1HkU2m9WmnPyh3QAkR30eE5UOd33nAc8N52S1rw+eUNnIzH4HQyASt3QAsQa815zEDvK0HCycU9uN2/lRbst0/BdzdHYHehAVbugBYgznfWMQP7hxtIsGz27OpxCI7jGHx9tgnOUs7U08MrWLkDWkA1z37w4GPAnlVt/v8POiYrdJaB8YB3wGn6DS6vp9wBLUAEQYBzwPd9JERRBPY8T1rwv/wwDMHKHdACxPFWCzNgle7xrtsEG6YlLVjkGbjX47mQFVhOvQNawB8zalpbPJk9ygAAAABJRU5ErkJggg=="};
 
 /* Seats: status "filled" or "open"; add who:"Name" when filled. head:true marks the guild head. */
 const GUILDS = [
@@ -494,6 +589,7 @@ const GUILDS = [
 
  {id:"police", name:"Police Force", short:"Police", motto:"Protecting the people of Kynograd.",
   seats:[{role:"Chief of Police", head:true, who:"Zaksmak8113", status:"filled"},{role:"Apprentice", status:"open"}],
+  members:["KyulsHere"],
   ranks:["Chief of Police", "Apprentice → Lieutenant", "Squads"],
   channel:"#police-guild",
   duties:[
@@ -521,7 +617,7 @@ const GUILDS = [
   ranks:["Head of Resource", "Apprentice → Foreman", "Mining and farm brigades"],
   channel:"#resource-guild",
   duties:[
-   ["Mine gold","Nether and overworld gold. All of it goes to the town bank as a donation."],
+   ["Mine gold and netherite","Overworld gold and netherite from the Nether. All gold goes to the town bank as a donation."],
    ["Gather building materials","Andesite and diorite for the housing roofs, plus wood and stone for every project."],
    ["Run the farms","The farm across the north bridge and the tree farm across the east bridge."],
    ["Run the trial chamber","Keep the public trial chamber and its mob farm working for every resident."]],
@@ -604,6 +700,7 @@ const PROJECTS = [
   lead:"Keyholder", where:"Under the People's Bank and in the vault plot",
   size:"Built", land:"Already claimed",
   purpose:"Safe storage for the town's valuables. Built; a redstone door is next.",
+  img:"img/vault.webp", imgCap:"The vault under the People's Bank, with the Kynograd banners.",
   stages:[
    {t:"Design the vault with the Builders", who:"Keyholder + Master Builder", done:true},
    {t:"Dig it out below the bank", who:"Resource Guild", done:true},
@@ -623,29 +720,25 @@ const JOINING = {
 };
 /* Guides page. TRIALS is the list of working public trial chambers from the sign board at the tutorial;
    type "t" is a town, "n" a nation. */
-const TUTORIAL = "/t spawn Mindanao";
+const TUTORIAL = "/n spawn Mindanao";
 const TRIALS = [
  ["t","Backrooms"],["t","Gainza"],["t","Wonsan"],["t","Jeju"],["n","Sweden"],["t","Blackwood_River"],["t","Kirkopolis"],
  ["t","Exalted"],["t","Xiantao"],["t","Dessie"],["t","Orion"],["t","Gotland"],["t","Regina"],["t","Oslo"],["t","Trial"],
  ["t","Jubail"],["t","Hibernia"],["t","Gulf"],["t","Polyarny"],["t","Ok"],["t","US_Embassy"],["n","FE"],["n","Iceland"]];
-const TRIAL_PRICES = [["Emeralds","3–4 for 1g"],["Enchanted golden apple","2g each"],["Golden apples","3 for 1g"],["Heavy core","4–5g each"]];
+const TRIAL_PRICES = [["Mending book","7g each · /n spawn Japan"],["Heavy core","4–5g each, sells well"],["Trident","4–5g each"],["Enchanted golden apple","2g each"],["Emeralds","6 for 1g"]];
 const MINING_GUIDE = [
  {h:"Overworld gold", items:[
   "On EarthMC, gold ore is equally common anywhere from Y 0 down to Y −64, so strip mine at any depth in that range.",
-  "You need an iron pickaxe or better. Fortune raises the raw gold drop.",
+  "Bring Haste II potions and an Efficiency V diamond pickaxe. Fortune does not drop extra gold.",
   "Smelt raw gold into ingots in a furnace before you deposit it.",
   "Other ways to earn gold: /vote on both links for up to 2 gold crates a day (be online), and selling in shops."]},
- {h:"Nether gold", items:[
-  "Nether gold ore sits in netherrack all over the Nether and drops 2 to 6 gold nuggets. 9 nuggets make 1 ingot.",
-  "Use a pickaxe with Fortune if you have one: it raises the nugget drop.",
-  "Wear at least one piece of gold armour, or piglins attack you.",
-  "Mining gold ore, or opening chests, near piglins makes them hostile. Mine away from them.",
-  "Zombified piglins drop gold nuggets and sometimes ingots, but hitting one turns the whole group on you."]},
  {h:"Netherite", items:[
+  "On EarthMC, gold ore does not spawn in the Nether and piglins do not drop gold, so the Nether is only worth it for netherite.",
   "Ancient debris is found low in the Nether, most often around Y 15 (roughly Y 8 to 22).",
+  "TNT mining works really well: ancient debris survives explosions, so blowing out tunnels uncovers it fast. Buy TNT in bulk at /n spawn Amazon.",
   "Strip mine at Y 15 with a diamond pickaxe; debris does not burn in lava and resists explosions.",
   "Netherite pays well as long as you find areas nobody has mined yet: older nether near spawn is mostly dug out.",
-  "Never sleep in a bed in the Nether: it explodes. Note your portal coordinates before you leave it."]},
+  "Sell netherite ingots at /n spawn Japan, /n spawn Germany or /n spawn France."]},
  {h:"Handing it in", items:[
   "Craft nuggets into ingots first: the town bank takes gold ingots.",
   "Donate to the town bank with /t deposit [amount]."]}
@@ -658,36 +751,123 @@ const face = (name, size) => HEADS[name]
   ? `<img class="face" src="${HEADS[name]}" alt="" width="${size||20}" height="${size||20}">`
   : `<span class="face face-none" style="width:${size||20}px;height:${size||20}px" aria-hidden="true">${esc(String(name)[0]||"?")}</span>`;
 const person = (name, size) => `<span class="person">${face(name,size)}<span>${esc(name)}</span></span>`;
-let n = 0, filled = 0, heads = 0, headsFilled = 0;
-const list = document.getElementById("rosterList");
-GUILDS.forEach(g=>{
-  const seats = g.seats.map(s=>{
-    if(!s.mayor){ n++; if(s.status==="filled") filled++; }
-    if(s.head){ heads++; if(s.status==="filled") headsFilled++; }
-    const chip = s.status==="filled" ? '<span class="chip filled">Filled</span>'
-      : s.head ? '<span class="chip wanted">Head wanted</span>' : '<span class="chip open">Open</span>';
-    return `<div class="seat${s.head?" is-head":""}"><span class="no">${s.mayor?(s.co?'NOT A SEAT · CO-LEADS THE COUNCIL':'NOT A SEAT · LEADS THE COUNCIL'):`SEAT ${String(n).padStart(2,"0")} · ${s.head?'<span class="head-tag">HEAD</span>':'APPRENTICE'}`}</span>
-      <span class="role">${esc(s.role)}</span>
-      <span class="who">${s.status==="filled"?person(s.who):"Vacant"}</span>
-      ${chip}</div>`;
-  }).join("");
-  list.insertAdjacentHTML("beforeend",
-    `<a class="guild" href="#${g.id}"><div class="guild-head"><h3>${esc(g.name)}</h3><span class="go">Guild page →</span></div><div class="seats">${seats}</div></a>`);
-});
 document.getElementById("resLabel").textContent = `Residents · ${RESIDENTS.length}`;
-document.getElementById("resList").innerHTML = RESIDENTS.map(r=>`<li>${person(r,24)}</li>`).join("");
-const guildHeads = GUILDS.flatMap(g=>g.seats.filter(x=>x.head && !x.mayor).map(x=>({g, x})));
-const headsIn = guildHeads.filter(h=>h.x.status==="filled").length, missing = guildHeads.filter(h=>h.x.status!=="filled").map(h=>h.g.short);
-document.getElementById("seatCount").textContent = `${headsIn} / ${guildHeads.length}`;
-document.getElementById("seatBar").style.width = (headsIn/guildHeads.length*100)+"%";
-document.getElementById("headsNeeded").textContent = missing.length ? `${missing.join(" and ")} still need${missing.length===1?"s":""} one.` : "every guild has one.";
+const guildOf = r => { const g = GUILDS.find(g => g.id!=="council" && (g.seats.some(x=>x.who===r) || (g.members||[]).includes(r))); return g ? g.short : (GUILDS[0].seats.some(x=>x.who===r) ? "Council" : ""); };
+document.getElementById("resList").innerHTML = RESIDENTS.map(r=>{ const t = guildOf(r); return `<li>${person(r,24)}${t?`<span class="rtag">${esc(t)}</span>`:""}</li>`; }).join("");
+document.getElementById("footText").textContent = "Kynograd · EarthMC. Kept up to date by the council.";
 
+/* Guild strip on the home page. Put an image path in GUILD_IMG to replace a placeholder, e.g. "img/police.jpg". */
+const GUILD_IMG = {keyholders:"img/vault.webp", builders:"img/steamer.jpg", police:"img/arena.jpg", resource:"img/trial.jpg"};
+const GUILD_IMG_CAP = {keyholders:"The vault under the People's Bank", builders:"The paddle steamer schematic", police:"The arena schematic", resource:"Inside the trial chamber under the river"};
+const ICONS = {
+ keyholders:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="7.5" cy="12" r="4"/><path d="M11.5 12H21M17.5 12v3.5M21 12v3"/></svg>',
+ builders:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 4.5l6 6-3 3-6-6z"/><path d="M12 12L4 20"/><path d="M15 3l2-1 5 5-1 2"/></svg>',
+ police:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8l1.2 2.5 2.7.3-2 1.9.6 2.7L12 14l-2.5 1.4.6-2.7-2-1.9 2.7-.3z" fill="currentColor" stroke="none"/></svg>',
+ resource:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 9c5-5 13-5 18 0"/><path d="M12 5.5V21"/></svg>'
+};
+document.getElementById("guildStrip").innerHTML = GUILDS.filter(g=>g.id!=="council").map(g=>{
+  const head = g.seats.find(x=>x.head);
+  const members = [...g.seats.filter(x=>!x.head && x.status==="filled").map(x=>x.who), ...(g.members||[])];
+  return `<article class="gx g-${g.id}">
+    <div class="gx-top"><span class="emblem">${ICONS[g.id]||""}</span><div><h3>${esc(g.name)}</h3><p>${esc(g.motto)}</p></div></div>
+    <div class="gx-body">
+      <div class="gx-row"><span class="label">Head · ${esc(head.role)}</span>${head.status==="filled"?`<ul><li>${person(head.who,20)}</li></ul>`:`<span class="none">Seat open. Could be you.</span>`}</div>
+      <div class="gx-row"><span class="label">Members · ${members.length}</span>${members.length?`<ul>${members.map(m=>`<li>${person(m,20)}</li>`).join("")}</ul>`:`<span class="none">No members yet.</span>`}</div>
+      <figure class="gx-img">${GUILD_IMG[g.id]?`<img src="${GUILD_IMG[g.id]}" alt="${esc(GUILD_IMG_CAP[g.id]||g.name)}" loading="lazy">`:`<span>Guild image</span>`}</figure>
+      <a class="btn btn-red" href="#${g.id}">Visit guild page →</a>
+    </div></article>`;
+}).join("");
 
-document.getElementById("goalsLabel").textContent = `This phase · ${PHASE.label} · ${PHASE.name}`;
-document.getElementById("roadNowLabel").textContent = `${PHASE.label} · now`;
-document.getElementById("roadNowName").textContent = PHASE.name;
-document.getElementById("roadNowText").textContent = PHASE.summary;
-document.getElementById("footText").textContent = `Kynograd · EarthMC · ${PHASE.label} · ${PHASE.name}. Seat, goal and action status is updated by the council.`;
+/* Resource packs linked from the mining guides. */
+const PACKS = {
+ bright:{name:"Fullbright UB", url:"https://modrinth.com/resourcepack/fullbright-ub", text:"Lights up caves and tunnels like night vision, so you can strip mine without torches. Works with Vanilla, Sodium and OptiFine."},
+ blue:{name:"Blue Netherite", url:"https://modrinth.com/resourcepack/blue-netherite", text:"Makes netherite stand out, so ancient debris is much easier to spot while you mine."}
+};
+/* Guides picker on the home page. Starts on the middle guide. */
+/* Pixel icons in a Minecraft-like style, drawn for this page: one letter per pixel, "." is empty. */
+const PIX = {
+ trial:{pal:{D:"#5a2f12",C:"#b8692e",L:"#f0b070"}, rows:[
+  "................","................","................","..DDDD..........",
+  ".DCLLCD.........","DCD..DCDDDDDDDD.","DL....LCCCCCCCCD","DCD..DCDDDDCDCD.",
+  ".DCCCCD....D.D..","..DDDD..........","................","................"]},
+ gold:{pal:{O:"#4a3500",Y:"#fff07a",G:"#e8b81c",D:"#a87800",W:"#ffffff"}, rows:[
+  "................","................","....OOOOOOOO....","...OYWYYYYYYO...",
+  "..OYYYYYYYYYGO..",".OGGGGGGGGGGGDO.",".OGGGGGGGGGGGDO.",".ODDDDDDDDDDDDO.",
+  "..OOOOOOOOOOOO..","................","................","................"]},
+ nether:{pal:{Y:"#fed83d",O:"#f08a1c",R:"#c8321e",K:"#3a0f0c",N:"#7a2a24"}, rows:[
+  ".......Y........","......YO....Y...","......YOY..YO...",".....YOOY..YOY..",
+  ".....OORO.YOOY..","....YORRO.ORRO..","...YORRRROORRO..","...ORRRRRRRRRO..",
+  "..KNNKNNNKNNNKN.","..NKNNKNNNKNNNK.","..NNNKNNKNNKNNN.","..KKKKKKKKKKKKK."]}
+};
+const pixSvg = id => { const {pal, rows} = PIX[id]; let r = "";
+  rows.forEach((row,y)=>[...row].forEach((ch,x)=>{ if(pal[ch]) r += `<rect x="${x}" y="${y}" width="1" height="1" fill="${pal[ch]}"/>`; }));
+  return `<svg viewBox="0 0 16 12" shape-rendering="crispEdges" aria-hidden="true">${r}</svg>`; };
+const GUIDE_ICONS = {trial:'<img src="icons/trial.png" alt="">', gold:'<img src="icons/gold.png" alt="">', nether:'<img src="icons/netherite.png" alt="">'};
+const GUIDE_TEASERS = [
+ {id:"trial", name:"Public trial chambers", text:"Towns across the server run public trial chambers. Buy vault keys, run the trials, keep the loot and sell it. Start at the tutorial ("+TUTORIAL+") for the list of trials; the cheapest keys are in Japan: /n spawn Japan.",
+  facts:[["~250g","for running every trial"],[String(TRIALS.length),"public trials to visit"],["Japan","cheapest keys · /n spawn Japan"]]},
+ {id:"gold", name:"Gold mining", text:"Gold ore is equally common anywhere from Y 0 down to Y −64, so strip mine at any depth in that range. Bring Haste II potions and an Efficiency V diamond pickaxe. Fortune does not give extra gold.",
+  facts:[["Y 0 → −64","where gold ore spawns"],["Haste II","potions to mine faster"],["Eff V","diamond pickaxe"]]},
+ {id:"nether", name:"Netherite mining", text:"The Nether is only worth it for netherite: gold ore doesn't spawn there and piglins don't drop gold. Blast for ancient debris with TNT at Y 15 and sell the ingots in Japan, Germany or France.",
+  facts:[["Y 15","best height for ancient debris"],["TNT","buy in bulk · /n spawn Amazon"],["Sell","/n spawn Japan, Germany or France"]]}
+];
+(function(){
+  const tabs = document.getElementById("guideTabs"), panel = document.getElementById("guidePanel");
+  tabs.innerHTML = GUIDE_TEASERS.map(g=>`<button type="button" role="tab" class="gtab g-${g.id}" id="gt-${g.id}" aria-controls="guidePanel"><span class="emblem">${GUIDE_ICONS[g.id]}</span><span>${esc(g.name)}</span></button>`).join("");
+  const btns = [...tabs.children];
+  const show = i => {
+    const g = GUIDE_TEASERS[i];
+    btns.forEach((b,k)=>{ b.setAttribute("aria-selected", k===i?"true":"false"); b.tabIndex = k===i?0:-1; });
+    panel.className = `gpick-panel g-${g.id}`; panel.setAttribute("aria-labelledby", `gt-${g.id}`);
+    panel.innerHTML = `<div class="gp-head"><span class="gp-icon">${GUIDE_ICONS[g.id]}</span><div><span class="label">Guide ${i+1} of ${GUIDE_TEASERS.length}</span><h3>${esc(g.name)}</h3></div></div><p>${esc(g.text)}</p>
+      <ul class="gfacts">${g.facts.map(([b,t])=>`<li><b>${esc(b)}</b><span>${esc(t)}</span></li>`).join("")}</ul>
+      <a class="btn btn-red" href="#guide-${g.id}">Read the full guide →</a>`;
+  };
+  btns.forEach((b,i)=>{ b.addEventListener("click", ()=>show(i));
+    b.addEventListener("keydown", e=>{ const d = e.key==="ArrowDown"?1:e.key==="ArrowUp"?-1:0; if(!d) return; e.preventDefault(); const n = (i+d+btns.length)%btns.length; show(n); btns[n].focus(); }); });
+  show(Math.floor((GUIDE_TEASERS.length-1)/2));
+})();
+
+/* Carousel: starts on the middle card and always has one selected; arrows wrap around. Arrows, dots, swipe, a click on a side card, or the arrow keys. */
+const CARS = [...document.querySelectorAll(".car")].map(root => {
+  const track = root.querySelector(".car-track"), cards = [...track.children];
+  const prev = root.querySelector(".prev"), next = root.querySelector(".next"), dots = root.querySelector(".car-dots");
+  dots.innerHTML = cards.map(c=>`<button type="button" aria-label="Show ${esc(c.querySelector("h3").textContent)}"></button>`).join("");
+  let active = -1;
+  const mark = i => {
+    active = i;
+    cards.forEach((c,k)=>{ c.classList.toggle("is-active",k===i); c.classList.toggle("is-prev",k===i-1); c.classList.toggle("is-next",k===i+1);
+      c.setAttribute("aria-hidden", k===i?"false":"true"); c.querySelectorAll("a,button").forEach(a=>a.tabIndex = k===i?0:-1); });
+    [...dots.children].forEach((d,k)=>d.setAttribute("aria-current", k===i?"true":"false"));
+    const gc = [...cards[i].classList].find(c=>c.startsWith("g-")); [...root.classList].filter(c=>c.startsWith("g-")).forEach(c=>root.classList.remove(c)); if(gc) root.classList.add(gc);
+  };
+  const go = (i, instant) => { i = (i + cards.length) % cards.length; const c = cards[i];
+    const left = c.offsetLeft - (track.clientWidth - c.offsetWidth)/2;
+    if (instant) { track.style.scrollBehavior = "auto"; track.scrollLeft = left; track.style.scrollBehavior = ""; } else track.scrollTo({left});
+    mark(i); };
+  prev.addEventListener("click", ()=>go(active-1));
+  next.addEventListener("click", ()=>go(active+1));
+  [...dots.children].forEach((d,i)=>d.addEventListener("click", ()=>go(i)));
+  cards.forEach((c,i)=>c.addEventListener("click", e=>{ if(i!==active){ e.preventDefault(); go(i); } }));
+  let t; track.addEventListener("scroll", ()=>{ clearTimeout(t); t = setTimeout(()=>{
+    const mid = track.scrollLeft + track.clientWidth/2; let best = 0, d = Infinity;
+    cards.forEach((c,i)=>{ const x = Math.abs(c.offsetLeft + c.offsetWidth/2 - mid); if(x<d){d=x;best=i;} });
+    if(best!==active) mark(best); }, 80); });
+  const start = Math.floor((cards.length-1)/2);
+  mark(start);
+  return {root, go:(i,inst)=>go(i,inst), get active(){return active}, start};
+});
+const settleCars = () => CARS.forEach(c=>c.go(c.active, true));
+requestAnimationFrame(settleCars); addEventListener("load", settleCars); addEventListener("resize", settleCars);
+document.addEventListener("keydown", e=>{
+  if(e.key!=="ArrowLeft" && e.key!=="ArrowRight") return;
+  if(document.getElementById("home").hidden) return;
+  const tg = e.target; if(tg && (tg.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName))) return;
+  const vis = CARS.map(c=>({c, r:c.root.getBoundingClientRect()})).filter(x=>x.r.bottom>0 && x.r.top<innerHeight);
+  if(!vis.length) return;
+  vis.sort((a,b)=>Math.abs(a.r.top+a.r.height/2-innerHeight/2)-Math.abs(b.r.top+b.r.height/2-innerHeight/2));
+  e.preventDefault(); const c = vis[0].c; c.go(c.active + (e.key==="ArrowRight"?1:-1));
+});
 
 const doneCount = g => g.actions.filter(a=>a.done).length;
 const actionList = g => `<ul class="actions">${g.actions.map(a=>`<li class="${a.done?"done":""}"><span class="box" aria-hidden="true">${a.done?"✓":""}</span><span class="t">${esc(a.t)}</span></li>`).join("")}</ul>`;
@@ -702,30 +882,36 @@ function dcBtn(ch, label, cls){ const u = dcUrl(ch); const text = label || `Open
 function fillDc(root){ (root||document).querySelectorAll("[data-dc]").forEach(el => { el.innerHTML = dcBtn(el.dataset.dc, el.dataset.label, el.dataset.cls); }); }
 
 function renderMap(){
-  /* Traced from the live map. One grid square is one chunk; the river is drawn in quarter chunks.
-     Shapes below are in pixels of the map screenshot, converted by P() and Q(). */
-  const s = 24, q = 6, cols = 14, rows = 12;
-  const k = s/53.55, P = x => ((x - 375.35)*k).toFixed(1), Q = y => ((y - 126.1)*k).toFixed(1);
-  const WATER = [[54,0,2],[53,1,3],[52,2,4],[2,3,16],[51,3,5],[0,4,20],[50,4,6],[0,5,20],[28,5,1],[49,5,7],[0,6,20],[28,6,1],[30,6,4],[48,6,7],[0,7,20],[28,7,1],[30,7,5],[48,7,7],[0,8,20],[28,8,1],[30,8,8],[46,8,9],[0,9,20],[31,9,8],[45,9,10],[0,10,20],[27,10,1],[31,10,10],[46,10,8],[0,11,41],[45,11,8],[0,12,42],[44,12,8],[0,13,51],[0,14,2],[4,14,47],[0,15,1],[7,15,1],[13,15,37],[21,16,26],[31,17,16],[31,18,16],[31,19,16],[31,20,16],[31,21,16],[31,22,16],[32,23,13],[32,24,13],[32,25,15],[32,26,15],[31,27,15],[31,28,15],[31,29,16],[31,30,14],[31,31,14],[31,32,13],[31,33,13],[31,34,13],[31,35,13],[30,36,16],[30,37,16],[30,38,16],[30,39,15],[30,40,15],[30,41,15],[30,42,16],[30,43,1],[32,43,14],[30,44,16],[30,45,16],[30,46,17],[31,47,16]];
+  /* Traced from the live map (October 2026). One grid square is one chunk; the river is drawn in quarter chunks.
+     Older shapes are in pixels of the first map screenshot (P, Q); newer ones in pixels of the current one (IX, IY). */
+  const s = 24, q = 6, cols = 18, rows = 14.25;
+  const k = s/53.55, P = x => ((x - 375.35)*k + 2*s).toFixed(1), Q = y => ((y - 126.1)*k - s).toFixed(1);
+  const ik = s/50.2, IX = x => ((x - 31.5)*ik).toFixed(1), IY = y => ((y - 40.5)*ik).toFixed(1);
+  const ibox = (x1,y1,x2,y2,extra) => `<rect x="${IX(x1)}" y="${IY(y1)}" width="${((x2-x1)*ik).toFixed(1)}" height="${((y2-y1)*ik).toFixed(1)}" ${extra}/>`;
+  const ipoly = (pts,extra) => `<path d="M${pts.map(([x,y])=>`${IX(x)} ${IY(y)}`).join("L")}Z" ${extra}/>`;
+  const cpoly = (pts,extra) => `<path d="M${pts.map(([c,r])=>`${c*s} ${r*s}`).join("L")}Z" ${extra}/>`;
+  const WATER = [[4,0,1],[8,0,20],[58,0,10],[3,1,25],[36,1,1],[38,1,1],[57,1,7],[3,2,25],[36,2,1],[38,2,2],[56,2,8],[0,3,28],[36,3,1],[38,3,6],[56,3,7],[0,4,28],[36,4,1],[38,4,8],[54,4,9],[0,5,28],[39,5,8],[54,5,9],[0,6,28],[39,6,9],[54,6,9],[0,7,48],[54,7,7],[0,8,12],[13,8,37],[52,8,8],[0,9,59],[0,10,10],[12,10,47],[0,11,1],[5,11,4],[15,11,1],[21,11,27],[49,11,10],[0,12,1],[29,12,26],[39,13,16],[39,14,16],[39,15,16],[39,16,16],[39,17,16],[39,18,16],[40,19,14],[40,20,13],[40,21,15],[40,22,15],[39,23,16],[39,24,16],[39,25,16],[39,26,16],[39,27,16],[39,28,15],[39,29,15],[39,30,15],[39,31,15],[39,32,15],[39,33,15],[39,34,15],[39,35,14],[39,36,14],[39,37,14],[39,38,15],[39,39,15],[39,40,15],[39,41,15],[39,42,16],[39,43,16],[40,44,15],[40,45,17],[40,46,17],[40,47,18],[41,48,18],[41,49,19],[41,50,19],[42,51,18],[43,52,18],[44,53,17],[44,54,20],[45,55,20],[46,56,19]];
   const box = (x1,y1,x2,y2,extra) => `<rect x="${P(x1)}" y="${Q(y1)}" width="${((x2-x1)*k).toFixed(1)}" height="${((y2-y1)*k).toFixed(1)}" ${extra}/>`;
   const ring = (x,y,r,extra) => `<circle cx="${P(x)}" cy="${Q(y)}" r="${(r*k).toFixed(1)}" ${extra}/>`;
   const poly = (pts,extra) => `<path d="M${pts.map(([x,y])=>`${P(x)} ${Q(y)}`).join("L")}Z" ${extra}/>`;
   const num = (x, y, t, c) => `<circle cx="${P(x)}" cy="${Q(y)}" r="10" fill="${c?"var(--paper)":"var(--ink)"}" ${c?`stroke="${c}" stroke-width="2" stroke-dasharray="3 2"`:""}/><text x="${P(x)}" y="${(+Q(y)+4).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="600" fill="${c||"var(--bg)"}" font-family="IBM Plex Mono, monospace">${t}</text>`;
+  const gmark = (cx, cy, id, planned) => { const ic = (ICONS[id]||"").replace("<svg ", `<svg x="${(cx-7).toFixed(1)}" y="${(cy-7).toFixed(1)}" width="14" height="14" `);
+    return `<g class="g-${id}" style="color:${planned?"var(--gc)":"#fff"}"><circle cx="${cx}" cy="${cy}" r="11" fill="${planned?"var(--paper)":"var(--gc)"}" stroke="var(--gc)" stroke-width="2" ${planned?'stroke-dasharray="3 2"':""}/>${ic}</g>`; };
+  const num0 = t => `<circle r="10" fill="var(--paper)" stroke="var(--ink)" stroke-width="2" stroke-dasharray="3 2"/><text y="4" text-anchor="middle" font-size="11" font-weight="600" fill="var(--ink)" font-family="IBM Plex Mono, monospace">${t}</text>`;
   const planIn = (c, fill) => `fill="${fill||c}" fill-opacity="${fill?".45":".22"}" stroke="${c}" stroke-width="2" stroke-dasharray="4 3"`;
   const bld = 'fill="var(--paper)" stroke="var(--ink)" stroke-width="1.4"';
   const plan = 'fill="var(--red)" fill-opacity=".12" stroke="var(--red)" stroke-width="2" stroke-dasharray="4 3"';
   let g = WATER.map(([i,j,l]) => `<rect x="${i*q}" y="${j*q}" width="${l*q+0.3}" height="${q+0.3}" fill="var(--water)"/>`).join("");
   for (let i = 0; i <= cols; i++) g += `<line x1="${i*s}" x2="${i*s}" y1="0" y2="${rows*s}" stroke="var(--line)" stroke-width="0.6"/>`;
-  for (let j = 0; j <= rows; j++) g += `<line x1="0" x2="${cols*s}" y1="${j*s}" y2="${j*s}" stroke="var(--line)" stroke-width="0.6"/>`;
+  for (let j = 0; j <= Math.floor(rows); j++) g += `<line x1="0" x2="${cols*s}" y1="${j*s}" y2="${j*s}" stroke="var(--line)" stroke-width="0.6"/>`;
   /* the town claim */
-  g += poly([[428,285],[643,285],[643,178],[855,178],[855,340],[1070,340],[1070,500],[855,500],[800,500],[800,713],[643,713],[643,606],[535,606],[535,500],[428,500]], 'fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-dasharray="4 3"');
+  g += cpoly([[7,0],[12,0],[12,3],[15,3],[15,5],[16,5],[16,6],[17,6],[17,8],[10,8],[10,14],[3,14],[3,9],[1,9],[1,7],[2,7],[2,3],[3,3],[3,2],[7,2]], 'fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-dasharray="4 3"');
   /* paving, park, farms */
-  g += poly([[428,340],[785,340],[785,500],[697,500],[697,713],[643,713],[643,500],[428,500]], 'fill="var(--muted)" fill-opacity=".35"');
-  g += box(538,500,643,606,'fill="var(--ok)" fill-opacity=".3" stroke="var(--ok)" stroke-width="1.4"') + ring(590,553,46,planIn("var(--red)"));
-  g += box(645,180,748,266,'fill="var(--gold)" fill-opacity=".3" stroke="var(--gold)" stroke-width="1.4"');
-  g += box(1008,340,1070,498,'fill="var(--ok)" fill-opacity=".5" stroke="var(--ok)" stroke-width="1.4"');
+  g += ipoly([[181,190],[515,190],[515,565],[530,565],[530,720],[352,720],[352,565],[402,565],[402,330],[181,330]], 'fill="var(--muted)" fill-opacity=".35"');
+  g += box(645,180,748,266,'fill="var(--ok)" fill-opacity=".45" stroke="var(--ok)" stroke-width="1.4"');
+  g += ibox(728,193,785,440,'fill="var(--ok)" fill-opacity=".5" stroke="var(--ok)" stroke-width="1.4"');
   /* buildings */
-  g += box(430,392,590,450,bld) + box(700,552,748,708,planIn("var(--blue)"));
+  g += box(430,392,590,450,bld) + box(700,552,748,708,bld);
   /* the town square, in the corner where the rivers meet */
   g += box(696,340,785,446,'fill="var(--gold)" fill-opacity=".22"');
   /* the Lykeion: an L, with the town square plaza in its corner */
@@ -733,18 +919,24 @@ function renderMap(){
   g += ring(742,397,30,'fill="none" stroke="var(--ink)" stroke-width="1.2" stroke-dasharray="3 2"');
   /* bridges */
   g += `<line x1="${P(773)}" y1="${Q(200)}" x2="${P(773)}" y2="${Q(342)}" stroke="var(--ink)" stroke-width="3"/><line x1="${P(785)}" y1="${Q(363)}" x2="${P(1008)}" y2="${Q(363)}" stroke="var(--ink)" stroke-width="3"/>`;
-  /* planned: paddle steamer */
-  /* paddle steamer: about 2 × 6 chunks, south of the east bridge */
-  g += `<rect x="${P(808)}" y="${Q(392)}" width="${(100*k).toFixed(1)}" height="${(321*k).toFixed(1)}" rx="10" ${planIn("var(--gold)","var(--sun)")}/>`;
-  g += num(742,397,1) + num(670,472,2) + num(510,421,3) + num(590,553,4,"var(--red)") + num(724,630,5,"var(--blue)") + num(857,552,6,"var(--gold)");
+  /* planned buildings, outlined in-game: the Builders' HQ south of the Police HQ, and a second building at the south end opposite the bank */
+  const outl = 'fill="var(--paper)" fill-opacity=".55" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="4 3"';
+  g += cpoly([[7,11],[9,11],[9,12],[8,12],[8,13],[7,13]], outl) + cpoly([[3,12],[6,12],[6,13],[3,13]], outl);
+  /* Resource Guild HQ: an L of three chunks west of the People's Bank, one buffer chunk between them (the plan's hall spot) */
+  g += cpoly([[1,4],[2,4],[2,6],[0,6],[0,5],[1,5]], outl);
+
+  /* trial chamber: underground, between the casino boat and the tree farm */
+  g += box(860,420,1060,540,'fill="var(--muted)" fill-opacity=".14" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="2 3"');
+  /* paddle steamer: planned casino boat, south of the east bridge */
+  g += `<rect x="${P(808)}" y="${Q(392)}" width="${(100*k).toFixed(1)}" height="${(268*k).toFixed(1)}" rx="10" ${planIn("var(--gold)","var(--sun)")}/>`;
+  g += num(742,397,1) + num(670,472,2) + gmark(+P(510),+Q(421),"keyholders") + gmark(+P(724),+Q(630),"police") + num(857,600,3,"var(--gold)") + num(985,480,4,"var(--muted)") + gmark(7.5*s, 11.5*s, "builders", true) + `<g transform="translate(${4.5*s} ${12.5*s})">${num0(5)}</g>` + gmark(1.5*s, 5.5*s, "resource", true);
   const tag = (x, y, t) => `<text x="${P(x)}" y="${Q(y)}" text-anchor="middle" font-size="10" fill="var(--ink)" font-family="IBM Plex Mono, monospace">${t}</text>`;
-  g += tag(696,228,"farm") + tag(1039,410,"tree") + tag(1039,432,"farm");
-  g += `<text x="${P(470)}" y="${Q(258)}" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">river</text>`;
+    g += `<text x="${P(470)}" y="${Q(258)}" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">river</text>`;
   g += `<text x="${cols*s-8}" y="18" text-anchor="end" font-size="12" font-weight="600" fill="var(--ink)" font-family="IBM Plex Mono, monospace">N ↑</text>`;
-  document.getElementById("townMap").innerHTML = `<svg viewBox="0 0 ${cols*s} ${rows*s}" role="img" aria-label="Map of Kynograd: the town square in the corner where the rivers meet, the L-shaped Lykeion beside it, the People's Bank to the west, the planned arena and Police HQ to the south, the farm across the north bridge, the tree farm across the east bridge, and the planned paddle steamer in the east river">${g}</svg><figcaption class="hint" style="margin-top:8px">One square is one chunk. Dashed outline: the town claim. Dashed shapes: Phase 1 builds (arena red, Police HQ blue, steamer yellow). The trial chamber sits under the steamer.</figcaption>`;
-  document.getElementById("mapLabel").textContent = `This phase · ${PHASE.label} · ${PHASE.name}`;
+  document.getElementById("townMap").innerHTML = `<svg viewBox="0 0 ${cols*s} ${rows*s}" role="img" aria-label="Map of Kynograd: the town square in the corner where the rivers meet, the L-shaped Lykeion beside it, the People's Bank to the west, the Police HQ to the south, the farm across the north bridge, the tree farm across the east bridge, the planned casino boat in the east river, the trial chamber underground between them, two outlined buildings at the south end: the Builders' HQ and one opposite the bank">${g}</svg>`;
 }
 renderMap();
+document.querySelectorAll("[data-gicon]").forEach(b => { b.innerHTML = ICONS[b.dataset.gicon] || ""; });
 
 const joinBox = g => {
   const j = JOINING[g.id];
@@ -762,7 +954,7 @@ function renderProjects(){
       ${(()=>{const g=GUILDS.find(x=>x.id===p.guild)||{seats:[]}; const h=g.seats.find(x=>x.head); return `<span class="label projguild">${esc(g.name||"")} project${h&&h.status==="filled"?` · led by ${person(h.who)}`:""}</span>`;})()}
       <p class="lede">${esc(p.purpose)}</p>
       ${p.img?`<figure class="pimg"><img src="${p.img}" alt="${esc(p.imgCap)}" loading="lazy" width="1200" height="675"><figcaption class="hint">${esc(p.imgCap)}</figcaption></figure>`:""}
-      ${p.id==="trial"?`<a class="btn btn-line" style="align-self:flex-start" href="#guides">Trial chamber guide →</a>`:""}
+      ${p.id==="trial"?`<a class="btn btn-line" style="align-self:flex-start" href="#guide-trial">Trial chamber guide →</a>`:""}
       <dl class="facts"><div><dt>Lead</dt><dd>${esc(p.lead)}</dd></div><div><dt>Where</dt><dd>${esc(p.where)}</dd></div><div><dt>Size</dt><dd>${esc(p.size)}</dd></div><div><dt>Land</dt><dd>${esc(p.land)}</dd></div></dl>
       ${meter(done, p.stages.length, "Stages done")}
       <ul class="actions">${p.stages.map(x=>`<li class="${x.done?"done":""}"><span class="box" aria-hidden="true">${x.done?"✓":""}</span><span><span class="t">${esc(x.t)}</span><small class="who">${esc(x.who)}</small></span></li>`).join("")}</ul>
@@ -802,30 +994,55 @@ function renderProjects(){
   });
 }
 
-function renderGuides(){
+function renderGuides(which){
   const cmd = t => `<code class="cmd">${esc(t)}</code>`;
-  document.getElementById("gdBody").innerHTML = `
-  <section id="trials"><header><span class="label">Earn gold</span><h2>Public trial chambers</h2></header>
-    <p class="lede">Towns across the server run public trial chambers. You buy vault keys, run the trials, keep the loot and sell it. There is a short tutorial with a key shop at ${cmd(TUTORIAL)}.</p>
+  const G = GUIDE_TEASERS.find(x=>x.id===which);
+  const icon = document.getElementById("gdIcon");
+  document.getElementById("gdLabel").textContent = G ? "Guide · earn gold" : "Guides";
+  document.getElementById("gdTitle").textContent = G ? G.name.toUpperCase() : "GUIDES";
+  document.getElementById("gdText").textContent = G ? G.text : "How comrades earn gold: public trial chambers, gold mining and netherite.";
+  icon.hidden = !G; icon.innerHTML = G ? GUIDE_ICONS[G.id] : "";
+  const back = document.getElementById("gdBack"); back.href = G ? "#guides" : "#map"; back.textContent = G ? "← All guides" : "← Back to the town page";
+  const card = g => `<a class="gcard gl guide-card g-${g.id}" href="#guide-${g.id}"><span class="gp-icon">${GUIDE_ICONS[g.id]}</span><h3>${esc(g.name)}</h3><p class="goalline">${esc(g.text)}</p><span class="go-link">Read the guide →</span></a>`;
+  const tips = h => { const x = MINING_GUIDE.find(m=>m.h===h); return x ? `<ul class="guide">${x.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>` : ""; };
+  const packs = list => `<section><header><span class="label">Resource packs</span><h2>See more underground</h2></header><div class="two">${list.map(k=>`<div class="panel"><strong>${esc(k.name)}</strong><p style="margin:0">${esc(k.text)}</p><a class="btn btn-red" style="align-self:flex-start" href="${k.url}" target="_blank" rel="noopener">Get it on Modrinth ↗</a></div>`).join("")}</div></section>`;
+  const facts = g => `<ul class="gfacts">${g.facts.map(([b,t])=>`<li><b>${esc(b)}</b><span>${esc(t)}</span></li>`).join("")}</ul>`;
+  let body = "";
+  if (!G) {
+    body = `<section><header><span class="label">Pick a guide</span><h2>Three ways to earn gold</h2></header>
+      <div class="gindex">${GUIDE_TEASERS.map(g=>`<a class="gi g-${g.id}" href="#guide-${g.id}"><span class="gp-icon">${GUIDE_ICONS[g.id]}</span><div class="gi-body"><h3>${esc(g.name)}</h3><p>${esc(g.text)}</p>${facts(g)}<span class="btn btn-red">Open the guide →</span></div></a>`).join("")}</div></section>`;
+  } else if (G.id === "trial") {
+    body = `<section class="g-trial"><header><span class="label">At a glance</span><h2>Trial runs</h2></header>${facts(G)}
+    <p class="lede">The tutorial at ${cmd(TUTORIAL)} has a key shop and the board of public trials, but the cheapest keys are in Japan: ${cmd("/n spawn Japan")}.</p>
     <ol class="flow" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr))">
-      <li><strong>Buy keys</strong><span>Normal and ominous vault keys, from the shop at the tutorial.</span></li>
+      <li><strong>Buy keys</strong><span>Normal and ominous vault keys. Cheapest in Japan: /n spawn Japan.</span></li>
       <li><strong>Run the trials</strong><span>Teleport to a town from the list below and open the vaults inside.</span></li>
       <li><strong>Keep the loot</strong><span>Everything from the vaults is yours.</span></li>
       <li><strong>Sell it</strong><span>Sell at different shops. Doing every trial earns around 250g.</span></li>
     </ol>
     <div class="two">
-      <div class="panel"><span class="label">What loot sells for</span><table class="mtable"><tbody>${TRIAL_PRICES.map(([i,v])=>`<tr><td>${esc(i)}</td><td class="num">${esc(v)}</td></tr>`).join("")}</tbody></table><p class="hint">Prices from the tutorial board; shops vary.</p></div>
+      <div class="panel"><span class="label">What loot sells for</span><table class="mtable"><tbody>${TRIAL_PRICES.map(([i,v])=>`<tr><td>${esc(i)}</td><td class="num">${esc(v)}</td></tr>`).join("")}</tbody></table><p class="hint">Going prices; shops vary. Sell mending books at /n spawn Japan.</p></div>
       <div class="panel"><span class="label">Coming to Kynograd</span><p style="margin:0">Our own public trial chamber under the paddle steamer, run by the Resource Guild, with a mob farm on one of its spawners.</p><a class="go-link" href="#projects">See the project →</a></div>
-    </div>
-    <h3 class="subhead">Working public trials · ${TRIALS.length}</h3>
-    <p class="hint">Tap a command to copy it, then paste it in chat.</p>
+    </div></section>
+    <section><header><span class="label">Tap to copy</span><h2>Working public trials · ${TRIALS.length}</h2></header>
     <ul class="trials">${TRIALS.map(([k,n])=>{const c=`/${k} spawn ${n}`; return `<li><button type="button" class="trial-btn" data-cmd="${esc(c)}"><span class="kind">${k==="n"?"Nation":"Town"}</span><span class="tname">${esc(n)}</span><code>${esc(c)}</code></button></li>`;}).join("")}</ul>
-    <p class="hint" id="trialMsg" aria-live="polite"></p>
-  </section>
-  <section id="mining"><header><span class="label">Earn gold</span><h2>Gold and Nether mining</h2></header>
-    <div class="gcards">${MINING_GUIDE.map(x=>`<article class="gcard"><h3>${esc(x.h)}</h3><ul class="guide">${x.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></article>`).join("")}</div>
-    <p class="hint">Gold heights from the <a href="https://earthmc.net/docs/gold" target="_blank" rel="noopener">EarthMC gold guide ↗</a>. Nether tips follow standard Minecraft generation.</p>
-  </section>`;
+    <p class="hint" id="trialMsg" aria-live="polite"></p></section>`;
+  } else if (G.id === "gold") {
+    body = `<section class="g-gold"><header><span class="label">At a glance</span><h2>Gold runs</h2></header>${facts(G)}</section>
+    <section><header><span class="label">How to</span><h2>Mining overworld gold</h2></header>${tips("Overworld gold")}
+      <p class="hint">Gold heights from the <a href="https://earthmc.net/docs/gold" target="_blank" rel="noopener">EarthMC gold guide ↗</a>.</p></section>
+    ${packs([PACKS.bright])}`;
+  } else {
+    body = `<section class="g-nether"><header><span class="label">At a glance</span><h2>Netherite runs</h2></header>${facts(G)}</section>
+    <section><header><span class="label">How to</span><h2>Mining ancient debris</h2></header>${tips("Netherite")}</section>
+    ${packs([PACKS.blue, PACKS.bright])}`;
+  }
+  const more = GUIDE_TEASERS.filter(x=>x.id!==which);
+  body += `<section class="closing"><header><span class="label">Keep going</span><h2>${G ? "More guides" : "Next step"}</h2></header>
+    ${G ? `<div class="gcards">${more.map(card).join("")}</div>` : ""}
+    <p class="lede">Gold you earn goes further in a guild. Find the one that fits you.</p>
+    <div class="cta-row" style="margin-top:0"><a class="btn btn-red" href="#guildlist">Learn about the guilds</a><a class="btn btn-line" href="#education">How joining works</a></div></section>`;
+  document.getElementById("gdBody").innerHTML = body;
   const msg = document.getElementById("trialMsg");
   document.querySelectorAll(".trial-btn").forEach(b => b.addEventListener("click", () => {
     const t = b.dataset.cmd;
@@ -863,9 +1080,6 @@ function renderLanding(){
     ${actionList(g)}
     <div class="cardlinks"><a class="go-link" href="#${g.id}">Guild page →</a>${dcUrl(g.channel.slice(1))?`<a class="go-link" href="${dcUrl(g.channel.slice(1))}" target="_blank" rel="noopener">${esc(g.channel)} ↗</a>`:""}</div></article>`;}).join("")}</div>`;
 }
-
-document.getElementById("goalList").innerHTML = GOALS.map(g=>
-  `<li class="${g.done?"done":""}"><span class="box" aria-hidden="true">${g.done?"✓":""}</span><div><strong>${esc(g.t)}</strong><small>${esc(g.d)}</small></div></li>`).join("");
 
 /* Guild quarter plan: one cell is one chunk. The quarter is 9 × 9 chunks, south of Prospekt Zakat and west of Helios Prospekt.
    A buffer chunk of park separates every building from the next one and from the arena. */
@@ -935,16 +1149,16 @@ function renderGuild(g){
     ${actionList(g)}
     ${PROJECTS.filter(p=>p.guild===g.id).map(p=>`<a class="btn btn-red" style="align-self:flex-start" href="#projects">Project: ${esc(p.name)} →</a>`).join("")}
   </section>
-  ${(g.id==="builders"||g.id==="council") ? `<section><header><span class="label">Build areas marked out</span><h2>Guild quarter plan</h2></header><p class="lede">Each guild gets a hall of 3 chunks around the arena: members live upstairs, the guild's HQ with a common room and offices is on the ground floor. A buffer chunk of park sits between every building and between the halls and the arena.</p>${quarterSVG()}</section>` : ""}
   ${g.id==="builders" ? `<section><header><span class="label">Schematics placed in-game</span><h2>The big builds</h2></header><div class="shots">${PROJECTS.filter(p=>p.id==="arena"||p.id==="steamer").map(p=>`<figure class="pimg"><img src="${p.img}" alt="${esc(p.imgCap)}" loading="lazy" width="1200" height="675"><figcaption class="hint"><strong>${esc(p.name)}.</strong> ${esc(p.imgCap)}</figcaption></figure>`).join("")}</div></section>` : ""}
   <section><header><span class="label">Chain of command</span><h2>Ranks</h2></header>
     <div class="ranks">${g.ranks.map(r=>`<span>${esc(r)}</span>`).join('<i aria-hidden="true">→</i>')}</div>
+    ${(g.members||[]).length?`<p class="lede">Members: ${g.members.map(m=>`<strong>${person(m,22)}</strong>`).join(", ")}</p>`:""}
     <p class="lede">Head: <strong>${head.status==="filled"?person(head.who,22):"seat open"}</strong>. The head leads this guild, sits on the council and assigns this phase's actions to the ranks below.</p>
     <p class="ingame"><span class="label">In-game rank</span> ${esc(g.ingame)}</p>
     <div><span class="label">How to join</span>${joinBox(g)}</div>
     <div class="panel"><span class="label">How the guild grows</span><ul>${g.growth.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>
   </section>
-  ${g.id==="resource" ? `<section><header><span class="label">Guides</span><h2>Gold, netherite and trials</h2></header><p class="lede">Where gold spawns, how to mine the Nether, and how to earn gold from public trial chambers.</p><a class="btn btn-red" style="align-self:flex-start" href="#guides">Open the guides →</a></section>` : ""}
+  ${g.id==="resource" ? `<section><header><span class="label">Guides</span><h2>Gold, netherite and trials</h2></header><p class="lede">Where gold spawns, how to mine netherite, and how to earn gold from public trial chambers.</p><a class="btn btn-red" style="align-self:flex-start" href="#guides">Open the guides →</a></section>` : ""}
   <details class="more-info"><summary>Duties and routines</summary><div class="inner">
     <ul class="duties">${g.duties.map(([t,d])=>`<li><strong>${esc(t)}</strong><span>${esc(d)}</span></li>`).join("")}</ul>
     <div class="two">
@@ -964,12 +1178,12 @@ function route(){
   const id = location.hash.slice(1);
   const g = GUILDS.find(x=>x.id===id);
   const views = {guilds:["guildsView",renderLanding], projects:["projectsView",renderProjects], education:["educationView",renderEducation], guides:["guidesView",renderGuides]};
-  const v = views[id];
+  const v = views[id] || (id.startsWith("guide-") && GUIDE_TEASERS.some(x=>"guide-"+x.id===id) ? ["guidesView", ()=>renderGuides(id.slice(6))] : null);
   document.getElementById("home").hidden = !!g || !!v;
   document.getElementById("guildView").hidden = !g;
-  for (const k in views) document.getElementById(views[k][0]).hidden = k !== id;
+  for (const k in views) document.getElementById(views[k][0]).hidden = !(v && views[k][0]===v[0]);
   if(g){ renderGuild(g); window.scrollTo(0,0); }
-  else if(v){ v[1](); window.scrollTo(0,0); }
+  else if(v){ (id==="guides" ? ()=>renderGuides() : v[1])(); window.scrollTo(0,0); }
   else if(id){ const t=document.getElementById(id); if(t) t.scrollIntoView(); }
   fillDc();
 }
@@ -977,6 +1191,6 @@ window.addEventListener("hashchange", route);
 route();
 </script>
 
-</body></html>
+
 </body>
 </html>
