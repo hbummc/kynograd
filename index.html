@@ -2564,7 +2564,7 @@ function goPortal(){
 (function(){
   const dock = document.createElement("button");
   dock.type = "button"; dock.className = "flag-dock"; dock.setAttribute("aria-label", "Portal"); dock.title = "Portal";
-  dock.innerHTML = `${FLAG_SVG}<span class="dock-tip"><kbd>Space</kbd> + <kbd>S</kbd></span>`;
+  dock.innerHTML = FLAG_SVG;
   dock.tabIndex = -1; dock.setAttribute("aria-hidden", "true");
   document.body.appendChild(dock);
   dock.addEventListener("click", goPortal);
@@ -2710,7 +2710,6 @@ function goPortal(){
   window.openQuickSwitch = open;
 })();
 document.querySelectorAll(".hero .flag").forEach(flag => {
-  flag.insertAdjacentHTML("beforeend", `<span class="flag-tip"><kbd>Space</kbd> + <kbd>S</kbd></span>`);
   flag.classList.add("flag-btn"); flag.setAttribute("role","button"); flag.setAttribute("tabindex","0");
   flag.setAttribute("aria-label","Kynograd flag. Go to the portal");
   const go = goPortal;
