@@ -6,6 +6,7 @@
 <style>
 /* Layout: constructivist poster — a diagonal red slab hero, then a single 72ch column of ledger-style sections; guild pages swap in via #hash */
 :root{
+  --ln-gold:#8a6400; --ln-roub:#2c5aa0;
   --bg:#efede8; --paper:#f8f7f3; --ink:#18161a; --muted:#5e5a60; --line:#cfcbc4;
   --red:#b02e26; --red-ink:#ffffff; --gold:#8a6400; --ok:#4c7a12; --water:#c9d6e3; --blue:#2c5aa0; --sun:#e0b100;
   --flag-red:#b02e26; --flag-lime:#80c71f; --flag-sun:#fed83d;
@@ -15,8 +16,9 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#141215; --paper:#1c1a1e; --ink:#ece8e3; --muted:#a29da4; --line:#36323a;
-  --red:#e0574d; --red-ink:#ffffff; --gold:#fed83d; --ok:#9bd84a; --water:#22303e; --blue:#7fa8e6; --sun:#fed83d; color-scheme:dark}}
+  --red:#e0574d; --red-ink:#ffffff; --gold:#fed83d; --ok:#9bd84a; --water:#22303e; --blue:#7fa8e6; --sun:#fed83d; --ln-gold:#b08a00; --ln-roub:#6a92d4; color-scheme:dark}}
 :root[data-theme="dark"]{
+  --ln-gold:#b08a00; --ln-roub:#6a92d4;
   --bg:#141215; --paper:#1c1a1e; --ink:#ece8e3; --muted:#a29da4; --line:#36323a;
   --red:#e0574d; --red-ink:#ffffff; --gold:#fed83d; --ok:#9bd84a; --water:#22303e; --blue:#7fa8e6; --sun:#fed83d; color-scheme:dark}
 *{box-sizing:border-box}
@@ -346,6 +348,9 @@ section > header h2{font-size:clamp(1.7rem,5.5vw,2.4rem)}
 .chart{position:relative;background:var(--paper);border:1px solid var(--line);padding:14px 14px 8px}
 .chart svg{display:block;width:100%;height:auto;overflow:visible}
 .chart .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font:500 .78rem/1.35 var(--mono);padding:6px 8px;white-space:nowrap;transform:translate(-50%,-100%);margin-top:-10px}
+.chart-key{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 8px;font:500 .78rem/1 var(--mono);color:var(--muted)}
+.chart-key span{display:inline-flex;align-items:center;gap:7px}
+.chart-key i{display:inline-block;width:16px;height:3px;border-radius:2px}
 .chart .empty{color:var(--muted);margin:0;padding:24px 0;text-align:center}
 .ledger{width:100%;border-collapse:collapse;font-size:.92rem}
 .ledger th{text-align:left;font:500 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 10px 8px 0;border-bottom:2px solid var(--ink);white-space:nowrap}
@@ -1742,23 +1747,26 @@ const fmtD = t => new Date(t).toLocaleDateString("en-GB",{day:"numeric",month:"s
 const pct = v => (Math.round(v*1000)/10)+"%";
 
 /* step chart of a balance over time, with deposit markers and a hover readout */
-function goldChart(points, marks, label){
+/* extra (optional): a second line on the same axis, e.g. roubles: {points, label, scale:100, fmt}. Its values are divided by scale
+   (100 ₽ = 1g), so both lines share one axis; the right-hand labels show that axis in the second unit. */
+function goldChart(points, marks, label, extra){
   if (!points.length) return `<div class="chart"><p class="empty">No data yet. A point is added each time the records are updated.</p></div>`;
-  const W = 640, H = 230, L = 46, R = 14, T = 14, B = 28;
+  const xp = extra && extra.points.length ? extra.points.map(p => ({t:p.t, v:p.v/extra.scale})) : null;
+  const W = 640, H = 230, L = 46, R = xp ? 58 : 14, T = 14, B = 28;
   const now = Date.now();
-  let t0 = points[0].t, t1 = Math.max(now, points.at(-1).t);
+  let t0 = Math.min(points[0].t, xp ? xp[0].t : Infinity), t1 = Math.max(now, points.at(-1).t, xp ? xp.at(-1).t : 0);
   if (t1 - t0 < 6*3600e3) t0 = t1 - 6*3600e3;
-  const vmax = Math.max(1, ...points.map(p=>p.v));
+  const vmax = Math.max(1, ...points.map(p=>p.v), ...(xp ? xp.map(p=>p.v) : []));
   const step = [1,2,5,10,20,25,50,100,200,250,500,1000,2000,5000].find(s => vmax/s <= 4) || 10000;
   const ymax = Math.ceil(vmax/step)*step;
   const X = t => L + (t - t0)/(t1 - t0)*(W - L - R), Y = v => T + (1 - v/ymax)*(H - T - B);
   let grid = "";
-  for (let v = 0; v <= ymax + 1e-9; v += step) grid += `<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${v}g</text>`;
+  for (let v = 0; v <= ymax + 1e-9; v += step) grid += `<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${v}g</text>${xp ? `<text x="${W-R+8}" y="${Y(v)+4}" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${(v*extra.scale).toLocaleString("en-GB")} ₽</text>` : ""}`;
   const ticks = 4;
   for (let i = 0; i <= ticks; i++) { const t = t0 + (t1-t0)*i/ticks; grid += `<text x="${X(t)}" y="${H-8}" text-anchor="${i===0?"start":i===ticks?"end":"middle"}" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${fmtD(t)}</text>`; }
-  let d = `M${X(points[0].t)} ${Y(points[0].v)}`;
-  points.slice(1).forEach(p => { d += `H${X(p.t)}V${Y(p.v)}`; });
-  d += `H${X(t1)}`;
+  const stepPath = pts => { let s = `M${X(pts[0].t)} ${Y(pts[0].v)}`; pts.slice(1).forEach(p => { s += `H${X(p.t)}V${Y(p.v)}`; }); return s + `H${X(t1)}`; };
+  let d = stepPath(points);
+  const d2 = xp ? stepPath(xp) : "";
   const area = `${d}V${Y(0)}H${X(points[0].t)}Z`;
   const dots = marks.map(m => { const p = [...points].reverse().find(q => q.t <= m.t) || points[0];
     return `<circle cx="${X(m.t)}" cy="${Y(p.v)}" r="5" fill="${m.amount>0?"var(--ok)":"var(--red)"}" stroke="var(--paper)" stroke-width="2"><title>${esc((m.amount>0?"Deposited ":"Withdrew ")+fmtG(Math.abs(m.amount))+" · "+fmtT(m.t))}</title></circle>`; }).join("");
@@ -1772,16 +1780,32 @@ function goldChart(points, marks, label){
       if (x < L || x > W - R) { tip.hidden = true; cross.setAttribute("opacity","0"); return; }
       const p = [...points].reverse().find(q => q.t <= t) || points[0];
       cross.setAttribute("x1", x); cross.setAttribute("x2", x); cross.setAttribute("opacity","1");
-      tip.hidden = false; tip.textContent = `${fmtT(Math.max(p.t, Math.min(t, now)))} · ${fmtG(p.v)}`;
+      const q = xp ? ([...extra.points].reverse().find(r => r.t <= t) || null) : null;
+      tip.hidden = false; tip.textContent = `${fmtT(Math.max(p.t, Math.min(t, now)))} · ${fmtG(p.v)}${xp ? ` · ${extra.fmt(q ? q.v : 0)}` : ""}`;
       tip.style.left = (x/W*100)+"%"; tip.style.top = (Y(p.v)/H*r.height + 14)+"px";
     };
     svg.addEventListener("pointermove", move);
     svg.addEventListener("pointerleave", () => { tip.hidden = true; cross.setAttribute("opacity","0"); });
   });
-  return `<div class="chart" id="${id}"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}: ${fmtG(points.at(-1).v)} now">
-    ${grid}<path d="${area}" fill="var(--gold)" fill-opacity=".14"/><path d="${d}" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linejoin="round"/>
+  const key = xp ? `<div class="chart-key"><span><i style="background:var(--ln-gold)"></i>Gold on hand</span><span><i style="background:var(--ln-roub)"></i>${esc(extra.label)}</span></div>` : "";
+  return `<div class="chart" id="${id}">${key}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}: ${fmtG(points.at(-1).v)} now${xp ? `, ${esc(extra.label.toLowerCase())} ${extra.fmt(extra.points.at(-1).v)}` : ""}">
+    ${grid}<path d="${area}" fill="var(--ln-gold)" fill-opacity=".14"/><path d="${d}" fill="none" stroke="var(--ln-gold)" stroke-width="2" stroke-linejoin="round"/>${xp ? `<path d="${d2}" fill="none" stroke="var(--ln-roub)" stroke-width="2" stroke-linejoin="round"/>` : ""}
     <line class="cross" y1="${T}" y2="${H-B}" stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>${dots}
     <rect x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="transparent"/></svg><div class="tip" hidden></div></div>`;
+}
+/* a player's rouble wallet over time, step by step: the same sums as walletOf, replayed in date order */
+function roubleSeries(d, name){
+  const rate = d.cfg.roublesPerGold, b = d.bank, ev = [];
+  d.deps.filter(e => e.player === name).forEach(e => ev.push({t:e.t, v:e.amount*rate}));
+  b.spending.filter(s => s.player === name).forEach(s => ev.push({t:s.t, v:-s.roubles}));
+  b.transfers.forEach(x => { if (x.from === name) ev.push({t:x.t, v:-x.roubles}); if (x.to === name) ev.push({t:x.t, v:x.roubles}); });
+  b.savings.filter(s => s.player === name).forEach(s => ev.push({t:s.t, v: s.roubles > 0 ? -s.roubles : -s.roubles - (s.fee||0)}));
+  b.cashouts.filter(x => x.player === name).forEach(x => ev.push({t:x.t, v:-x.roubles}));
+  ev.sort((a,b) => a.t - b.t);
+  const first = d.snaps.length ? d.snaps[0].t : (ev[0] ? ev[0].t : Date.now());
+  const out = [{t:Math.min(first, ev[0] ? ev[0].t : first), v:0}];
+  let bal = 0; ev.forEach(e => { bal = Math.round(bal + e.v); if (out.at(-1).t === e.t) out.at(-1).v = bal; else out.push({t:e.t, v:bal}); });
+  return out;
 }
 const series = (snaps, pick) => { const out = []; snaps.forEach(s => { const v = pick(s); if (v == null) return; if (!out.length || out.at(-1).v !== v) out.push({t:s.t, v}); }); return out; };
 
@@ -1894,7 +1918,7 @@ async function renderPlayer(name){
   const history = `<section><header><span class="label">History</span><h2>Recent activity</h2></header>
     ${hist.length ? `<ul class="feed">${hist.map(h=>`<li><time>${fmtD(h.t)}</time><span>${esc(h.txt)}</span><span class="num ${h.pos?"amt-in":"amt-out"}">${h.pos?"+":"−"}${esc(h.v)}</span></li>`).join("")}</ul>` : `<p class="notice">Nothing yet.</p>`}</section>`;
 
-  const chart = `<section><header><span class="label">Gold over time</span><h2>Gold on hand</h2></header>${goldChart(series(d.snaps, s => s.players[name]), deps, name+"'s gold")}</section>`;
+  const chart = `<section><header><span class="label">Over time</span><h2>Gold and roubles</h2></header>${goldChart(series(d.snaps, s => s.players[name]), deps, name+"'s gold", {points:roubleSeries(d, name), label:"Roubles", scale:c.roublesPerGold, fmt:fmtR})}</section>`;
   const projects = (info.projects||[]).length ? `<section><header><span class="label">Projects</span><h2>Worked on</h2></header><ul class="feed">${info.projects.map(p=>`<li><time>${esc(p.date||"")}</time><span><strong>${esc(p.project)}</strong></span><span class="hint">${esc(p.role||"")}</span></li>`).join("")}</ul></section>` : "";
 
   const viewing = own ? "" : `<p class="notice">Viewing ${esc(name)}'s bank as ${M.user === d.auth.treasurer ? "Treasurer" : "Mayor"}. Only the Treasurer and the Mayor can see other residents' pages. <a href="#admin/residents">Back to all residents</a></p>`;
