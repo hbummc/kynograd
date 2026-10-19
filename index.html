@@ -809,9 +809,9 @@ const GUILDS = [
   goals:["2 new residents a month","Always 50g in reserve","Every claim budgeted before the Mayor makes it"],
   ingame:"Recruiter rank: invite players with /t invite playername. Top recruiters are promoted to Realtor. The Mayor keeps the bank and the claims.",
   growth:["Now: the Keyholder trains an apprentice, and every member recruits", "Next: members who bring in a lot of people are promoted to Realtor and look after housing", "Later: a team of Realtors runs housing for the whole town"],
-  goal:"Growth budgeted and the vault secured: done",
+  goal:"Vault secured; now saving 416g for the west claim",
   actions:[
-   {t:"Budget the rest of the guild quarter claim: 26 chunks on the west side at 16g a chunk = 416g", done:true},
+   {t:"Save 416g for the rest of the guild quarter claim: 26 chunks on the west side at 16g a chunk", pot:"claims"},
    {t:"Design and build the vault under the bank and the vault plot", done:true},
    {t:"Add a redstone door to the vault that only Keyholders can open and close", done:true},
    {t:"Move the town's valuables into the vault", done:true},
@@ -1145,8 +1145,12 @@ document.addEventListener("keydown", e=>{
   e.preventDefault(); const c = vis[0].c; c.go(c.active + (e.key==="ArrowRight"?1:-1));
 });
 
-const doneCount = g => g.actions.filter(a=>a.done).length;
-const actionList = g => `<ul class="actions">${g.actions.map(a=>`<li class="${a.done?"done":""}"><span class="box" aria-hidden="true">${a.done?"✓":""}</span><span class="t">${esc(a.t)}</span></li>`).join("")}</ul>`;
+/* an action with pot:"<id>" is done once that budget pot holds its target (Treasury → Budget) */
+const potOf = id => { const B = (typeof M !== "undefined" && M.data && M.data.bank.budget) || BUDGET_DEFAULT; return (B.pots||[]).find(p => p.id === id); };
+const isDone = a => { if (!a.pot) return !!a.done; const p = potOf(a.pot); return !!p && +p.target > 0 && +p.gold >= +p.target; };
+const potLine = a => { const p = a.pot && potOf(a.pot); return p && +p.target ? `<small class="who">${fmtG(+p.gold||0)} of ${fmtG(+p.target)} saved in the ${esc(p.name)} pot</small>` : ""; };
+const doneCount = g => g.actions.filter(isDone).length;
+const actionList = g => `<ul class="actions">${g.actions.map(a=>{ const d = isDone(a); return `<li class="${d?"done":""}"><span class="box" aria-hidden="true">${d?"✓":""}</span><span><span class="t">${esc(a.t)}</span>${potLine(a)}</span></li>`; }).join("")}</ul>`;
 const meter = (d,t,label) => `<div class="meter" aria-label="${esc(label)}"><div class="row"><span>${esc(label)}</span><span>${d} / ${t}</span></div><div class="bar"><i style="width:${t?d/t*100:0}%"></i></div></div>`;
 
 const FLAG_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#b02e26"/><rect x="20" width="20" height="120" fill="#fed83d"/><rect x="60" width="20" height="120" fill="#fed83d"/><rect x="100" width="20" height="120" fill="#fed83d"/><circle cx="60" cy="60" r="35.6" fill="#80c71f"/></svg>`;
