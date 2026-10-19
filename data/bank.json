@@ -41,5 +41,21 @@
     "note": "26 chunks west of the guild quarter"
    }
   ]
- }
+ },
+ "town": [
+  {
+   "id": "ghast5g1019",
+   "t": 1792406041000,
+   "gold": -5,
+   "by": "GarrisonGrim",
+   "note": "Withdrawn for a friendly ghast"
+  },
+  {
+   "id": "ghastback2g1019",
+   "t": 1792406341287,
+   "gold": 2,
+   "by": "GarrisonGrim",
+   "note": "Leftover from the friendly ghast, returned"
+  }
+ ]
 }

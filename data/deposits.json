@@ -13,5 +13,21 @@
   "player": "Hbum",
   "amount": 48.0,
   "t": 1792392556954
+ },
+ {
+  "player": null,
+  "amount": -5.0,
+  "t": 1792406041000,
+  "by": "GarrisonGrim",
+  "town": true,
+  "note": "Town expense: friendly ghast"
+ },
+ {
+  "player": null,
+  "amount": 2.0,
+  "t": 1792406341287,
+  "by": "GarrisonGrim",
+  "town": true,
+  "note": "Leftover from the friendly ghast, returned"
  }
 ]
