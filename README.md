@@ -17,6 +17,14 @@ About a minute later the site is live at `https://<your-name>.github.io/kynograd
 
 Edit a file on GitHub and the site picks it up within a minute or two.
 
+## Gold tracker
+
+Double-click `start-tracker.bat` to pull the town bank and every resident's gold from EarthMC every 5 minutes. Leave the window open; close it to stop. It needs Python ([python.org](https://www.python.org/downloads/), tick "Add python.exe to PATH").
+
+It writes `data/snapshots.json` and `data/deposits.json` (never `bank.json`). A deposit it can match (town bank up, one resident down by the same amount) is logged under that resident; anything else is logged as unknown for the Treasurer to check. Commit and push `data/` in GitHub Desktop whenever you want the site to show the latest numbers.
+
+One pull by hand: `python scripts/update.py`. Every 10 minutes instead: `python scripts/update.py --watch 10`.
+
 The Treasury desk can't save to GitHub yet (`bankRepo` in `config.json` is empty), so for now bank changes go into `data/bank.json` by hand. That can be switched on later.
 
 Shortcut: hold **Space** and press **S** anywhere for the quick switcher.
