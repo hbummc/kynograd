@@ -360,6 +360,13 @@ section > header h2{font-size:clamp(1.7rem,5.5vw,2.4rem)}
 .ledger a{color:inherit;text-decoration:none}
 .ledger a:hover .person span{text-decoration:underline}
 .ledger tr.me td{background:color-mix(in srgb,var(--gold) 12%,transparent)}
+.ledger tr.me{display:table-row}
+.board{table-layout:fixed}
+.board th:first-child,.board td:first-child{width:2.4em}
+.board th:last-child,.board td:last-child{width:6.5em}
+.board td:nth-child(2){overflow:hidden}
+.board .person{display:flex;max-width:100%}
+.board .person>span{overflow-wrap:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .amt-in{color:var(--ok)} .amt-out{color:var(--red)}
 .feed{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .feed li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
@@ -1769,7 +1776,7 @@ function goldChart(points, marks, label, extra){
   const d2 = xp ? stepPath(xp) : "";
   const area = `${d}V${Y(0)}H${X(points[0].t)}Z`;
   const dots = marks.map(m => { const p = [...points].reverse().find(q => q.t <= m.t) || points[0];
-    return `<circle cx="${X(m.t)}" cy="${Y(p.v)}" r="5" fill="${m.amount>0?"var(--ok)":"var(--red)"}" stroke="var(--paper)" stroke-width="2"><title>${esc((m.amount>0?"Deposited ":"Withdrew ")+fmtG(Math.abs(m.amount))+" · "+fmtT(m.t))}</title></circle>`; }).join("");
+    return `<circle cx="${X(m.t)}" cy="${Y(p.v)}" r="5" fill="${m.amount>0?"var(--ok)":"var(--red)"}" stroke="var(--paper)" stroke-width="2"><title>${esc((m.tip || (m.amount>0?"Deposited ":"Withdrew ")+fmtG(Math.abs(m.amount)))+" · "+fmtT(m.t))}</title></circle>`; }).join("");
   const id = "c"+Math.random().toString(36).slice(2,8);
   setTimeout(() => {
     const box = document.getElementById(id); if (!box) return;
@@ -1828,10 +1835,11 @@ function appTabs(tabs, active, label){
 function bankTabs(active){
   appTabs([["me","My bank",`#player-${encodeURIComponent(M.user)}`],["town","Town bank","#members"],["policy","Policy","#bank-policy"]], active, "Bank");
 }
-function feedItem(e){
+/* residents only ever see roubles: a logged deposit shows as the roubles it earned */
+function feedItem(e, rate){
   const who = e.player ? pLink(e.player, 20) : `<span class="hint">Town change (taxes, upkeep or an unmatched deposit)</span>`;
-  const verb = e.amount > 0 ? "deposited" : "withdrew";
-  return `<li><time datetime="${new Date(e.t).toISOString()}">${fmtT(e.t)}</time><span>${who}${e.player?` <span class="hint">${verb}</span>`:""}</span><span class="num ${e.amount>0?"amt-in":"amt-out"}">${e.amount>0?"+":"−"}${fmtG(Math.abs(e.amount))}</span></li>`;
+  const verb = e.amount > 0 ? "earned" : "paid back";
+  return `<li><time datetime="${new Date(e.t).toISOString()}">${fmtT(e.t)}</time><span>${who}${e.player?` <span class="hint">${verb}</span>`:""}</span><span class="num ${e.amount>0?"amt-in":"amt-out"}">${e.amount>0?"+":"−"}${fmtR(Math.abs(e.amount)*rate)}</span></li>`;
 }
 
 
@@ -1843,21 +1851,25 @@ async function renderMembers(){
   const depAll = d.deps.filter(e => e.amount > 0).reduce((a,e)=>a+e.amount,0), outAll = d.deps.filter(e => e.amount < 0).reduce((a,e)=>a-e.amount,0);
   const roubAll = L.reduce((a,r)=>a+r.total,0), savAll = L.reduce((a,r)=>a+r.savings,0);
   const holders = L.filter(r => r.total > 0).length;
+  const rate = d.cfg.roublesPerGold;
+  /* one ranked list: rank, player, value; your own row is highlighted */
+  const board = (title, rows, val) => `<div class="panel"><span class="label">${esc(title)}</span><table class="ledger board"><thead><tr><th>#</th><th>Player</th><th class="num">${esc(title === "Roubles" ? "Roubles" : "Gold")}</th></tr></thead>
+    <tbody>${rows.map((r,i)=>`<tr class="${r.name===M.user?"me":""}"><td class="num" style="text-align:left">${i+1}</td><td>${pLink(r.name,20)}</td><td class="num"><strong>${val(r)}</strong></td></tr>`).join("")}</tbody></table></div>`;
   memberHero("TOWN BANK", "Kynograd · residents only", [["Bank", `#player-${encodeURIComponent(M.user)}`], ["Town bank"]]);
   document.getElementById("mvBody").innerHTML = `
   <section><div class="tiles">
-    <div class="tile t-gold"><span>Gold deposited</span><b>${fmtG(depAll)}</b><span>${outAll ? fmtG(outAll)+" withdrawn since" : "by all residents, all time"}</span></div>
     <div class="tile t-red"><span>Town roubles</span><b>${fmtR(roubAll)}</b><span>held by ${holders} resident${holders===1?"":"s"}${savAll ? ", "+fmtR(savAll)+" in savings" : ""}</span></div>
-    <div class="tile t-ok"><span>Deposited this week</span><b>${fmtG(weekIn)}</b><span>by all residents</span></div>
+    <div class="tile t-ok"><span>Earned this week</span><b>${fmtR(weekIn*rate)}</b><span>by all residents</span></div>
+    <div class="tile t-gold"><span>Your roubles</span><b>${fmtR(me ? me.total : 0)}</b><span>${me && me.savings ? fmtR(me.savings)+" of it in savings" : "wallet and savings"}</span></div>
   </div><a class="btn btn-red" style="align-self:flex-start" href="#player-${encodeURIComponent(M.user)}">Open my bank →</a></section>
   <section><header><span class="label">Town bank</span><h2>Gold in the bank over time</h2></header>
-    ${goldChart(series(d.snaps, s => s.town), d.deps.filter(e=>e.player), "Town bank balance")}</section>
-  <section><header><span class="label">Roubles</span><h2>Leaderboard</h2></header>
-    <p class="lede">Every 1g you deposit in the town bank earns ${d.cfg.roublesPerGold} roubles, savings included. <a href="#bank-policy">Bank policy</a></p>
-    <div class="tablewrap"><table class="ledger"><thead><tr><th>#</th><th>Player</th><th class="num">Gold deposited</th><th class="num">Roubles</th></tr></thead>
-    <tbody>${L.map((r,i)=>`<tr class="${r.name===M.user?"me":""}"><td class="num" style="text-align:left">${i+1}</td><td>${pLink(r.name,20)}</td><td class="num">${fmtG(r.deposited)}</td><td class="num"><strong>${fmtR(r.total)}</strong></td></tr>`).join("")}</tbody></table></div></section>
+    ${goldChart(series(d.snaps, s => s.town), d.deps.filter(e=>e.player).map(e => ({...e, tip:`${e.player} ${e.amount>0?"+":"−"}${fmtR(Math.abs(e.amount)*rate)}`})), "Town bank balance")}</section>
+  <section><header><span class="label">Leaderboards</span><h2>Richest in Kynograd</h2></header>
+    <p class="lede">Gold is what each resident carries on EarthMC right now. Roubles are what they hold in the People's Bank: ${d.cfg.roublesPerGold} ₽ for every 1g deposited, savings included. <a href="#bank-policy">Bank policy</a></p>
+    <div class="two">${board("Gold on hand", L.slice().sort((a,b)=>(b.gold??-1)-(a.gold??-1) || a.name.localeCompare(b.name)), r => fmtG(r.gold))}${board("Roubles", L, r => fmtR(r.total))}</div>
+    <p class="hint">Gold updates every time the town's records are refreshed from EarthMC.</p></section>
   <section><header><span class="label">Bank activity</span><h2>Recent deposits</h2></header>
-    ${d.deps.length ? `<ul class="feed">${d.deps.slice(-10).reverse().map(feedItem).join("")}</ul>` : `<p class="notice">No deposits logged yet. Deposit with /t deposit, then tell ${esc(treasurer())} in #town-bank so it gets logged.</p>`}
+    ${d.deps.length ? `<ul class="feed">${d.deps.slice(-10).reverse().map(e => feedItem(e, rate)).join("")}</ul>` : `<p class="notice">No deposits logged yet. Deposit with /t deposit, then tell ${esc(treasurer())} in #town-bank so it gets logged.</p>`}
     <p class="hint">Deposits and withdrawals are logged by ${esc(treasurer())}; the EarthMC API is only used to double-check them.</p></section>`;
   bankTabs("town");
 }
@@ -1880,7 +1892,7 @@ async function renderPlayer(name){
       : sav.balance && sav.savStatus === "to treasury" ? `Over ${c.inactiveDays + c.frozenDays} days offline: going to the town treasury.`
       : sav.forfeited ? `${fmtR(sav.forfeited)} went to the town treasury after inactivity.`
       : sav.balance ? `+${fmtR(sav.interest)} interest so far` : `${pct(c.savingsRate)} a month`}</span></div>
-    <div class="tile t-red"><span>Roubles</span><b>${fmtR(r.wallet)}</b><span>from ${fmtG(r.deposited)} deposited</span></div>
+    <div class="tile t-red"><span>Roubles</span><b>${fmtR(r.wallet)}</b><span>in your wallet · ${c.roublesPerGold} ₽ for every 1g you deposit</span></div>
   </div></section>`;
 
   const others = L.map(x=>x.name).filter(n => n !== name).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:"base"}));
@@ -1908,7 +1920,7 @@ async function renderPlayer(name){
       <div class="loan-r"><span class="chip ${l.state==="repaid"?"filled":l.state==="active"?"open":"wanted"}">${esc(l.state)}${l.overdue?` · ${l.overdue}d late`:""}</span>${l.state!=="repaid" ? `<b>${fmtG(l.owed)} owed</b>` : ""}</div></li>`).join("")}</ul></section>` : "";
 
   const hist = [
-    ...deps.map(e => ({t:e.t, txt: e.amount > 0 ? "Deposited gold" : "Withdrew gold", v: fmtG(Math.abs(e.amount)), pos: e.amount > 0})),
+    ...deps.map(e => ({t:e.t, txt: e.amount > 0 ? "Gold deposited" : "Gold withdrawn", v: fmtR(Math.abs(e.amount)*c.roublesPerGold), pos: e.amount > 0})),
     ...(full ? [
       ...d.bank.transfers.filter(x=>x.from===name||x.to===name).map(x=>({t:x.t, txt: x.from===name ? `Sent to ${x.to}` : `From ${x.from}`, v: fmtR(x.roubles), pos: x.to===name})),
       ...d.bank.savings.filter(s=>s.player===name).map(s=>({t:s.t, txt: s.roubles>0 ? "Into savings" : "Out of savings", v: fmtR(Math.abs(s.roubles)), pos: s.roubles<0})),
@@ -1918,7 +1930,7 @@ async function renderPlayer(name){
   const history = `<section><header><span class="label">History</span><h2>Recent activity</h2></header>
     ${hist.length ? `<ul class="feed">${hist.map(h=>`<li><time>${fmtD(h.t)}</time><span>${esc(h.txt)}</span><span class="num ${h.pos?"amt-in":"amt-out"}">${h.pos?"+":"−"}${esc(h.v)}</span></li>`).join("")}</ul>` : `<p class="notice">Nothing yet.</p>`}</section>`;
 
-  const chart = `<section><header><span class="label">Over time</span><h2>Gold and roubles</h2></header>${goldChart(series(d.snaps, s => s.players[name]), deps, name+"'s gold", {points:roubleSeries(d, name), label:"Roubles", scale:c.roublesPerGold, fmt:fmtR})}</section>`;
+  const chart = `<section><header><span class="label">Over time</span><h2>Gold and roubles</h2></header>${goldChart(series(d.snaps, s => s.players[name]), deps.map(e => ({...e, tip:`${e.amount>0?"+":"−"}${fmtR(Math.abs(e.amount)*c.roublesPerGold)}`})), name+"'s gold", {points:roubleSeries(d, name), label:"Roubles", scale:c.roublesPerGold, fmt:fmtR})}</section>`;
   const projects = (info.projects||[]).length ? `<section><header><span class="label">Projects</span><h2>Worked on</h2></header><ul class="feed">${info.projects.map(p=>`<li><time>${esc(p.date||"")}</time><span><strong>${esc(p.project)}</strong></span><span class="hint">${esc(p.role||"")}</span></li>`).join("")}</ul></section>` : "";
 
   const viewing = own ? "" : `<p class="notice">Viewing ${esc(name)}'s bank as ${M.user === d.auth.treasurer ? "Treasurer" : "Mayor"}. Only the Treasurer and the Mayor can see other residents' pages. <a href="#admin/residents">Back to all residents</a></p>`;
