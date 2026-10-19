@@ -1,0 +1,16 @@
+# Never commit secrets: API keys, tokens and passwords stay on this PC
+.env
+.env.*
+*.key
+*.pem
+secrets*
+token*.txt
+
+# Temp files the tracker writes for a moment while saving
+*.tmp
+
+# Python and Windows clutter
+__pycache__/
+*.pyc
+Thumbs.db
+desktop.ini
