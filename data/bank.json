@@ -25,7 +25,17 @@
    "by": "Hbum"
   }
  ],
- "transfers": [],
+ "transfers": [
+  {
+   "id": "hbum2grim1000r1019",
+   "t": 1792429298983,
+   "from": "Hbum",
+   "to": "GarrisonGrim",
+   "roubles": 1000,
+   "note": "Transfer from Hbum to GarrisonGrim",
+   "by": "Hbum"
+  }
+ ],
  "savings": [],
  "cashouts": [],
  "spending": [],

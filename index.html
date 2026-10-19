@@ -2175,7 +2175,7 @@ function budgetHTML(d, L){
         <p style="margin:0" class="hint">If every resident cashed out today the bank would pay ${g(x.wallets+x.savings)}; the policy lets each take ${pct(d.cfg.noticeShare)} at once without notice.</p></div>
     </div>
     <section class="txlog"><header><span class="label">Town bank</span><h2>Transaction log</h2></header>
-      <p class="lede">Every bit of gold in and out of the town bank: residents' deposits and withdrawals, and what the town spends.</p>
+      <p class="lede">Every bit of gold in and out of the town bank (residents' deposits and withdrawals, what the town spends) and every rouble transfer between residents.</p>
       ${txlogHTML(d)}</section>
     <details class="bud-edit"><summary>Set the reserve and earmarks</summary><form class="bank-card" id="bForm">
       <label>Reserve (never spent)<input id="bReserve" type="number" min="0" step="1" value="${x.reserve}"></label>
@@ -2189,15 +2189,17 @@ function budgetHTML(d, L){
 function txlogHTML(d){
   const rows = [
     ...(d.bank.deposits || []).map(e => ({t:e.t, what: e.gold > 0 ? "Deposit" : "Withdrawal", who:e.player, note:"", g:e.gold, by:e.by})),
-    ...(d.bank.town || []).map(e => ({t:e.t, what: e.gold > 0 ? "Returned to the town" : "Town spending", who:null, note:e.note || "", g:e.gold, by:e.by}))
+    ...(d.bank.town || []).map(e => ({t:e.t, what: e.gold > 0 ? "Returned to the town" : "Town spending", who:null, note:e.note || "", g:e.gold, by:e.by})),
+    ...(d.bank.transfers || []).map(x => ({t:x.t, what:"Rouble transfer", who:null, from:x.from, to:x.to, note:x.note && x.note !== `Transfer from ${x.from} to ${x.to}` ? x.note : "", r:x.roubles, by:x.by}))
   ].sort((a, b) => b.t - a.t);
   if (!rows.length) return `<p class="notice">No transactions yet.</p>`;
-  const net = rows.reduce((a, r) => a + r.g, 0);
-  return `<div class="tablewrap"><table class="ledger"><thead><tr><th>When</th><th>What</th><th class="num">Gold</th></tr></thead><tbody>
+  const net = rows.reduce((a, r) => a + (r.g || 0), 0);
+  return `<div class="tablewrap"><table class="ledger"><thead><tr><th>When</th><th>What</th><th class="num">Amount</th></tr></thead><tbody>
     ${rows.map(r => `<tr><td class="num" style="text-align:left">${fmtT(r.t)}</td>
-      <td>${r.who ? person(r.who, 20) + ` <span class="hint">${esc(r.what.toLowerCase())}</span>` : `<strong>${esc(r.what)}</strong>`}${r.note ? `<span class="note">${esc(r.note)}${r.by ? ` · by ${esc(r.by)}` : ""}</span>` : ""}</td>
-      <td class="num ${r.g > 0 ? "amt-in" : "amt-out"}">${r.g > 0 ? "+" : "−"}${fmtG(Math.abs(r.g))}</td></tr>`).join("")}
-    </tbody></table></div><p class="hint">${rows.length} transaction${rows.length === 1 ? "" : "s"} · net ${net >= 0 ? "+" : "−"}${fmtG(Math.abs(net))} through the log. Town spending is logged in <code>town</code> in <code>data/bank.json</code>.</p>`;
+      <td>${r.from ? `<strong>${esc(r.what)}</strong> <span class="hint">· no gold moves</span><span class="note">${person(r.from, 18)} → ${person(r.to, 18)}${r.note ? ` · ${esc(r.note)}` : ""}</span>`
+        : r.who ? person(r.who, 20) + ` <span class="hint">${esc(r.what.toLowerCase())}</span>` : `<strong>${esc(r.what)}</strong>`}${!r.from && r.note ? `<span class="note">${esc(r.note)}${r.by ? ` · by ${esc(r.by)}` : ""}</span>` : ""}</td>
+      ${r.from ? `<td class="num">${fmtR(r.r)}</td>` : `<td class="num ${r.g > 0 ? "amt-in" : "amt-out"}">${r.g > 0 ? "+" : "−"}${fmtG(Math.abs(r.g))}</td>`}</tr>`).join("")}
+    </tbody></table></div><p class="hint">${rows.length} transaction${rows.length === 1 ? "" : "s"} · net ${net >= 0 ? "+" : "−"}${fmtG(Math.abs(net))} of gold through the log. Rouble transfers move roubles between residents, not gold. Town spending is logged in <code>town</code> in <code>data/bank.json</code>.</p>`;
 }
 const potRow = p => `<div class="pot" data-id="${esc(p.id)}"><label>Pot<input class="pName" maxlength="40" value="${esc(p.name)}" placeholder="e.g. Paddle steamer"></label><label>Gold<input class="pGold" type="number" min="0" step="1" value="${+p.gold||0}"></label><button type="button" class="btn btn-line mini-btn pDel" aria-label="Remove pot">✕</button></div>`;
 
